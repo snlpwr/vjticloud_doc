@@ -9,4 +9,4 @@ Installation Guide
    :maxdepth: 2
 
    /_source/installation_guide/hosts
-   /_source/installation_guide/interfaces
+.. include:: /_source/installation_guide/interfaces.rst

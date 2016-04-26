@@ -3,5 +3,5 @@ User Guide
 
 Hello friends Chapter 02..
 
-
+.. include:: /_source/installation_guide/hosts.rst
 

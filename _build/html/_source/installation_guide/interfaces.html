@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; VJTICloud v0.01 documentation</title>
+  <title>How to configure network interfaces &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -24,16 +24,16 @@
 
   
   
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
-    <link rel="top" title="VJTICloud v0.01 documentation" href="index.html"/> 
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -49,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> VJTICloud
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
           
 
           
@@ -66,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -81,11 +81,11 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_source/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_source/features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_source/installation_guide.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_source/admin_guide.html">Administrator Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_source/user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 </ul>
 
             
@@ -99,7 +99,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">VJTICloud</a>
+        <a href="../../index.html">VJTICloud</a>
       </nav>
 
 
@@ -114,10 +114,14 @@
 
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>How to configure network interfaces</li>
     <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/interfaces.txt" rel="nofollow"> View page source</a>
+        
       
     </li>
   </ul>
@@ -126,19 +130,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="how-to-configure-network-interfaces">
+<h1>How to configure network interfaces<a class="headerlink" href="#how-to-configure-network-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>As per openstack kilo documentation we require to deal with 4 type of networks as follows</p>
+<p><strong>Management Network</strong></p>
+<blockquote>
+<div>Management network is used for communication between openstack services</div></blockquote>
+<p><strong>Tunnel Network</strong></p>
+<blockquote>
+<div>Tunnel network is used for handling network connections of VM from compute node to network node</div></blockquote>
+<p><strong>Storage Network</strong></p>
+<blockquote>
+<div>Storage network is used for increasing disk access speed</div></blockquote>
+<p><strong>External Network</strong></p>
+<blockquote>
+<div>External network is used for providing internet connection to VM&#8217;s. This is where Floating IP&#8217;s come into picture.</div></blockquote>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -170,23 +178,22 @@
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
+            URL_ROOT:'../../',
             VERSION:'v0.01',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   
@@ -196,14 +203,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
