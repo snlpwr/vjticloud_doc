@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Installation Guide" href="../installation_guide.html"/>
+        <link rel="next" title="Administrator Guide" href="../admin_guide.html"/>
+        <link rel="prev" title="How to configure hosts in network" href="hosts.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -80,10 +83,14 @@
           
             
             
-                <ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">How to configure network interfaces</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 </ul>
@@ -116,6 +123,8 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
     <li>How to configure network interfaces</li>
     <li class="wy-breadcrumbs-aside">
       
@@ -145,12 +154,48 @@
 <p><strong>External Network</strong></p>
 <blockquote>
 <div>External network is used for providing internet connection to VM&#8217;s. This is where Floating IP&#8217;s come into picture.</div></blockquote>
+<p><strong>Controller</strong></p>
+<p>configure /etc/network/interfaces on controller node as follows</p>
+<div class="highlight-python"><div class="highlight"><pre># The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+# controller Internet Connection
+auto p5p1
+iface p5p1 inet dhcp
+
+# Management network
+auto p5p1:0
+iface p5p1:0 inet static
+    address 10.0.0.11
+    network 10.0.0.0
+    netmask 255.255.255.0
+
+# Additional interface for accessing cloud in intranet
+auto eth1
+iface eth1 inet static
+  address 172.18.38.25
+  network 172.18.38.0
+  netmask 255.255.255.0
+  gateway 172.18.38.1
+</pre></div>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../admin_guide.html" class="btn btn-neutral float-right" title="Administrator Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hosts.html" class="btn btn-neutral" title="How to configure hosts in network" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
