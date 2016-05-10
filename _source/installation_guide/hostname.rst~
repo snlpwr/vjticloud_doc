@@ -1,0 +1,24 @@
+How to configure Hostname
+=========================
+
+Edit ``/etc/hostname`` on each node and give name to host as follows
+
+Controller node: ``controller``
+
+Network node: ``network``
+
+Compute1 node: ``compute1``
+
+Compute2 node: ``compute2``
+
+	:
+
+Computen node: ``computen``
+
+Block1 node: ``block1``
+
+Object1 node: ``object1``
+
+Object2 node: ``object2``
+
+

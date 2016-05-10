@@ -1,0 +1,10 @@
+Glossary
+========
+
+**Availability zone**
+
+This enables you to arrange OpenStack compute hosts into logical groups and provides a form of physical isolation and redundancy from other availability zones, such as by using a separate power supply or network equipment.
+
+**RabbitMQ**
+
+RabbitMQ is an open source message broker software (sometimes called message-oriented Middleware) that implements the Advanced Message Queuing Protocol (AMQP). The RabbitMQ server is written in the Erlang programming language and is built on the Open Telecom Platform framework for clustering and failover. 

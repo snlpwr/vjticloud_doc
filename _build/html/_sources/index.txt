@@ -20,6 +20,7 @@ Contents:
    /_source/installation_guide
    /_source/admin_guide
    /_source/user_guide
+   /_source/glossary
 
 Indices and tables
 ==================

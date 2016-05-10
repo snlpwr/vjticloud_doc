@@ -1,0 +1,37 @@
+SSH installation and access
+===========================
+
+To enable SSH server install ssh server using
+
+::
+
+	$sudo apt-get install openssh-server
+
+Then access that computer from any computer in network by using
+
+``ssh <username>@<ip address of ssh server>``
+
+Then type in user password..
+
+Now you have access to ssh server console
+
+
+**SSH without password**
+
+::
+
+	$ssh-keygen
+
+Above command will generate a key pair in ``/home/user/.ssh/``
+
+Then copy public key to remote host's ``~/.ssh/authorized_keys`` using following command
+
+::
+
+	$ssh-copy-id -i .ssh/id_rsa.pub remote-host
+
+**Poweroff remote PC**
+
+::
+
+	$ssh user@host 'echo "password" | sudo -S poweroff'
