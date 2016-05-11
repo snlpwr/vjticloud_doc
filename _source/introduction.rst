@@ -10,4 +10,6 @@ VJTICloud is Infrastructure as a Service(IaaS) private cloud. It is developed to
 5. Object Storage
 6. Firewall
 7. Load Balancer
+
+
 	   
