@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create OpenStack client environment scripts &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Identity Service" href="identity_service.html"/>
+        <link rel="next" title="Hardware Requirement" href="hardware_requirement.html"/>
+        <link rel="prev" title="Verify operation" href="keystone-verify.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="identity_service.html">Identity Service</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="keystone-install.html">Install and configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-services.html">Create the service entity and API endpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-users.html">Create a domain, projects, users, and roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-verify.html">Verify operation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Create OpenStack client environment scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-scripts">Creating the scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-scripts">Using the scripts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="identity_service.html">Identity Service</a> &raquo;</li>
+      
+    <li>Create OpenStack client environment scripts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/keystone-openrc.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-openstack-client-environment-scripts">
+<h1>Create OpenStack client environment scripts<a class="headerlink" href="#create-openstack-client-environment-scripts" title="Permalink to this headline">¶</a></h1>
+<p>The previous section used a combination of environment variables and
+command options to interact with the Identity service via the
+<tt class="docutils literal"><span class="pre">openstack</span></tt> client. To increase efficiency of client operations,
+OpenStack supports simple client environment scripts also known as
+OpenRC files. These scripts typically contain common options for
+all clients, but also support unique options. For more information, see the
+<a class="reference external" href="http://docs.openstack.org/user-guide/common/cli_set_environment_variables_using_openstack_rc.html">OpenStack End User Guide</a>.</p>
+<div class="section" id="creating-the-scripts">
+<h2>Creating the scripts<a class="headerlink" href="#creating-the-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Create client environment scripts for the <tt class="docutils literal"><span class="pre">admin</span></tt> and <tt class="docutils literal"><span class="pre">demo</span></tt>
+projects and users. Future portions of this guide reference these
+scripts to load appropriate credentials for client operations.</p>
+<ol class="arabic">
+<li><p class="first">Edit the <tt class="docutils literal"><span class="pre">admin-openrc</span></tt> file and add the following content:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>default
+<span class="nb">export </span><span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>default
+<span class="nb">export </span><span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>admin
+<span class="nb">export </span><span class="nv">OS_USERNAME</span><span class="o">=</span>admin
+<span class="nb">export </span><span class="nv">OS_PASSWORD</span><span class="o">=</span>ADMIN_PASS
+<span class="nb">export </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:35357/v3
+<span class="nb">export </span><span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span>3
+<span class="nb">export </span><span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span>2
+</pre></div>
+</div>
+<p>Replace <tt class="docutils literal"><span class="pre">ADMIN_PASS</span></tt> with the password you chose
+for the <tt class="docutils literal"><span class="pre">admin</span></tt> user in the Identity service.</p>
+</li>
+<li><p class="first">Edit the <tt class="docutils literal"><span class="pre">demo-openrc</span></tt> file and add the following content:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>default
+<span class="nb">export </span><span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>default
+<span class="nb">export </span><span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>demo
+<span class="nb">export </span><span class="nv">OS_USERNAME</span><span class="o">=</span>demo
+<span class="nb">export </span><span class="nv">OS_PASSWORD</span><span class="o">=</span>DEMO_PASS
+<span class="nb">export </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:5000/v3
+<span class="nb">export </span><span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span>3
+<span class="nb">export </span><span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span>2
+</pre></div>
+</div>
+<p>Replace <tt class="docutils literal"><span class="pre">DEMO_PASS</span></tt> with the password you chose
+for the <tt class="docutils literal"><span class="pre">demo</span></tt> user in the Identity service.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-the-scripts">
+<h2>Using the scripts<a class="headerlink" href="#using-the-scripts" title="Permalink to this headline">¶</a></h2>
+<p>To run clients as a specific project and user, you can simply load
+the associated client environment script prior to running them.
+For example:</p>
+<ol class="arabic">
+<li><p class="first">Load the <tt class="docutils literal"><span class="pre">admin-openrc</span></tt> file to populate
+environment variables with the location of the Identity service
+and the <tt class="docutils literal"><span class="pre">admin</span></tt> project and user credentials:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> . admin-openrc
+</pre></div>
+</div>
+</li>
+<li><p class="first">Request an authentication token:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack token issue
+<span class="go">+------------+-----------------------------------------------------------------+</span>
+<span class="go">| Field      | Value                                                           |</span>
+<span class="go">+------------+-----------------------------------------------------------------+</span>
+<span class="go">| expires    | 2016-02-12T20:44:35.659723Z                                     |</span>
+<span class="go">| id         | gAAAAABWvjYj-Zjfg8WXFaQnUd1DMYTBVrKw4h3fIagi5NoEmh21U72SrRv2trl |</span>
+<span class="go">|            | JWFYhLi2_uPR31Igf6A8mH2Rw9kv_bxNo1jbLNPLGzW_u5FC7InFqx0yYtTwa1e |</span>
+<span class="go">|            | eq2b0f6-18KZyQhs7F3teAta143kJEWuNEYET-y7u29y0be1_64KYkM7E       |</span>
+<span class="go">| project_id | 343d245e850143a096806dfaefa9afdc                                |</span>
+<span class="go">| user_id    | ac3377633149401296f6c0d92d79dc16                                |</span>
+<span class="go">+------------+-----------------------------------------------------------------+</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hardware_requirement.html" class="btn btn-neutral float-right" title="Hardware Requirement" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="keystone-verify.html" class="btn btn-neutral" title="Verify operation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

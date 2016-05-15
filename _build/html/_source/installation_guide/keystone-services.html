@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create the service entity and API endpoints &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Identity Service" href="identity_service.html"/>
+        <link rel="next" title="Create a domain, projects, users, and roles" href="keystone-users.html"/>
+        <link rel="prev" title="Install and configure" href="keystone-install.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="identity_service.html">Identity Service</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="keystone-install.html">Install and configure</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Create the service entity and API endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Create the service entity and API endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-users.html">Create a domain, projects, users, and roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-verify.html">Verify operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-openrc.html">Create OpenStack client environment scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="identity_service.html">Identity Service</a> &raquo;</li>
+      
+    <li>Create the service entity and API endpoints</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/keystone-services.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-the-service-entity-and-api-endpoints">
+<h1>Create the service entity and API endpoints<a class="headerlink" href="#create-the-service-entity-and-api-endpoints" title="Permalink to this headline">¶</a></h1>
+<p>The Identity service provides a catalog of services and their locations.
+Each service that you add to your OpenStack environment requires a
+<em class="xref std std-term">service</em> entity and several <em class="xref std std-term">API endpoints</em>
+in the catalog.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>You must pass the value of the authentication token to the <strong class="command">openstack</strong>
+command with the <tt class="docutils literal"><span class="pre">--os-token</span></tt> parameter or set the OS_TOKEN
+environment variable. Similarly, you must also pass the value of the
+Identity service URL to the <strong class="command">openstack</strong> command with the <tt class="docutils literal"><span class="pre">--os-url</span></tt>
+parameter or set the OS_URL environment variable. This guide uses
+environment variables to reduce command length.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For security reasons, do not use the temporary authentication token
+for longer than necessary to initialize the Identity service.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Configure the authentication token:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">export </span><span class="nv">OS_TOKEN</span><span class="o">=</span>ADMIN_TOKEN
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">export </span><span class="nv">OS_TOKEN</span><span class="o">=</span>294a4c8a8a475f9b9836
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure the endpoint URL:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">export </span><span class="nv">OS_URL</span><span class="o">=</span>http://controller:35357/v3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure the Identity API version:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">export </span><span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span>3
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h2>Create the service entity and API endpoints<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">The Identity service manages a catalog of services in your OpenStack
+environment. Services use this catalog to determine the other services
+available in your environment.</p>
+<p>Create the service entity for the Identity service:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack service create <span class="se">\</span>
+<span class="go">  --name keystone --description &quot;OpenStack Identity&quot; identity</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| Field       | Value                            |</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| description | OpenStack Identity               |</span>
+<span class="go">| enabled     | True                             |</span>
+<span class="go">| id          | 4ddaae90388b4ebc9d252ec2252d8d10 |</span>
+<span class="go">| name        | keystone                         |</span>
+<span class="go">| type        | identity                         |</span>
+<span class="go">+-------------+----------------------------------+</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">OpenStack generates IDs dynamically, so you will see different
+values in the example command output.</p>
+</div>
+</li>
+<li><p class="first">The Identity service manages a catalog of API endpoints associated with
+the services in your OpenStack environment. Services use this catalog to
+determine how to communicate with other services in your environment.</p>
+<p>OpenStack uses three API endpoint variants for each service: admin,
+internal, and public. The admin API endpoint allows modifying users and
+tenants by default, while the public and internal APIs do not allow these
+operations. In a production environment, the variants might reside on
+separate networks that service different types of users for security
+reasons. For instance, the public API network might be visible from the
+Internet so customers can manage their clouds. The admin API network
+might be restricted to operators within the organization that manages
+cloud infrastructure. The internal API network might be restricted to
+the hosts that contain OpenStack services. Also, OpenStack supports
+multiple regions for scalability. For simplicity, this guide uses the
+management network for all endpoint variations and the default
+<tt class="docutils literal"><span class="pre">RegionOne</span></tt> region.</p>
+<p>Create the Identity service API endpoints:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack endpoint create --region RegionOne <span class="se">\</span>
+<span class="go">  identity public http://controller:5000/v3</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| Field        | Value                            |</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| enabled      | True                             |</span>
+<span class="go">| id           | 30fff543e7dc4b7d9a0fb13791b78bf4 |</span>
+<span class="go">| interface    | public                           |</span>
+<span class="go">| region       | RegionOne                        |</span>
+<span class="go">| region_id    | RegionOne                        |</span>
+<span class="go">| service_id   | 8c8c0927262a45ad9066cfe70d46892c |</span>
+<span class="go">| service_name | keystone                         |</span>
+<span class="go">| service_type | identity                         |</span>
+<span class="go">| url          | http://controller:5000/v3        |</span>
+<span class="go">+--------------+----------------------------------+</span>
+
+<span class="gp">$</span> openstack endpoint create --region RegionOne <span class="se">\</span>
+<span class="go">  identity internal http://controller:5000/v3</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| Field        | Value                            |</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| enabled      | True                             |</span>
+<span class="go">| id           | 57cfa543e7dc4b712c0ab137911bc4fe |</span>
+<span class="go">| interface    | internal                         |</span>
+<span class="go">| region       | RegionOne                        |</span>
+<span class="go">| region_id    | RegionOne                        |</span>
+<span class="go">| service_id   | 6f8de927262ac12f6066cfe70d99ac51 |</span>
+<span class="go">| service_name | keystone                         |</span>
+<span class="go">| service_type | identity                         |</span>
+<span class="go">| url          | http://controller:5000/v3        |</span>
+<span class="go">+--------------+----------------------------------+</span>
+
+<span class="gp">$</span> openstack endpoint create --region RegionOne <span class="se">\</span>
+<span class="go">  identity admin http://controller:35357/v3</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| Field        | Value                            |</span>
+<span class="go">+--------------+----------------------------------+</span>
+<span class="go">| enabled      | True                             |</span>
+<span class="go">| id           | 78c3dfa3e7dc44c98ab1b1379122ecb1 |</span>
+<span class="go">| interface    | admin                            |</span>
+<span class="go">| region       | RegionOne                        |</span>
+<span class="go">| region_id    | RegionOne                        |</span>
+<span class="go">| service_id   | 34ab3d27262ac449cba6cfe704dbc11f |</span>
+<span class="go">| service_name | keystone                         |</span>
+<span class="go">| service_type | identity                         |</span>
+<span class="go">| url          | http://controller:35357/v3       |</span>
+<span class="go">+--------------+----------------------------------+</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each service that you add to your OpenStack environment requires one
+or more service entities and three API endpoint variants in the Identity
+service.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="keystone-users.html" class="btn btn-neutral float-right" title="Create a domain, projects, users, and roles" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="keystone-install.html" class="btn btn-neutral" title="Install and configure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

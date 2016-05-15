@@ -13,7 +13,7 @@ Welcome to VJTICloud's Documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    /_source/introduction
    /_source/features

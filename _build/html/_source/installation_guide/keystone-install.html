@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Install and configure &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Identity Service" href="identity_service.html"/>
+        <link rel="next" title="Create the service entity and API endpoints" href="keystone-services.html"/>
+        <link rel="prev" title="Identity Service" href="identity_service.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="identity_service.html">Identity Service</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Install and configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-and-configure-components">Install and configure components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-and-configure-the-components">Install and configure the components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-apache-http-server">Configure the Apache HTTP server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finalize-the-installation">Finalize the installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-services.html">Create the service entity and API endpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-users.html">Create a domain, projects, users, and roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-verify.html">Verify operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-openrc.html">Create OpenStack client environment scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="identity_service.html">Identity Service</a> &raquo;</li>
+      
+    <li>Install and configure</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/keystone-install.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="install-and-configure">
+<span id="keystone-install"></span><h1>Install and configure<a class="headerlink" href="#install-and-configure" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how to install and configure the OpenStack
+Identity service, code-named keystone, on the controller node. For
+performance, this configuration deploys Fernet tokens and the Apache
+HTTP server to handle requests.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before you configure the OpenStack Identity service, you must create a
+database and an administration token.</p>
+<ol class="arabic simple">
+<li>To create the database, complete the following actions:</li>
+</ol>
+<ul class="simple">
+<li>Use the database access client to connect to the database server as the</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">root</span></tt> user:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> mysql -u root -p
+</pre></div>
+</div>
+<ul class="simple">
+<li>Create the <tt class="docutils literal"><span class="pre">keystone</span></tt> database:</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">CREATE DATABASE keystone;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Grant proper access to the <tt class="docutils literal"><span class="pre">keystone</span></tt> database:</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">GRANT ALL PRIVILEGES ON keystone.* TO &#39;keystone&#39;@&#39;localhost&#39; \</span>
+<span class="go">  IDENTIFIED BY &#39;KEYSTONE_DBPASS&#39;;</span>
+<span class="go">GRANT ALL PRIVILEGES ON keystone.* TO &#39;keystone&#39;@&#39;%&#39; \</span>
+<span class="go">  IDENTIFIED BY &#39;KEYSTONE_DBPASS&#39;;</span>
+</pre></div>
+</div>
+<p>Replace <tt class="docutils literal"><span class="pre">KEYSTONE_DBPASS</span></tt> with a suitable password.</p>
+<ul class="simple">
+<li>Exit the database access client.</li>
+</ul>
+<p>#. Generate a random value to use as the administration token during
+initial configuration:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openssl rand -hex 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-and-configure-components">
+<h2>Install and configure components<a class="headerlink" href="#install-and-configure-components" title="Permalink to this headline">¶</a></h2>
+<p>This guide uses the Apache HTTP server with <tt class="docutils literal"><span class="pre">mod_wsgi</span></tt> to serve
+Identity service requests on ports 5000 and 35357. By default, the
+keystone service still listens on these ports. Therefore, this guide
+manually disables the keystone service.</p>
+<ol class="arabic simple">
+<li>Disable the keystone service from starting automatically after</li>
+</ol>
+<blockquote>
+<div><p>installation:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> <span class="nb">echo</span> <span class="s2">&quot;manual&quot;</span> &gt; /etc/init/keystone.override
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Run the following command to install the packages:</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic simple">
+<li>Run the following command to install the packages:</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/keystone/keystone.conf</span></tt> file and complete the following</li>
+</ol>
+<blockquote>
+<div><p>actions:</p>
+<ul>
+<li><p class="first">In the <tt class="docutils literal"><span class="pre">[DEFAULT]</span></tt> section, define the value of the initial
+administration token:</p>
+<div class="highlight-ini"><div class="highlight"><pre>[DEFAULT]
+...
+admin_token = ADMIN_TOKEN
+</pre></div>
+</div>
+<p>Replace <tt class="docutils literal"><span class="pre">ADMIN_TOKEN</span></tt> with the random value that you generated in a
+previous step.</p>
+</li>
+<li><p class="first">In the <tt class="docutils literal"><span class="pre">[database]</span></tt> section, configure database access:</p>
+<div class="highlight-ini"><div class="highlight"><pre>[database]
+...
+connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+</pre></div>
+</div>
+<p>Replace <tt class="docutils literal"><span class="pre">KEYSTONE_DBPASS</span></tt> with the password you chose for the database.</p>
+</li>
+<li><p class="first">In the <tt class="docutils literal"><span class="pre">[token]</span></tt> section, configure the Fernet token provider:</p>
+<div class="highlight-ini"><div class="highlight"><pre>[token]
+...
+provider = fernet
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Populate the Identity service database:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> su -s /bin/sh -c <span class="s2">&quot;keystone-manage db_sync&quot;</span> keystone
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ignore any deprecation messages in this output.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Initialize Fernet keys:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="install-and-configure-the-components">
+<h2>Install and configure the components<a class="headerlink" href="#install-and-configure-the-components" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Run the following command to install the packages:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> apt-get install keystone
+</pre></div>
+</div>
+<p>#. Respond to prompts for <tt class="xref doc docutils literal"><span class="pre">debconf/debconf-dbconfig-common</span></tt>,
+which will fill the below database access directive.</p>
+<div class="highlight-ini"><div class="highlight"><pre>[database]
+...
+connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+</pre></div>
+</div>
+<p>If you decide to not use <tt class="docutils literal"><span class="pre">dbconfig-common</span></tt>, then you have to
+create the database and manage its access rights yourself, and run the
+following by hand.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> keystone-manage db_sync
+</pre></div>
+</div>
+<p>#. Generate a random value to use as the administration token during
+initial configuration:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openssl rand -hex 10
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Configure the initial administration token:</li>
+</ol>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_1_admin_token.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_1_admin_token.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_1_admin_token.png" /></a>
+<p>Use the random value that you generated in a previous step. If you
+install using non-interactive mode or you do not specify this token, the
+configuration tool generates a random value.</p>
+<p>Later on, the package will configure the below directive with the value
+you entered:</p>
+<div class="highlight-ini"><div class="highlight"><pre>[DEFAULT]
+...
+admin_token = ADMIN_TOKEN
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Create the <tt class="docutils literal"><span class="pre">admin</span></tt> project and user:</li>
+</ol>
+<p>During the final stage of the package installation, it is possible to
+automatically create an <tt class="docutils literal"><span class="pre">admin</span></tt> and <tt class="docutils literal"><span class="pre">service</span></tt> project, and an <tt class="docutils literal"><span class="pre">admin</span></tt> user.
+This can later be used for other OpenStack services to contact the
+Identity service. This is the equivalent of running the below commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  project create --or-show \</span>
+<span class="go">  admin --domain default \</span>
+<span class="go">  --description &quot;Default Debian admin project&quot;</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  project create --or-show \</span>
+<span class="go">  service --domain default \</span>
+<span class="go">  --description &quot;Default Debian admin project&quot;</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  user create --or-show \</span>
+<span class="go">  --password ADMIN_PASS \</span>
+<span class="go">  --project admin \</span>
+<span class="go">  --email root@localhost \</span>
+<span class="go">  --enable \</span>
+<span class="go">  admin \</span>
+<span class="go">  --domain default \</span>
+<span class="go">  --description &quot;Default Debian admin user&quot;</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  role create --or-show admin</span>
+
+<span class="gp">#</span> openstack  --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  role add --project admin --user admin admin</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_2_register_admin_tenant_yes_no.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_2_register_admin_tenant_yes_no.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_2_register_admin_tenant_yes_no.png" /></a>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_3_admin_user_name.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_3_admin_user_name.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_3_admin_user_name.png" /></a>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_4_admin_user_email.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_4_admin_user_email.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_4_admin_user_email.png" /></a>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_5_admin_user_pass.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_5_admin_user_pass.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_5_admin_user_pass.png" /></a>
+<a class="reference internal image-reference" href="_source/installation_guide/figures/debconf-screenshots/keystone_6_admin_user_pass_confirm.png"><img alt="_source/installation_guide/figures/debconf-screenshots/keystone_6_admin_user_pass_confirm.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_6_admin_user_pass_confirm.png" /></a>
+<p>In Debian, the Keystone package offers automatic registration of
+Keystone in the service catalogue. This is equivalent of running the
+below commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  service create \</span>
+<span class="go">  --name keystone \</span>
+<span class="go">  --description &quot;OpenStack Identity&quot; \</span>
+<span class="go">  identity</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  keystone public http://controller:5000/v2.0</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  keystone internal http://controller:5000/v2.0</span>
+
+<span class="gp">#</span> openstack --os-token <span class="k">${</span><span class="nv">AUTH_TOKEN</span><span class="k">}</span> <span class="se">\</span>
+<span class="go">  --os-url=http://127.0.0.1:35357/v3/ \</span>
+<span class="go">  --os-domain-name default \</span>
+<span class="go">  --os-identity-api-version=3 \</span>
+<span class="go">  keystone admin http://controller:35357/v2.0</span>
+</pre></div>
+</div>
+<img alt="_source/installation_guide/figures/debconf-screenshots/keystone_7_register_endpoint.png" src="_source/installation_guide/figures/debconf-screenshots/keystone_7_register_endpoint.png" />
+</div>
+<div class="section" id="configure-the-apache-http-server">
+<h2>Configure the Apache HTTP server<a class="headerlink" href="#configure-the-apache-http-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/httpd/conf/httpd.conf</span></tt> file and configure the</li>
+</ol>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</p>
+<div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/httpd/conf.d/wsgi-keystone.conf</span></tt> file with</li>
+</ol>
+<blockquote>
+<div><p>the following content:</p>
+<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<span class="nb">Listen</span> <span class="m">35357</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-public processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-public
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-public</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/httpd/keystone-error.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/httpd/keystone-access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:35357</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-admin processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-admin
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-admin</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/httpd/keystone-error.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/httpd/keystone-access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/apache2/apache2.conf</span></tt> file and configure the</li>
+</ol>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</p>
+<div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/sites-available/wsgi-keystone.conf</span></tt> file</li>
+</ol>
+<blockquote>
+<div><p>with the following content:</p>
+<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<span class="nb">Listen</span> <span class="m">35357</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-public processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-public
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-public</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/apache2/keystone.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/apache2/keystone_access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:35357</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-admin processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-admin
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-admin</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/apache2/keystone.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/apache2/keystone_access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Enable the Identity service virtual hosts:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> ln -s /etc/apache2/sites-available/wsgi-keystone.conf /etc/apache2/sites-enabled
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/sysconfig/apache2</span></tt> file and configure the</li>
+</ol>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">APACHE_SERVERNAME</span></tt> option to reference the controller node:</p>
+<div class="highlight-apache"><div class="highlight"><pre>APACHE_SERVERNAME=&quot;controller&quot;
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/conf.d/wsgi-keystone.conf</span></tt> file</li>
+</ol>
+<blockquote>
+<div><p>with the following content:</p>
+<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<span class="nb">Listen</span> <span class="m">35357</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-public processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-public
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-public</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/apache2/keystone.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/apache2/keystone_access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:35357</span><span class="nt">&gt;</span>
+    <span class="nb">WSGIDaemonProcess</span> keystone-admin processes=5 threads=1 <span class="k">user</span>=keystone <span class="k">group</span>=keystone display-name=%{GROUP}
+    <span class="nb">WSGIProcessGroup</span> keystone-admin
+    <span class="nb">WSGIScriptAlias</span> / <span class="sx">/usr/bin/keystone-wsgi-admin</span>
+    <span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+    <span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+    <span class="nb">ErrorLogFormat</span> <span class="s2">&quot;%{cu}t %M&quot;</span>
+    <span class="nb">ErrorLog</span> <span class="sx">/var/log/apache2/keystone.log</span>
+    <span class="nb">CustomLog</span> <span class="sx">/var/log/apache2/keystone_access.log</span> combined
+
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/bin</span><span class="nt">&gt;</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Recursively change the ownership of the <tt class="docutils literal"><span class="pre">/etc/keystone</span></tt> directory:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> chown -R keystone:keystone /etc/keystone
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="finalize-the-installation">
+<h2>Finalize the installation<a class="headerlink" href="#finalize-the-installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Restart the Apache HTTP server:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> service apache2 restart
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>By default, the Ubuntu packages create an SQLite database.</li>
+</ol>
+<blockquote>
+<div><p>Because this configuration uses an SQL database server, you can remove
+the SQLite database file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> rm -f /var/lib/keystone/keystone.db
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Start the Apache HTTP service and configure it to start when the system boots:</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> systemctl <span class="nb">enable </span>httpd.service
+<span class="gp">#</span> systemctl start httpd.service
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Start the Apache HTTP service and configure it to start when the system boots:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> systemctl <span class="nb">enable </span>apache2.service
+<span class="gp">#</span> systemctl start apache2.service
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="keystone-services.html" class="btn btn-neutral float-right" title="Create the service entity and API endpoints" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="identity_service.html" class="btn btn-neutral" title="Identity Service" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

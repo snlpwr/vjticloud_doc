@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create a domain, projects, users, and roles &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Identity Service" href="identity_service.html"/>
+        <link rel="next" title="Verify operation" href="keystone-verify.html"/>
+        <link rel="prev" title="Create the service entity and API endpoints" href="keystone-services.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="identity_service.html">Identity Service</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="keystone-install.html">Install and configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-services.html">Create the service entity and API endpoints</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Create a domain, projects, users, and roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-verify.html">Verify operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keystone-openrc.html">Create OpenStack client environment scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="identity_service.html">Identity Service</a> &raquo;</li>
+      
+    <li>Create a domain, projects, users, and roles</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/keystone-users.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-a-domain-projects-users-and-roles">
+<h1>Create a domain, projects, users, and roles<a class="headerlink" href="#create-a-domain-projects-users-and-roles" title="Permalink to this headline">¶</a></h1>
+<p>The Identity service provides authentication services for each OpenStack
+service. The authentication service uses a combination of <em class="xref std std-term">domains</em>, <em class="xref std std-term">projects</em> (tenants), <em class="xref std std-term">users</em>, and
+<em class="xref std std-term">roles</em>.</p>
+<ol class="arabic">
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">default</span></tt> domain:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack domain create --description <span class="s2">&quot;Default Domain&quot;</span> default
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| Field       | Value                            |</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| description | Default Domain                   |</span>
+<span class="go">| enabled     | True                             |</span>
+<span class="go">| id          | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| name        | default                          |</span>
+<span class="go">+-------------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create an administrative project, user, and role for administrative
+operations in your environment:</p>
+<ul>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">admin</span></tt> project:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack project create --domain default <span class="se">\</span>
+<span class="go">  --description &quot;Admin Project&quot; admin</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| Field       | Value                            |</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| description | Admin Project                    |</span>
+<span class="go">| domain_id   | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| enabled     | True                             |</span>
+<span class="go">| id          | 343d245e850143a096806dfaefa9afdc |</span>
+<span class="go">| is_domain   | False                            |</span>
+<span class="go">| name        | admin                            |</span>
+<span class="go">| parent_id   | None                             |</span>
+<span class="go">+-------------+----------------------------------+</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">OpenStack generates IDs dynamically, so you will see different
+values in the example command output.</p>
+</div>
+</li>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">admin</span></tt> user:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack user create --domain default <span class="se">\</span>
+<span class="go">  --password-prompt admin</span>
+<span class="go">User Password:</span>
+<span class="go">Repeat User Password:</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| Field     | Value                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| domain_id | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| enabled   | True                             |</span>
+<span class="go">| id        | ac3377633149401296f6c0d92d79dc16 |</span>
+<span class="go">| name      | admin                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">admin</span></tt> role:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack role create admin
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| Field     | Value                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| domain_id | None                             |</span>
+<span class="go">| id        | cd2cb9a39e874ea69e5d4b896eb16128 |</span>
+<span class="go">| name      | admin                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the <tt class="docutils literal"><span class="pre">admin</span></tt> role to the <tt class="docutils literal"><span class="pre">admin</span></tt> project and user:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack role add --project admin --user admin admin
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command provides no output.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any roles that you create must map to roles specified in the
+<tt class="docutils literal"><span class="pre">policy.json</span></tt> file in the configuration file directory of each
+OpenStack service. The default policy for most services grants
+administrative access to the <tt class="docutils literal"><span class="pre">admin</span></tt> role. For more information,
+see the <a class="reference external" href="http://docs.openstack.org/openstack-ops/content/projects_users.html">Operations Guide - Managing Projects and
+Users</a>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">This guide uses a service project that contains a unique user for each
+service that you add to your environment. Create the <tt class="docutils literal"><span class="pre">service</span></tt>
+project:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack project create --domain default <span class="se">\</span>
+<span class="go">  --description &quot;Service Project&quot; service</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| Field       | Value                            |</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| description | Service Project                  |</span>
+<span class="go">| domain_id   | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| enabled     | True                             |</span>
+<span class="go">| id          | 894cdfa366d34e9d835d3de01e752262 |</span>
+<span class="go">| is_domain   | False                            |</span>
+<span class="go">| name        | service                          |</span>
+<span class="go">| parent_id   | None                             |</span>
+<span class="go">+-------------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Regular (non-admin) tasks should use an unprivileged project and user.
+As an example, this guide creates the <tt class="docutils literal"><span class="pre">demo</span></tt> project and user.</p>
+<ul>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">demo</span></tt> project:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack project create --domain default <span class="se">\</span>
+<span class="go">  --description &quot;Demo Project&quot; demo</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| Field       | Value                            |</span>
+<span class="go">+-------------+----------------------------------+</span>
+<span class="go">| description | Demo Project                     |</span>
+<span class="go">| domain_id   | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| enabled     | True                             |</span>
+<span class="go">| id          | ed0b60bf607743088218b0a533d5943f |</span>
+<span class="go">| is_domain   | False                            |</span>
+<span class="go">| name        | demo                             |</span>
+<span class="go">| parent_id   | None                             |</span>
+<span class="go">+-------------+----------------------------------+</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not repeat this step when creating additional users for this
+project.</p>
+</div>
+</li>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">demo</span></tt> user:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack user create --domain default <span class="se">\</span>
+<span class="go">  --password-prompt demo</span>
+<span class="go">User Password:</span>
+<span class="go">Repeat User Password:</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| Field     | Value                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| domain_id | e0353a670a9e496da891347c589539e9 |</span>
+<span class="go">| enabled   | True                             |</span>
+<span class="go">| id        | 58126687cbcc4888bfa9ab73a2256f27 |</span>
+<span class="go">| name      | demo                             |</span>
+<span class="go">+-----------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <tt class="docutils literal"><span class="pre">user</span></tt> role:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack role create user
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| Field     | Value                            |</span>
+<span class="go">+-----------+----------------------------------+</span>
+<span class="go">| domain_id | None                             |</span>
+<span class="go">| id        | 997ce8d05fc143ac97d83fdfb5998552 |</span>
+<span class="go">| name      | user                             |</span>
+<span class="go">+-----------+----------------------------------+</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the <tt class="docutils literal"><span class="pre">user</span></tt> role to the <tt class="docutils literal"><span class="pre">demo</span></tt> project and user:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack role add --project demo --user demo user
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command provides no output.</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can repeat this procedure to create additional projects and
+users.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="keystone-verify.html" class="btn btn-neutral float-right" title="Verify operation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="keystone-services.html" class="btn btn-neutral" title="Create the service entity and API endpoints" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
