@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../index.html"/>
-        <link rel="next" title="Hardware Requirement" href="installation_guide/hardware_requirement.html"/>
+        <link rel="next" title="Identity Service" href="installation_guide/identity_service.html"/>
         <link rel="prev" title="Features" href="features.html"/> 
 
   
@@ -86,6 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation_guide/identity_service.html">Identity Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/hardware_requirement.html">Hardware Requirement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/hostname.html">How to configure Hostname</a></li>
@@ -95,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/file_permissions.html">Change file permissions chmod</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_guide/ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_guide/live_migration.html">Live Migration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="admin_guide.html">Administrator Guide</a></li>
@@ -148,6 +150,7 @@
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide/identity_service.html">Identity Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/hardware_requirement.html">Hardware Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/hostname.html">How to configure Hostname</a></li>
@@ -157,6 +160,11 @@
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/file_permissions.html">Change file permissions chmod</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_guide/ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide/live_migration.html">Live Migration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation_guide/live_migration.html#implementing-nfs-shared-storage">Implementing NFS shared storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_guide/live_migration.html#miscellaneous-configurations">Miscellaneous configurations</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="admonition note">
@@ -176,7 +184,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation_guide/hardware_requirement.html" class="btn btn-neutral float-right" title="Hardware Requirement" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="installation_guide/identity_service.html" class="btn btn-neutral float-right" title="Identity Service" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="features.html" class="btn btn-neutral" title="Features" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

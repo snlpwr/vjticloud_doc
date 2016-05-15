@@ -25,6 +25,9 @@ Glossary
 
 		Ingress filtering is a technique used to ensure that incoming packets are actually from the networks from which they claim to originate.
 
+	KVM
+		Kernel-based VM (KVM) is an OpenStack-supported hypervisor. KVM is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V), ARM, IBM Power, and IBM zSeries. It consists of a loadable kernel module, that provides the core virtualization infrastructure and a processor specific module.
+
 	Libvert
 
 		Libvert is an open source API, daemon and management tool for managing platform virtualization. It can be used to manage KVM, Xen, VMware ESX, QEMU and other virtualization technologies. These APIs are widely used in the orchestration layer of hypervisors in the development of a cloud-based solution.
