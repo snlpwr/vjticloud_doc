@@ -1,0 +1,61 @@
+Configure VM Resize
+~~~~~~~~~~~~~~~~~~~
+
+One thing that is not always adequately explained in the OpenStack documentation is how exactly instance resizing works, and what is required, especially while using KVM as the virtualisation provider, with multiple compute nodes.
+
+Configure the nova user
+-----------------------
+
+First things first, let's make sure our nova user has an appropriate shell set:
+
+::
+
+	sunil@compute1:~$ cat /etc/passwd | grep nova
+
+Verify that the last entry is ``/bin/bash``.
+
+If not, let's modify the user and make it so:
+
+::
+
+	sunil@compute1:~$ usermod -s /bin/bash nova
+
+Generate SSH key and configuration
+----------------------------------
+
+After doing this the next steps are all run as the nova user.
+
+::
+
+	root@compute1:/home/sunil# su - nova
+
+We need to generate an SSH key:
+
+::
+
+	nova@compute1:~$ ssh-keygen -t rsa
+
+Follow the directions, and save the key WITHOUT a passphrase.
+
+Next up we need to configure SSH to not do host key verification, unless you want to manually SSH to all compute nodes that exist and accept the key (and continue to do so for each new compute node you add).
+
+::
+
+	nova@compute1:~$ cat << EOF > ~/.ssh/config
+	> Host *
+	> StrictHostKeyChecking no
+	> UserKnownHostsFile=/dev/null
+	> EOF
+
+Next we need to make sure we copy the the contents of ``id_rsa.pub`` to ``authorized_keys`` and set the mode on it correctly.
+
+::
+
+	nova@compute1:~$ cat ~/.ssh/id_rsa.pub > .ssh/authorized_keys
+	nova@compute1:~$ chmod 600 .ssh/authorized_keys
+
+This should be all the configuration for SSH you need to do. Now comes the import part, you will need to tar up and copy the ``~nova/.ssh`` directory to every single compute node you have provisioned. This way all compute nodes will be able to SSH to the remote host to run the commands required to copy an instance over, and resize it.
+
+References: 
+`funcptr.net <http://funcptr.net/2014/09/29/openstack-resizing-of-instances/>`__, 
+`OpenStack: Configure resize <http://docs.openstack.org/kilo/config-reference/content/configuring-resize.html>`__

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation of Ubuntu Server 14.04 &mdash; VJTICloud v0.01 documentation</title>
+  <title>Configure VM Resize &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
         <link rel="up" title="Installation Guide" href="../installation_guide.html"/>
-        <link rel="next" title="How to configure Hostname" href="hostname.html"/>
-        <link rel="prev" title="Hardware Requirement" href="hardware_requirement.html"/> 
+        <link rel="next" title="Live Migration" href="live_migration.html"/>
+        <link rel="prev" title="SSH installation and access" href="ssh_config.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -89,7 +89,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
@@ -97,7 +97,11 @@
 <li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Configure VM Resize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-nova-user">Configure the nova user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-ssh-key-and-configuration">Generate SSH key and configuration</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
 </ul>
 </li>
@@ -136,11 +140,11 @@
       
         <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
       
-    <li>Installation of Ubuntu Server 14.04</li>
+    <li>Configure VM Resize</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/installation_guide/ubuntu_installation.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/installation_guide/vm_resize.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -150,32 +154,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation-of-ubuntu-server-14-04">
-<h1>Installation of Ubuntu Server 14.04<a class="headerlink" href="#installation-of-ubuntu-server-14-04" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>Boot from disk or usb</li>
-<li>Select language</li>
-<li>Install Ubuntu server</li>
-<li>Choose the language for the installation process</li>
-<li>Select your location. E.g. Country Name</li>
-<li>Configure the keyboard</li>
-<li>Country of origin for the keyboard</li>
-<li>Select keyboard layout</li>
-<li>Configure the network</li>
-<li>Set hostname</li>
-<li>Set up users and passwords</li>
-<li>Encrypt home directory or leave</li>
-<li>Configure the clock</li>
-<li>Partition disk</li>
-<li>Unmount partitions that are in use</li>
-<li>Do the partitioning as per your convenience</li>
-<li>Select / &lt;root&gt; partition and setup swap area</li>
-<li>Write changes to disk</li>
-<li>Configuring tasksel e.g. update settings</li>
-<li>Software selection</li>
-<li>Install the GRUB boot loader on a hard disk</li>
-<li>Complete!!</li>
-</ol>
+  <div class="section" id="configure-vm-resize">
+<h1>Configure VM Resize<a class="headerlink" href="#configure-vm-resize" title="Permalink to this headline">¶</a></h1>
+<p>One thing that is not always adequately explained in the OpenStack documentation is how exactly instance resizing works, and what is required, especially while using KVM as the virtualisation provider, with multiple compute nodes.</p>
+<div class="section" id="configure-the-nova-user">
+<h2>Configure the nova user<a class="headerlink" href="#configure-the-nova-user" title="Permalink to this headline">¶</a></h2>
+<p>First things first, let&#8217;s make sure our nova user has an appropriate shell set:</p>
+<div class="highlight-python"><div class="highlight"><pre>sunil@compute1:~$ cat /etc/passwd | grep nova
+</pre></div>
+</div>
+<p>Verify that the last entry is <tt class="docutils literal"><span class="pre">/bin/bash</span></tt>.</p>
+<p>If not, let&#8217;s modify the user and make it so:</p>
+<div class="highlight-python"><div class="highlight"><pre>sunil@compute1:~$ usermod -s /bin/bash nova
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-ssh-key-and-configuration">
+<h2>Generate SSH key and configuration<a class="headerlink" href="#generate-ssh-key-and-configuration" title="Permalink to this headline">¶</a></h2>
+<p>After doing this the next steps are all run as the nova user.</p>
+<div class="highlight-python"><div class="highlight"><pre>root@compute1:/home/sunil# su - nova
+</pre></div>
+</div>
+<p>We need to generate an SSH key:</p>
+<div class="highlight-python"><div class="highlight"><pre>nova@compute1:~$ ssh-keygen -t rsa
+</pre></div>
+</div>
+<p>Follow the directions, and save the key WITHOUT a passphrase.</p>
+<p>Next up we need to configure SSH to not do host key verification, unless you want to manually SSH to all compute nodes that exist and accept the key (and continue to do so for each new compute node you add).</p>
+<div class="highlight-python"><div class="highlight"><pre>nova@compute1:~$ cat &lt;&lt; EOF &gt; ~/.ssh/config
+&gt; Host *
+&gt; StrictHostKeyChecking no
+&gt; UserKnownHostsFile=/dev/null
+&gt; EOF
+</pre></div>
+</div>
+<p>Next we need to make sure we copy the the contents of <tt class="docutils literal"><span class="pre">id_rsa.pub</span></tt> to <tt class="docutils literal"><span class="pre">authorized_keys</span></tt> and set the mode on it correctly.</p>
+<div class="highlight-python"><div class="highlight"><pre>nova@compute1:~$ cat ~/.ssh/id_rsa.pub &gt; .ssh/authorized_keys
+nova@compute1:~$ chmod 600 .ssh/authorized_keys
+</pre></div>
+</div>
+<p>This should be all the configuration for SSH you need to do. Now comes the import part, you will need to tar up and copy the <tt class="docutils literal"><span class="pre">~nova/.ssh</span></tt> directory to every single compute node you have provisioned. This way all compute nodes will be able to SSH to the remote host to run the commands required to copy an instance over, and resize it.</p>
+<p>References:
+<a class="reference external" href="http://funcptr.net/2014/09/29/openstack-resizing-of-instances/">funcptr.net</a>,
+<a class="reference external" href="http://docs.openstack.org/kilo/config-reference/content/configuring-resize.html">OpenStack: Configure resize</a></p>
+</div>
 </div>
 
 
@@ -185,10 +207,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hostname.html" class="btn btn-neutral float-right" title="How to configure Hostname" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="live_migration.html" class="btn btn-neutral float-right" title="Live Migration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hardware_requirement.html" class="btn btn-neutral" title="Hardware Requirement" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ssh_config.html" class="btn btn-neutral" title="SSH installation and access" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

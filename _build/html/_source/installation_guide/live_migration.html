@@ -33,7 +33,7 @@
     <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
         <link rel="up" title="Installation Guide" href="../installation_guide.html"/>
         <link rel="next" title="Administrator Guide" href="../admin_guide.html"/>
-        <link rel="prev" title="SSH installation and access" href="ssh_config.html"/> 
+        <link rel="prev" title="Configure VM Resize" href="vm_resize.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -97,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Live Migration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#implementing-nfs-shared-storage">Implementing NFS shared storage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#miscellaneous-configurations">Miscellaneous configurations</a></li>
@@ -155,6 +156,10 @@
             
   <div class="section" id="live-migration">
 <h1>Live Migration<a class="headerlink" href="#live-migration" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only administrators can perform live migrations. If your cloud is configured to use cells, you can perform live migration within but not between cells.</p>
+</div>
 <p>Live migration is the movement of a live instance from one compute node to another. A hugely sought-after feature by cloud administrators, it’s used primarily to achieve zero downtime during cloud maintenance and can also be a useful feature to achieve performance as live instances can be moved from a heavily loaded compute node to a less loaded compute node.</p>
 <p>Planning for live migration has to be done at the initial stage of planning and designing an OpenStack deployment. Some things to take into consideration are as follows:</p>
 <ul class="simple">
@@ -167,8 +172,8 @@
 <div class="section" id="implementing-nfs-shared-storage">
 <h2>Implementing NFS shared storage<a class="headerlink" href="#implementing-nfs-shared-storage" title="Permalink to this headline">¶</a></h2>
 <p>The cloud controller node is the NFS server. The aim is to share <tt class="docutils literal"><span class="pre">/var/lib/nova/instances</span></tt> across all of the compute nodes in your Openstack cluster. This directory contains libvirt KVM file-based disk images for the instances hosted on that compute node. If you are not running your cloud in a shared storage environment, this directory will be unique across all compute nodes.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
 <p class="last">Note that if you already have instances running in your cloud before configuring live migrations, you need to take precautions that the existing instances are not overridden.</p>
 </div>
 <p><strong>On the NFS server/controller node, take the following steps:</strong></p>
@@ -324,7 +329,7 @@ root@compute1:/home/sunil# service nova-compute restart
 root@compute1:/home/sunil# service libvirt-bin restart
 </pre></div>
 </div>
-<p>Reference:
+<p>References:
 <a class="reference external" href="https://www.mirantis.com/blog/tutorial-openstack-live-migration-with-kvm-hypervisor-and-nfs-shared-storage/">Mirantis Live Migration</a>, <a class="reference external" href="http://docs.openstack.org/admin-guide/compute-configuring-migrations.html">OpenStack: Admin guide &gt; Configure migrations</a></p>
 </div>
 </div>
@@ -339,7 +344,7 @@ root@compute1:/home/sunil# service libvirt-bin restart
         <a href="../admin_guide.html" class="btn btn-neutral float-right" title="Administrator Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ssh_config.html" class="btn btn-neutral" title="SSH installation and access" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vm_resize.html" class="btn btn-neutral" title="Configure VM Resize" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

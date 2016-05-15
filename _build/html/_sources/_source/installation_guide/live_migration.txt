@@ -1,6 +1,8 @@
 Live Migration
 ~~~~~~~~~~~~~~
 
+.. note:: Only administrators can perform live migrations. If your cloud is configured to use cells, you can perform live migration within but not between cells.
+
 Live migration is the movement of a live instance from one compute node to another. A hugely sought-after feature by cloud administrators, it’s used primarily to achieve zero downtime during cloud maintenance and can also be a useful feature to achieve performance as live instances can be moved from a heavily loaded compute node to a less loaded compute node.
 
 Planning for live migration has to be done at the initial stage of planning and designing an OpenStack deployment. Some things to take into consideration are as follows:
@@ -20,7 +22,7 @@ Implementing NFS shared storage
 
 The cloud controller node is the NFS server. The aim is to share ``/var/lib/nova/instances`` across all of the compute nodes in your Openstack cluster. This directory contains libvirt KVM file-based disk images for the instances hosted on that compute node. If you are not running your cloud in a shared storage environment, this directory will be unique across all compute nodes. 
 
-.. warning:: Note that if you already have instances running in your cloud before configuring live migrations, you need to take precautions that the existing instances are not overridden.
+.. caution:: Note that if you already have instances running in your cloud before configuring live migrations, you need to take precautions that the existing instances are not overridden.
 
 **On the NFS server/controller node, take the following steps:**
 
@@ -178,5 +180,5 @@ Follow the same procedures for all of the compute nodes.
         root@compute1:/home/sunil# service nova-compute restart
         root@compute1:/home/sunil# service libvirt-bin restart
 
-Reference:
+References:
 `Mirantis Live Migration <https://www.mirantis.com/blog/tutorial-openstack-live-migration-with-kvm-hypervisor-and-nfs-shared-storage/>`__, `OpenStack: Admin guide > Configure migrations <http://docs.openstack.org/admin-guide/compute-configuring-migrations.html>`__
