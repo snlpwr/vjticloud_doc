@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Installation Guide" href="../installation_guide.html"/>
+        <link rel="next" title="Environment" href="environment.html"/>
+        <link rel="prev" title="Conventions" href="conventions.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-architecture">Example architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller">Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Block Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Object Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Networking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#networking-option-1-provider-networks">Networking Option 1: Provider networks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#networking-option-2-self-service-networks">Networking Option 2: Self-service networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+    <li>Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/overview.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../glossary.html#term-openstack"><em class="xref std std-term">OpenStack</em></a> project is an open source cloud computing platform that
+supports all types of cloud environments. The project aims for simple
+implementation, massive scalability, and a rich set of features. Cloud
+computing experts from around the world contribute to the project.</p>
+<p>OpenStack provides an <a class="reference internal" href="../glossary.html#term-iaas"><em class="xref std std-term">Infrastructure-as-a-Service (IaaS)</em></a> solution
+through a variety of complemental services. Each service offers an
+<a class="reference internal" href="../glossary.html#term-application-programming-interface-api"><em class="xref std std-term">Application Programming Interface (API)</em></a> that facilitates this
+integration.</p>
+<p>This guide covers step-by-step deployment of the following major OpenStack
+services using a functional example architecture suitable for new users of
+OpenStack with sufficient Linux experience:</p>
+<table border="1" class="docutils">
+<caption><strong>OpenStack services</strong></caption>
+<colgroup>
+<col width="19%" />
+<col width="14%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Service</th>
+<th class="head">Project name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/horizon">Dashboard</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/horizon/">Horizon</a></td>
+<td>Provides a web-based self-service portal
+to interact with underlying OpenStack services,
+such as launching an instance, assigning IP
+addresses and configuring access controls.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/nova">Compute</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/nova/">Nova</a></td>
+<td>Manages the lifecycle of compute instances in an
+OpenStack environment. Responsibilities include
+spawning, scheduling and decommissioning of virtual
+machines on demand.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/neutron">Networking</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/neutron/">Neutron</a></td>
+<td>Enables Network-Connectivity-as-a-Service for
+other OpenStack services, such as OpenStack Compute.
+Provides an API for users to define networks and the
+attachments into them. Has a pluggable architecture
+that supports many popular networking vendors and
+technologies.</td>
+</tr>
+<tr class="row-odd"><td><strong>Storage</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/swift">Object Storage</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/swift/">Swift</a></td>
+<td>Stores and retrieves arbitrary unstructured
+data objects via a <a class="reference internal" href="../glossary.html#term-restful"><em class="xref std std-term">RESTful</em></a>, HTTP based API.
+It is highly fault tolerant with its data replication and
+scale-out architecture. Its implementation is not like a
+file server with mountable directories. In this case,
+it writes objects and files to multiple drives, ensuring the
+data is replicated across a server cluster.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/cinder">Block Storage</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/cinder/">Cinder</a></td>
+<td>Provides persistent block storage to running instances. Its pluggable
+driver architecture facilitates the creation and management of
+block storage devices.</td>
+</tr>
+<tr class="row-even"><td><strong>Shared services</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/keystone">Identity service</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/keystone/">Keystone</a></td>
+<td>Provides an authentication and authorization service
+for other OpenStack services. Provides a catalog of endpoints
+for all OpenStack services.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/glance">Image service</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/glance/">Glance</a></td>
+<td>Stores and retrieves virtual machine disk images.
+OpenStack Compute makes use of this during instance
+provisioning.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/ceilometer">Telemetry</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/ceilometer/">Ceilometer</a></td>
+<td>Monitors and meters the OpenStack cloud for billing, benchmarking,
+scalability, and statistical purposes.</td>
+</tr>
+<tr class="row-even"><td><strong>Higher-level services</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.openstack.org/software/releases/liberty/components/heat">Orchestration</a></td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/heat/">Heat</a></td>
+<td>Orchestrates multiple composite cloud applications by using
+either the native <a class="reference internal" href="../glossary.html#term-heat-orchestration-template-hot"><em class="xref std std-term">HOT</em></a> template
+format or the AWS CloudFormation template format, through both an
+OpenStack-native REST API and a CloudFormation-compatible
+Query API.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>After becoming familiar with basic installation, configuration, operation,
+and troubleshooting of these OpenStack services, you should consider the
+following steps toward deployment using a production architecture:</p>
+<ul class="simple">
+<li>Determine and implement the necessary core and optional services to
+meet performance and redundancy requirements.</li>
+<li>Increase security using methods such as firewalls, encryption, and
+service policies.</li>
+<li>Implement a deployment tool such as Ansible, Chef, Puppet, or Salt
+to automate deployment and management of the production environment.</li>
+</ul>
+<div class="section" id="example-architecture">
+<span id="overview-example-architectures"></span><h2>Example architecture<a class="headerlink" href="#example-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The example architecture requires at least two nodes (hosts) to launch a basic
+<a class="reference internal" href="../glossary.html#term-virtual-machine-vm"><em class="xref std std-term">virtual machine</em></a> or instance. Optional
+services such as Block Storage and Object Storage require additional nodes.</p>
+<p>This example architecture differs from a minimal production architecture as
+follows:</p>
+<ul class="simple">
+<li>Networking agents reside on the controller node instead of one or more
+dedicated network nodes.</li>
+<li>Overlay (tunnel) traffic for self-service networks traverses the management
+network instead of a dedicated network.</li>
+</ul>
+<p>For more information on production architectures, see the
+<a class="reference external" href="http://docs.openstack.org/arch-design/">Architecture Design Guide</a>,
+<a class="reference external" href="http://docs.openstack.org/ops/">Operations Guide</a>, and
+<a class="reference external" href="http://docs.openstack.org/mitaka/networking-guide/">Networking Guide</a>.</p>
+<div class="figure" id="figure-hwreqs">
+<img alt="Hardware requirements" src="../../_images/hwreqs.png" />
+<p class="caption"><strong>Hardware requirements</strong></p>
+</div>
+<div class="section" id="controller">
+<h3>Controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h3>
+<p>The controller node runs the Identity service, Image service, management
+portions of Compute, management portion of Networking, various Networking
+agents, and the dashboard. It also includes supporting services such as
+an SQL database, <a class="reference internal" href="../glossary.html#term-message-queue"><em class="xref std std-term">message queue</em></a>, and <a class="reference internal" href="../glossary.html#term-ntp"><em class="xref std std-term">NTP</em></a>.</p>
+<p>Optionally, the controller node runs portions of Block Storage, Object
+Storage, Orchestration, and Telemetry services.</p>
+<p>The controller node requires a minimum of two network interfaces.</p>
+</div>
+<div class="section" id="id1">
+<h3>Compute<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The compute node runs the <a class="reference internal" href="../glossary.html#term-hypervisor"><em class="xref std std-term">hypervisor</em></a> portion of Compute that
+operates instances. By default, Compute uses the
+<a class="reference internal" href="../glossary.html#term-kernel-based-vm-kvm"><em class="xref std std-term">KVM</em></a> hypervisor. The compute node also
+runs a Networking service agent that connects instances to virtual networks
+and provides firewalling services to instances via
+<a class="reference internal" href="../glossary.html#term-security-group"><em class="xref std std-term">security groups</em></a>.</p>
+<p>You can deploy more than one compute node. Each node requires a minimum
+of two network interfaces.</p>
+</div>
+<div class="section" id="id2">
+<h3>Block Storage<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The optional Block Storage node contains the disks that the Block
+Storage and Shared File System services provision for instances.</p>
+<p>For simplicity, service traffic between compute nodes and this node
+uses the management network. Production environments should implement
+a separate storage network to increase performance and security.</p>
+<p>You can deploy more than one block storage node. Each node requires a
+minimum of one network interface.</p>
+</div>
+<div class="section" id="id3">
+<h3>Object Storage<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The optional Object Storage node contain the disks that the
+Object Storage service uses for storing accounts, containers, and
+objects.</p>
+<p>For simplicity, service traffic between compute nodes and this node
+uses the management network. Production environments should implement
+a separate storage network to increase performance and security.</p>
+<p>This service requires two nodes. Each node requires a minimum of one
+network interface. You can deploy more than two object storage nodes.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Networking<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Choose one of the following virtual networking options.</p>
+<div class="section" id="networking-option-1-provider-networks">
+<span id="network1"></span><h3>Networking Option 1: Provider networks<a class="headerlink" href="#networking-option-1-provider-networks" title="Permalink to this headline">¶</a></h3>
+<p>The provider networks option deploys the OpenStack Networking service
+in the simplest way possible with primarily layer-2 (bridging/switching)
+services and VLAN segmentation of networks. Essentially, it bridges virtual
+networks to physical networks and relies on physical network infrastructure
+for layer-3 (routing) services. Additionally, a <a class="reference internal" href="../glossary.html#term-dhcp"><em class="xref std std-term">DHCP</em></a> service provides
+IP address information to instances.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This option lacks support for self-service (private) networks, layer-3
+(routing) services, and advanced services such as <a class="reference internal" href="../glossary.html#term-lbaas"><em class="xref std std-term">LBaaS</em></a> and
+<a class="reference internal" href="../glossary.html#term-fwaas"><em class="xref std std-term">FWaaS</em></a>. Consider the self-service networks option if you
+desire these features.</p>
+</div>
+<div class="figure" id="figure-network1-services">
+<img alt="Networking Option 1: Provider networks - Service layout" src="../../_images/network1-services.png" />
+</div>
+</div>
+<div class="section" id="networking-option-2-self-service-networks">
+<span id="network2"></span><h3>Networking Option 2: Self-service networks<a class="headerlink" href="#networking-option-2-self-service-networks" title="Permalink to this headline">¶</a></h3>
+<p>The self-service networks option augments the provider networks option
+with layer-3 (routing) services that enable
+<a class="reference internal" href="../glossary.html#term-self-service"><em class="xref std std-term">self-service</em></a> networks using overlay segmentation methods such
+as <a class="reference internal" href="../glossary.html#term-vxlan"><em class="xref std std-term">VXLAN</em></a>. Essentially, it routes virtual networks to physical networks
+using <a class="reference internal" href="../glossary.html#term-nat"><em class="xref std std-term">NAT</em></a>. Additionally, this option provides the foundation
+for advanced services such as LBaaS and FWaaS.</p>
+<div class="figure" id="figure-network2-services">
+<img alt="Networking Option 2: Self-service networks - Service layout" src="../../_images/network2-services.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="environment.html" class="btn btn-neutral float-right" title="Environment" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conventions.html" class="btn btn-neutral" title="Conventions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

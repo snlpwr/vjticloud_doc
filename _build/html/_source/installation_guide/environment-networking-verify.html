@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Verify connectivity &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Host networking" href="environment-networking.html"/>
+        <link rel="next" title="Identity Service" href="identity_service.html"/>
+        <link rel="prev" title="Object storage nodes (Optional)" href="environment-networking-storage-swift.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="environment.html">Environment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="environment-security.html">Security</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="environment-networking.html">Host networking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-controller.html">Controller node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-compute.html">Compute node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-storage-cinder.html">Block storage node (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-storage-swift.html">Object storage nodes (Optional)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">Verify connectivity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="environment.html">Environment</a> &raquo;</li>
+      
+        <li><a href="environment-networking.html">Host networking</a> &raquo;</li>
+      
+    <li>Verify connectivity</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/environment-networking-verify.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="verify-connectivity">
+<h1>Verify connectivity<a class="headerlink" href="#verify-connectivity" title="Permalink to this headline">¶</a></h1>
+<p>We recommend that you verify network connectivity to the Internet and
+among the nodes before proceeding further.</p>
+<ol class="arabic">
+<li><p class="first">From the <em>controller</em> node, test access to the Internet:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> ping -c 4 openstack.org
+<span class="go">PING openstack.org (174.143.194.225) 56(84) bytes of data.</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=1 ttl=54 time=18.3 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=2 ttl=54 time=17.5 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=3 ttl=54 time=17.5 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=4 ttl=54 time=17.4 ms</span>
+
+<span class="go">--- openstack.org ping statistics ---</span>
+<span class="go">4 packets transmitted, 4 received, 0% packet loss, time 3022ms</span>
+<span class="go">rtt min/avg/max/mdev = 17.489/17.715/18.346/0.364 ms</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">From the <em>controller</em> node, test access to the management interface on the
+<em>compute</em> node:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> ping -c 4 compute1
+<span class="go">PING compute1 (10.0.0.31) 56(84) bytes of data.</span>
+<span class="go">64 bytes from compute1 (10.0.0.31): icmp_seq=1 ttl=64 time=0.263 ms</span>
+<span class="go">64 bytes from compute1 (10.0.0.31): icmp_seq=2 ttl=64 time=0.202 ms</span>
+<span class="go">64 bytes from compute1 (10.0.0.31): icmp_seq=3 ttl=64 time=0.203 ms</span>
+<span class="go">64 bytes from compute1 (10.0.0.31): icmp_seq=4 ttl=64 time=0.202 ms</span>
+
+<span class="go">--- compute1 ping statistics ---</span>
+<span class="go">4 packets transmitted, 4 received, 0% packet loss, time 3000ms</span>
+<span class="go">rtt min/avg/max/mdev = 0.202/0.217/0.263/0.030 ms</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">From the <em>compute</em> node, test access to the Internet:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> ping -c 4 openstack.org
+<span class="go">PING openstack.org (174.143.194.225) 56(84) bytes of data.</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=1 ttl=54 time=18.3 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=2 ttl=54 time=17.5 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=3 ttl=54 time=17.5 ms</span>
+<span class="go">64 bytes from 174.143.194.225: icmp_seq=4 ttl=54 time=17.4 ms</span>
+
+<span class="go">--- openstack.org ping statistics ---</span>
+<span class="go">4 packets transmitted, 4 received, 0% packet loss, time 3022ms</span>
+<span class="go">rtt min/avg/max/mdev = 17.489/17.715/18.346/0.364 ms</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">From the <em>compute</em> node, test access to the management interface on the
+<em>controller</em> node:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> ping -c 4 controller
+<span class="go">PING controller (10.0.0.11) 56(84) bytes of data.</span>
+<span class="go">64 bytes from controller (10.0.0.11): icmp_seq=1 ttl=64 time=0.263 ms</span>
+<span class="go">64 bytes from controller (10.0.0.11): icmp_seq=2 ttl=64 time=0.202 ms</span>
+<span class="go">64 bytes from controller (10.0.0.11): icmp_seq=3 ttl=64 time=0.203 ms</span>
+<span class="go">64 bytes from controller (10.0.0.11): icmp_seq=4 ttl=64 time=0.202 ms</span>
+
+<span class="go">--- controller ping statistics ---</span>
+<span class="go">4 packets transmitted, 4 received, 0% packet loss, time 3000ms</span>
+<span class="go">rtt min/avg/max/mdev = 0.202/0.217/0.263/0.030 ms</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your distribution does not enable a restrictive <a class="reference internal" href="../glossary.html#term-firewall"><em class="xref std std-term">firewall</em></a>
+by default. For more information about securing your environment,
+refer to the
+<a class="reference external" href="http://docs.openstack.org/sec/">OpenStack Security Guide</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="identity_service.html" class="btn btn-neutral float-right" title="Identity Service" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="environment-networking-storage-swift.html" class="btn btn-neutral" title="Object storage nodes (Optional)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

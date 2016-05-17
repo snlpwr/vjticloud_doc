@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controller node &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Host networking" href="environment-networking.html"/>
+        <link rel="next" title="Compute node" href="environment-networking-compute.html"/>
+        <link rel="prev" title="Host networking" href="environment-networking.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="environment.html">Environment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="environment-security.html">Security</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="environment-networking.html">Host networking</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">Controller node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-compute.html">Compute node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-storage-cinder.html">Block storage node (Optional)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="environment.html">Environment</a> &raquo;</li>
+      
+        <li><a href="environment-networking.html">Host networking</a> &raquo;</li>
+      
+    <li>Controller node</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/environment-networking-controller.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controller-node">
+<h1>Controller node<a class="headerlink" href="#controller-node" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configure-network-interfaces">
+<h2>Configure network interfaces<a class="headerlink" href="#configure-network-interfaces" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Configure the first interface as the management interface:</p>
+<p>IP address: 10.0.0.11</p>
+<p>Network mask: 255.255.255.0 (or /24)</p>
+<p>Default gateway: 10.0.0.1</p>
+</li>
+<li><p class="first">The provider interface uses a special configuration without an IP
+address assigned to it. Configure the second interface as the provider
+interface:</p>
+<p>Replace <tt class="docutils literal"><span class="pre">INTERFACE_NAME</span></tt> with the actual interface name. For example,
+<em>eth1</em> or <em>ens224</em>.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Edit the <tt class="docutils literal"><span class="pre">/etc/network/interfaces</span></tt> file to contain the following:</p>
+<div class="highlight-ini"><div class="highlight"><pre># The provider network interface
+auto INTERFACE_NAME
+iface INTERFACE_NAME inet manual
+up ip link set dev $IFACE up
+down ip link set dev $IFACE down
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Reboot the system to activate the changes.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-name-resolution">
+<h2>Configure name resolution<a class="headerlink" href="#configure-name-resolution" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Set the hostname of the node to <tt class="docutils literal"><span class="pre">controller</span></tt>.</p>
+</li>
+<li><p class="first">Edit the <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt> file to contain the following:</p>
+<div class="highlight-ini"><div class="highlight"><pre># controller
+10.0.0.11       controller
+
+# compute1
+10.0.0.31       compute1
+
+# block1
+10.0.0.41       block1
+
+# object1
+10.0.0.51       object1
+
+# object2
+10.0.0.52       object2
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Some distributions add an extraneous entry in the <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt>
+file that resolves the actual hostname to another loopback IP
+address such as <tt class="docutils literal"><span class="pre">127.0.1.1</span></tt>. You must comment out or remove this
+entry to prevent name resolution problems. <strong>Do not remove the
+127.0.0.1 entry.</strong></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To reduce complexity of this guide, we add host entries for optional
+services regardless of whether you choose to deploy them.</p>
+</div>
+</li>
+<li><p class="first">Reboot the system to activate the changes.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="environment-networking-compute.html" class="btn btn-neutral float-right" title="Compute node" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="environment-networking.html" class="btn btn-neutral" title="Host networking" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -87,6 +87,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
@@ -167,29 +170,29 @@
 <div>External network is used for providing internet connection to VM&#8217;s. This is where Floating IP&#8217;s come into picture.</div></blockquote>
 <p><strong>Controller</strong></p>
 <p>configure /etc/network/interfaces on controller node as follows</p>
-<div class="highlight-python"><div class="highlight"><pre># The loopback network interface
-auto lo
-iface lo inet loopback
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> The loopback network interface
+<span class="go">auto lo</span>
+<span class="go">iface lo inet loopback</span>
 
-# The primary network interface
-# controller Internet Connection
-auto p5p1
-iface p5p1 inet dhcp
+<span class="gp">#</span> The primary network interface
+<span class="gp">#</span> controller Internet Connection
+<span class="go">auto p5p1</span>
+<span class="go">iface p5p1 inet dhcp</span>
 
-# Management network
-auto p5p1:0
-iface p5p1:0 inet static
-    address 10.0.0.11
-    network 10.0.0.0
-    netmask 255.255.255.0
+<span class="gp">#</span> Management network
+<span class="go">auto p5p1:0</span>
+<span class="go">iface p5p1:0 inet static</span>
+<span class="go">    address 10.0.0.11</span>
+<span class="go">    network 10.0.0.0</span>
+<span class="go">    netmask 255.255.255.0</span>
 
-# Additional interface for accessing cloud in intranet
-auto eth1
-iface eth1 inet static
-  address 172.18.38.25
-  network 172.18.38.0
-  netmask 255.255.255.0
-  gateway 172.18.38.1
+<span class="gp">#</span> Additional interface <span class="k">for </span>accessing cloud in intranet
+<span class="go">auto eth1</span>
+<span class="go">iface eth1 inet static</span>
+<span class="go">  address 172.18.38.25</span>
+<span class="go">  network 172.18.38.0</span>
+<span class="go">  netmask 255.255.255.0</span>
+<span class="go">  gateway 172.18.38.1</span>
 </pre></div>
 </div>
 </div>

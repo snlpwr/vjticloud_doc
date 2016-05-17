@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Host networking &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Environment" href="environment.html"/>
+        <link rel="next" title="Controller node" href="environment-networking-controller.html"/>
+        <link rel="prev" title="Security" href="environment-security.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="environment.html">Environment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="environment-security.html">Security</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Host networking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-controller.html">Controller node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-compute.html">Compute node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-storage-cinder.html">Block storage node (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-storage-swift.html">Object storage nodes (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="environment-networking-verify.html">Verify connectivity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
+      
+        <li><a href="environment.html">Environment</a> &raquo;</li>
+      
+    <li>Host networking</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/installation_guide/environment-networking.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="host-networking">
+<span id="environment-networking"></span><h1>Host networking<a class="headerlink" href="#host-networking" title="Permalink to this headline">¶</a></h1>
+<p>All nodes require Internet access for administrative purposes such as package
+installation, security updates, <a class="reference internal" href="../glossary.html#term-dns"><em class="xref std std-term">DNS</em></a>, and <a class="reference internal" href="../glossary.html#term-ntp"><em class="xref std std-term">NTP</em></a>. In most cases,
+nodes should obtain internet access through the management network interface.
+To highlight the importance of network separation, the example architectures
+use <a class="reference external" href="https://tools.ietf.org/html/rfc1918">private address space</a> for the
+management network and assume that the physical network infrastructure
+provides Internet access via <a class="reference internal" href="../glossary.html#term-nat"><em class="xref std std-term">NAT</em></a> or other method. The example
+architectures use routable IP address space for the provider (external)
+network and assume that the physical network infrastructure provides direct
+Internet access.</p>
+<p>In the provider networks architecture, all instances attach directly
+to the provider network. In the self-service (private) networks architecture,
+instances can attach to a self-service or provider network. Self-service
+networks can reside entirely within OpenStack or provide some level of external
+network access using <a class="reference internal" href="../glossary.html#term-nat"><em class="xref std std-term">NAT</em></a> through the provider network.</p>
+<div class="figure" id="figure-networklayout">
+<img alt="Network layout" src="../../_images/networklayout.png" />
+</div>
+<p>The example architectures assume use of the following networks:</p>
+<ul>
+<li><p class="first">Management on 10.0.0.0/24 with gateway 10.0.0.1</p>
+<p>This network requires a gateway to provide Internet access to all
+nodes for administrative purposes such as package installation,
+security updates, <a class="reference internal" href="../glossary.html#term-dns"><em class="xref std std-term">DNS</em></a>, and <a class="reference internal" href="../glossary.html#term-ntp"><em class="xref std std-term">NTP</em></a>.</p>
+</li>
+<li><p class="first">Provider on 203.0.113.0/24 with gateway 203.0.113.1</p>
+<p>This network requires a gateway to provide Internet access to
+instances in your OpenStack environment.</p>
+</li>
+</ul>
+<p>You can modify these ranges and gateways to work with your particular
+network infrastructure.</p>
+<p>Network interface names vary by distribution. Traditionally,
+interfaces use &#8220;eth&#8221; followed by a sequential number. To cover all
+variations, this guide simply refers to the first interface as the
+interface with the lowest number and the second interface as the
+interface with the highest number.</p>
+<p>Unless you intend to use the exact configuration provided in this
+example architecture, you must modify the networks in this procedure to
+match your environment. Also, each node must resolve the other nodes by
+name in addition to IP address. For example, the <tt class="docutils literal"><span class="pre">controller</span></tt> name must
+resolve to <tt class="docutils literal"><span class="pre">10.0.0.11</span></tt>, the IP address of the management interface on
+the controller node.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Reconfiguring network interfaces will interrupt network
+connectivity. We recommend using a local terminal session for these
+procedures.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your distribution does not enable a restrictive <a class="reference internal" href="../glossary.html#term-firewall"><em class="xref std std-term">firewall</em></a>
+by default. For more information about securing your environment,
+refer to the
+<a class="reference external" href="http://docs.openstack.org/sec/">OpenStack Security Guide</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environment-networking-controller.html">Controller node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-networking-compute.html">Compute node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-networking-storage-cinder.html">Block storage node (Optional)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-networking-storage-swift.html">Object storage nodes (Optional)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-networking-verify.html">Verify connectivity</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="environment-networking-controller.html" class="btn btn-neutral float-right" title="Controller node" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="environment-security.html" class="btn btn-neutral" title="Security" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

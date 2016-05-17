@@ -3,7 +3,7 @@ How to configure hosts in network
 
 Edit ``/etc/hosts`` on each node and add entries of hosts as per requirement
 
-::
+.. code-block:: console
 
 	#CONTROLLER NODE
 	10.0.0.11   controller

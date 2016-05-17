@@ -87,6 +87,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
@@ -163,7 +166,7 @@
 <p>Live migration is the movement of a live instance from one compute node to another. A hugely sought-after feature by cloud administrators, it’s used primarily to achieve zero downtime during cloud maintenance and can also be a useful feature to achieve performance as live instances can be moved from a heavily loaded compute node to a less loaded compute node.</p>
 <p>Planning for live migration has to be done at the initial stage of planning and designing an OpenStack deployment. Some things to take into consideration are as follows:</p>
 <ul class="simple">
-<li>At the moment, not all hypervisors support live migration in OpenStack; therefore, it’s best to check HypervisorSupportMatrix to see if your hypervisor supports live migration. <a class="reference internal" href="../glossary.html#term-kvm"><em class="xref std std-term">KVM</em></a>, QEMU, XenServer/XCP, and HyperV are some of the currently supported hypervisors.</li>
+<li>At the moment, not all hypervisors support live migration in OpenStack; therefore, it’s best to check HypervisorSupportMatrix to see if your hypervisor supports live migration. <em class="xref std std-term">KVM</em>, QEMU, XenServer/XCP, and HyperV are some of the currently supported hypervisors.</li>
 <li>In a typical Openstack deployment, every compute node manages its instances locally in a dedicated directory (for example, <tt class="docutils literal"><span class="pre">/var/lib/nova/instances/</span></tt>) but for live migration, this folder has to be in a centralized location and shared across all the compute nodes. Hence, a shared file system or block storage is an important requirement for enabling live migration. For shared storage, a distributed file system such as GlusterFS, NFS needs to be properly configured and running before live migration can be performed. SAN storage protocols such as Fibre Channel (FC) and iSCSI can also be used for shared storage.</li>
 <li>For file permissions when accessing the centralized storage in the shared storage, you must ensure that the UID and GID of Compute (nova) user is the same on the controller node and on all of the compute nodes (the assumption here is that the shared storage is on the controller node). Also, the UID and GID of libvirt-qemu must be the same on all compute nodes.</li>
 <li>It’s important to specify vncserver_listen=0.0.0.0 so that vnc server can accept connections from all of the compute nodes regardless of where the instances are running. If this is not set, accessing the migrated instances through vnc could be an issue because the destination compute node’s ip address does not match that of the source compute node.</li>

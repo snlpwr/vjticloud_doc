@@ -31,3 +31,4 @@ Edit ``/etc/hosts`` on each node and add entries of hosts as per requirement
 	10.0.0.51   object1
 	10.0.0.52   object2
 
+.. note:: You can change ip addresses according to your network configuration.

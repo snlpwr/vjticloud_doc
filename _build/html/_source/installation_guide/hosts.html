@@ -87,6 +87,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
@@ -153,31 +156,31 @@
   <div class="section" id="how-to-configure-hosts-in-network">
 <h1>How to configure hosts in network<a class="headerlink" href="#how-to-configure-hosts-in-network" title="Permalink to this headline">¶</a></h1>
 <p>Edit <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt> on each node and add entries of hosts as per requirement</p>
-<div class="highlight-python"><div class="highlight"><pre>#CONTROLLER NODE
-10.0.0.11   controller
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span>CONTROLLER NODE
+<span class="go">10.0.0.11   controller</span>
 
-# NETWORK NODE
-10.0.0.21   network
+<span class="gp">#</span> NETWORK NODE
+<span class="go">10.0.0.21   network</span>
 
-# COMPUTE NODES
-10.0.0.31   compute1
-10.0.0.32   compute2
-10.0.0.33   compute3
-10.0.0.34   compute4
-10.0.0.35   compute5
-10.0.0.36   compute6
-10.0.0.37   compute7
-10.0.0.38   compute8
-10.0.0.39   compute9
-10.0.0.40   compute10
+<span class="gp">#</span> COMPUTE NODES
+<span class="go">10.0.0.31   compute1</span>
+<span class="go">10.0.0.32   compute2</span>
+<span class="go">10.0.0.33   compute3</span>
+<span class="go">10.0.0.34   compute4</span>
+<span class="go">10.0.0.35   compute5</span>
+<span class="go">10.0.0.36   compute6</span>
+<span class="go">10.0.0.37   compute7</span>
+<span class="go">10.0.0.38   compute8</span>
+<span class="go">10.0.0.39   compute9</span>
+<span class="go">10.0.0.40   compute10</span>
 
-# BLOCK STORAGE NODES
-10.0.0.41   block1
-10.0.0.42   block2
+<span class="gp">#</span> BLOCK STORAGE NODES
+<span class="go">10.0.0.41   block1</span>
+<span class="go">10.0.0.42   block2</span>
 
-# OBJECT STORAGE NODES
-10.0.0.51   object1
-10.0.0.52   object2
+<span class="gp">#</span> OBJECT STORAGE NODES
+<span class="go">10.0.0.51   object1</span>
+<span class="go">10.0.0.52   object2</span>
 </pre></div>
 </div>
 <div class="admonition note">

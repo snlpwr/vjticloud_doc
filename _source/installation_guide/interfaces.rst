@@ -23,7 +23,7 @@ As per openstack kilo documentation we require to deal with 4 type of networks a
 
 configure /etc/network/interfaces on controller node as follows
 
-::
+.. code-block:: console
 
 	# The loopback network interface
 	auto lo

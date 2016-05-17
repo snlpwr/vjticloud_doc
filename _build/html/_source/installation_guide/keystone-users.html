@@ -87,6 +87,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="identity_service.html">Identity Service</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="keystone-install.html">Install and configure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="keystone-services.html">Create the service entity and API endpoints</a></li>
@@ -162,8 +165,8 @@
   <div class="section" id="create-a-domain-projects-users-and-roles">
 <h1>Create a domain, projects, users, and roles<a class="headerlink" href="#create-a-domain-projects-users-and-roles" title="Permalink to this headline">¶</a></h1>
 <p>The Identity service provides authentication services for each OpenStack
-service. The authentication service uses a combination of <em class="xref std std-term">domains</em>, <em class="xref std std-term">projects</em> (tenants), <em class="xref std std-term">users</em>, and
-<em class="xref std std-term">roles</em>.</p>
+service. The authentication service uses a combination of <a class="reference internal" href="../glossary.html#term-domain"><em class="xref std std-term">domains</em></a>, <a class="reference internal" href="../glossary.html#term-project"><em class="xref std std-term">projects</em></a> (tenants), <a class="reference internal" href="../glossary.html#term-user"><em class="xref std std-term">users</em></a>, and
+<a class="reference internal" href="../glossary.html#term-role"><em class="xref std std-term">roles</em></a>.</p>
 <ol class="arabic">
 <li><p class="first">Create the <tt class="docutils literal"><span class="pre">default</span></tt> domain:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> openstack domain create --description <span class="s2">&quot;Default Domain&quot;</span> default

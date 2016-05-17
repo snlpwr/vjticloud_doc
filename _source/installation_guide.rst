@@ -4,6 +4,9 @@ Installation Guide
 .. toctree::
    :maxdepth: 2
 
+   /_source/installation_guide/conventions
+   /_source/installation_guide/overview
+   /_source/installation_guide/environment
    /_source/installation_guide/identity_service
    /_source/installation_guide/hardware_requirement
    /_source/installation_guide/ubuntu_installation
