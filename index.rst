@@ -6,14 +6,14 @@
 Welcome to VJTICloud's Documentation!
 =====================================
 
-`Click here to login <http://www.python.org/>`_
+`Click here to login </horizon>`_
 
 .. .. image:: /_images/logo.png
 
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    /_source/introduction
    /_source/features

@@ -58,17 +58,11 @@ Install and configure components
 
 .. include:: shared/note_configuration_vary_by_distribution.rst
 
-.. note::
-
-This guide uses the Apache HTTP server with ``mod_wsgi`` to serve
-Identity service requests on ports 5000 and 35357. By default, the
-keystone service still listens on these ports. Therefore, this guide
-manually disables the keystone service.
+.. note:: This guide uses the Apache HTTP server with ``mod_wsgi`` to serve Identity service requests on ports 5000 and 35357. By default, the keystone service still listens on these ports. Therefore, this guide manually disables the keystone service.
 
 .. only:: ubuntu
 
-#. Disable the keystone service from starting automatically after
- installation:
+#. Disable the keystone service from starting automatically after installation:
 
  .. code-block:: console
 
@@ -100,8 +94,7 @@ manually disables the keystone service.
 
 .. only:: obs or rdo or ubuntu
 
-3. Edit the ``/etc/keystone/keystone.conf`` file and complete the following
- actions:
+3. Edit the ``/etc/keystone/keystone.conf`` file and complete the following actions:
 
  * In the ``[DEFAULT]`` section, define the value of the initial
    administration token:
@@ -311,15 +304,13 @@ Configure the Apache HTTP server
 
 .. only:: rdo
 
-#. Edit the ``/etc/httpd/conf/httpd.conf`` file and configure the
- ``ServerName`` option to reference the controller node:
+#. Edit the ``/etc/httpd/conf/httpd.conf`` file and configure the ``ServerName`` option to reference the controller node:
 
  .. code-block:: apache
 
     ServerName controller
 
-#. Create the ``/etc/httpd/conf.d/wsgi-keystone.conf`` file with
- the following content:
+#. Create the ``/etc/httpd/conf.d/wsgi-keystone.conf`` file with the following content:
 
  .. code-block:: apache
 
@@ -358,15 +349,13 @@ Configure the Apache HTTP server
 
 .. only:: ubuntu
 
-#. Edit the ``/etc/apache2/apache2.conf`` file and configure the
- ``ServerName`` option to reference the controller node:
+#. Edit the ``/etc/apache2/apache2.conf`` file and configure the ``ServerName`` option to reference the controller node:
 
  .. code-block:: apache
 
     ServerName controller
 
-#. Create the ``/etc/apache2/sites-available/wsgi-keystone.conf`` file
- with the following content:
+#. Create the ``/etc/apache2/sites-available/wsgi-keystone.conf`` file with the following content:
 
  .. code-block:: apache
 
@@ -411,15 +400,13 @@ Configure the Apache HTTP server
 
 .. only:: obs
 
-#. Edit the ``/etc/sysconfig/apache2`` file and configure the
- ``APACHE_SERVERNAME`` option to reference the controller node:
+#. Edit the ``/etc/sysconfig/apache2`` file and configure the ``APACHE_SERVERNAME`` option to reference the controller node:
 
  .. code-block:: apache
 
     APACHE_SERVERNAME="controller"
 
-#. Create the ``/etc/apache2/conf.d/wsgi-keystone.conf`` file
- with the following content:
+#. Create the ``/etc/apache2/conf.d/wsgi-keystone.conf`` file with the following content:
 
  .. code-block:: apache
 

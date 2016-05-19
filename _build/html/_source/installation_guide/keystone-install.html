@@ -216,16 +216,15 @@ initial configuration:</p>
 </div>
 <div class="section" id="install-and-configure-components">
 <h2>Install and configure components<a class="headerlink" href="#install-and-configure-components" title="Permalink to this headline">¶</a></h2>
-<p>This guide uses the Apache HTTP server with <tt class="docutils literal"><span class="pre">mod_wsgi</span></tt> to serve
-Identity service requests on ports 5000 and 35357. By default, the
-keystone service still listens on these ports. Therefore, this guide
-manually disables the keystone service.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide uses the Apache HTTP server with <tt class="docutils literal"><span class="pre">mod_wsgi</span></tt> to serve Identity service requests on ports 5000 and 35357. By default, the keystone service still listens on these ports. Therefore, this guide manually disables the keystone service.</p>
+</div>
 <ol class="arabic simple">
-<li>Disable the keystone service from starting automatically after</li>
+<li>Disable the keystone service from starting automatically after installation:</li>
 </ol>
 <blockquote>
-<div><p>installation:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> <span class="nb">echo</span> <span class="s2">&quot;manual&quot;</span> &gt; /etc/init/keystone.override
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> <span class="nb">echo</span> <span class="s2">&quot;manual&quot;</span> &gt; /etc/init/keystone.override
 </pre></div>
 </div>
 </div></blockquote>
@@ -240,11 +239,10 @@ manually disables the keystone service.</p>
 <blockquote>
 <div></div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Edit the <tt class="docutils literal"><span class="pre">/etc/keystone/keystone.conf</span></tt> file and complete the following</li>
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/keystone/keystone.conf</span></tt> file and complete the following actions:</li>
 </ol>
 <blockquote>
-<div><p>actions:</p>
-<ul>
+<div><ul>
 <li><p class="first">In the <tt class="docutils literal"><span class="pre">[DEFAULT]</span></tt> section, define the value of the initial
 administration token:</p>
 <div class="highlight-ini"><div class="highlight"><pre>[DEFAULT]
@@ -423,20 +421,18 @@ below commands:</p>
 <div class="section" id="configure-the-apache-http-server">
 <h2>Configure the Apache HTTP server<a class="headerlink" href="#configure-the-apache-http-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Edit the <tt class="docutils literal"><span class="pre">/etc/httpd/conf/httpd.conf</span></tt> file and configure the</li>
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/httpd/conf/httpd.conf</span></tt> file and configure the <tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</li>
 </ol>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</p>
-<div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
+<div><div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
 </pre></div>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Create the <tt class="docutils literal"><span class="pre">/etc/httpd/conf.d/wsgi-keystone.conf</span></tt> file with</li>
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/httpd/conf.d/wsgi-keystone.conf</span></tt> file with the following content:</li>
 </ol>
 <blockquote>
-<div><p>the following content:</p>
-<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<div><div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
 <span class="nb">Listen</span> <span class="m">35357</span>
 
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
@@ -472,20 +468,18 @@ below commands:</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Edit the <tt class="docutils literal"><span class="pre">/etc/apache2/apache2.conf</span></tt> file and configure the</li>
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/apache2/apache2.conf</span></tt> file and configure the <tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</li>
 </ol>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">ServerName</span></tt> option to reference the controller node:</p>
-<div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
+<div><div class="highlight-apache"><div class="highlight"><pre><span class="nb">ServerName</span> controller
 </pre></div>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/sites-available/wsgi-keystone.conf</span></tt> file</li>
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/sites-available/wsgi-keystone.conf</span></tt> file with the following content:</li>
 </ol>
 <blockquote>
-<div><p>with the following content:</p>
-<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<div><div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
 <span class="nb">Listen</span> <span class="m">35357</span>
 
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
@@ -529,20 +523,18 @@ below commands:</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Edit the <tt class="docutils literal"><span class="pre">/etc/sysconfig/apache2</span></tt> file and configure the</li>
+<li>Edit the <tt class="docutils literal"><span class="pre">/etc/sysconfig/apache2</span></tt> file and configure the <tt class="docutils literal"><span class="pre">APACHE_SERVERNAME</span></tt> option to reference the controller node:</li>
 </ol>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">APACHE_SERVERNAME</span></tt> option to reference the controller node:</p>
-<div class="highlight-apache"><div class="highlight"><pre>APACHE_SERVERNAME=&quot;controller&quot;
+<div><div class="highlight-apache"><div class="highlight"><pre>APACHE_SERVERNAME=&quot;controller&quot;
 </pre></div>
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/conf.d/wsgi-keystone.conf</span></tt> file</li>
+<li>Create the <tt class="docutils literal"><span class="pre">/etc/apache2/conf.d/wsgi-keystone.conf</span></tt> file with the following content:</li>
 </ol>
 <blockquote>
-<div><p>with the following content:</p>
-<div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
+<div><div class="highlight-apache"><div class="highlight"><pre><span class="nb">Listen</span> <span class="m">5000</span>
 <span class="nb">Listen</span> <span class="m">35357</span>
 
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:5000</span><span class="nt">&gt;</span>
