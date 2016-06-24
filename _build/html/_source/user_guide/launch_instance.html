@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Launch an instance &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="User Guide" href="../user_guide.html"/>
+        <link rel="next" title="Things you need to know!" href="../things_you_need_to_know.html"/>
+        <link rel="prev" title="User Guide" href="../user_guide.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Launch an instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-network-security-group-configure-the-rules">Create the Network security group &amp; Configure the Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-key-pair-to-access-the-instance">Create the key-pair to access the instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-the-new-openstack-instance">Launch the New Openstack Instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../user_guide.html">User Guide</a> &raquo;</li>
+      
+    <li>Launch an instance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/user_guide/launch_instance.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="launch-an-instance">
+<h1>Launch an instance<a class="headerlink" href="#launch-an-instance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-the-network-security-group-configure-the-rules">
+<h2>Create the Network security group &amp; Configure the Rules<a class="headerlink" href="#create-the-network-security-group-configure-the-rules" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Login to Openstack Dashboard as normal user (demo).</p>
+<img alt="../../_images/Instance-Overview.png" src="../../_images/Instance-Overview.png" />
+</li>
+<li><p class="first">Navigate to Access &amp; Security . Select the tab called “Security Groups”.</p>
+<img alt="../../_images/Access-Security.png" src="../../_images/Access-Security.png" />
+</li>
+<li><p class="first">Click on “Create Security group”.  Enter the name and description for the security group.</p>
+<img alt="../../_images/Access-Security_Create-Security-group.png" src="../../_images/Access-Security_Create-Security-group.png" />
+</li>
+<li><p class="first">Once the group has been created successfully, Click on “Manage Rules”.</p>
+</li>
+<li><p class="first">Click  on “Add Rule”.</p>
+</li>
+<li><p class="first">Allow ssh from anywhere to the instances (SSH).</p>
+</li>
+<li><p class="first">Similarly , allow “ping” as well to this host from anywhere (ALL ICMP).</p>
+</li>
+</ol>
+</div>
+<div class="section" id="create-the-key-pair-to-access-the-instance">
+<h2>Create the key-pair to access the instance<a class="headerlink" href="#create-the-key-pair-to-access-the-instance" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Login to Openstack Dashboard.</li>
+<li>Navigate to security &amp; access. Click the tab called “Key Pairs” and click on  “Create key Pair”.</li>
+<li>Enter the Key pair name.  (Keep Some meaning full name). Click on “Create key Pair”.</li>
+<li>The key pair will be automatically downloaded to your laptop.  If it didn’t download, click the link to download it. Keep the key safe since you can’t download it again.</li>
+</ol>
+</div>
+<div class="section" id="launch-the-new-openstack-instance">
+<h2>Launch the New Openstack Instance<a class="headerlink" href="#launch-the-new-openstack-instance" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Login to Openstack Dashboard.</p>
+</li>
+<li><p class="first">Click on “Launch Instance ” tab.</p>
+</li>
+<li><p class="first">Select the instance details like below.</p>
+<blockquote>
+<div><p><strong>Availability Zone</strong> – nova .  (Need to select your compute node). In our case control node &amp; compute nodes are same.</p>
+<p><strong>Instance Name</strong> – Enter the desired instance name</p>
+<p><strong>Flavour</strong> – Select the available flavour according  to your need. (See the details in right side)</p>
+<p><strong>Instance Count</strong> –  Enter the instance Count</p>
+<p><strong>Boot Source</strong> – Select boot from pre-defined image.</p>
+<p><strong>Image Name</strong> – select “cirros” since its very small Linux foot print for testing openstack.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Click on Access &amp; security tab for the instance. From the drop down box, select the key pair “UAPAIR” which we have created earlier. Also select the security group which we have created. Click “Launch” to launch the new instance.</p>
+</li>
+<li><p class="first">Here you can see that instance has been launched. It will take few seconds/minutes to boot the instance depends on the image size which we have selected.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../things_you_need_to_know.html" class="btn btn-neutral float-right" title="Things you need to know!" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../user_guide.html" class="btn btn-neutral" title="User Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

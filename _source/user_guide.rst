@@ -1,10 +1,8 @@
 User Guide
 ==========
 
-**Launch an instance**
+.. toctree::
+   :maxdepth: 2
 
-1. Go to ``Project > Compute > Access & Security > Key Pairs`` then create key Pair or Import Key Pair 
+   /_source/user_guide/launch_instance
 
-2. Go to ``Project > Network > Networks`` then create Network 
-
-3. Go to ``Project > Compute > Instances`` then Launch Instance 
