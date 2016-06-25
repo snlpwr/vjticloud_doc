@@ -90,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">Launch an instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-network-and-subnet">Create the Network and Subnet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-the-network-security-group-configure-the-rules">Create the Network security group &amp; Configure the Rules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-the-key-pair-to-access-the-instance">Create the key-pair to access the instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#launch-the-new-openstack-instance">Launch the New Openstack Instance</a></li>
@@ -147,59 +148,142 @@
             
   <div class="section" id="launch-an-instance">
 <h1>Launch an instance<a class="headerlink" href="#launch-an-instance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-the-network-and-subnet">
+<h2>Create the Network and Subnet<a class="headerlink" href="#create-the-network-and-subnet" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Login to Openstack Dashboard as normal user (demo).</p>
+<img alt="../../_images/instance-overview.png" src="../../_images/instance-overview.png" />
+</li>
+<li><p class="first">Navigate to Network. Select Network Topology or Networks.</p>
+<img alt="../../_images/nt-network-topology.png" src="../../_images/nt-network-topology.png" />
+</li>
+<li><p class="first">Click on &#8220;Create Network&#8221;. Enter the Network name and set Admin State <tt class="docutils literal"><span class="pre">UP</span></tt>. Click next</p>
+<img alt="../../_images/nt-create-network.png" src="../../_images/nt-create-network.png" />
+</li>
+<li><p class="first">Set the options Subnet Name, Network Address(CIDR Format), IP Version and Gateway IP. Click next</p>
+<img alt="../../_images/nt-subnet.png" src="../../_images/nt-subnet.png" />
+</li>
+<li><p class="first">Set additional details as per your requirement or leave blank. Click create.</p>
+<img alt="../../_images/nt-subnet-details.png" src="../../_images/nt-subnet-details.png" />
+</li>
+<li><p class="first">Once you have created Network, Network topology will look like below.</p>
+<img alt="../../_images/nt-network-topology-demo-net.png" src="../../_images/nt-network-topology-demo-net.png" />
+</li>
+<li><p class="first">Click on &#8220;Create router&#8221;. Enter Router Name, set Admin State <tt class="docutils literal"><span class="pre">UP</span></tt> and External Network <tt class="docutils literal"><span class="pre">VJTINet</span></tt>.</p>
+<img alt="../../_images/nt-create-router.png" src="../../_images/nt-create-router.png" />
+</li>
+<li><p class="first">Navigate to Routers. Click on the router you just created.</p>
+<img alt="../../_images/nt-routers.png" src="../../_images/nt-routers.png" />
+</li>
+<li><p class="first">Select the &#8220;Interfaces&#8221; tab and click on &#8220;Add Interface&#8221;.</p>
+<img alt="../../_images/nt-router-details.png" src="../../_images/nt-router-details.png" />
+</li>
+<li><p class="first">Select &#8220;Subnet&#8221;, IP Address for router interface(Optional). Click on Add Interface.</p>
+<img alt="../../_images/nt-router-add-interface.png" src="../../_images/nt-router-add-interface.png" />
+</li>
+<li><p class="first">Final Network Topology will look like below.</p>
+<img alt="../../_images/nt-network-topology-final.png" src="../../_images/nt-network-topology-final.png" />
+</li>
+</ol>
+</div>
 <div class="section" id="create-the-network-security-group-configure-the-rules">
 <h2>Create the Network security group &amp; Configure the Rules<a class="headerlink" href="#create-the-network-security-group-configure-the-rules" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Login to Openstack Dashboard as normal user (demo).</p>
-<img alt="../../_images/Instance-Overview.png" src="../../_images/Instance-Overview.png" />
+<li><p class="first">Navigate to Access &amp; Security. Select the tab called “Security Groups”.</p>
+<img alt="../../_images/as-access-security.png" src="../../_images/as-access-security.png" />
 </li>
-<li><p class="first">Navigate to Access &amp; Security . Select the tab called “Security Groups”.</p>
-<img alt="../../_images/Access-Security.png" src="../../_images/Access-Security.png" />
-</li>
-<li><p class="first">Click on “Create Security group”.  Enter the name and description for the security group.</p>
-<img alt="../../_images/Access-Security_Create-Security-group.png" src="../../_images/Access-Security_Create-Security-group.png" />
+<li><p class="first">Click on “Create Security group”. Enter the name and description for the security group.</p>
+<img alt="../../_images/as-create-security-group.png" src="../../_images/as-create-security-group.png" />
 </li>
 <li><p class="first">Once the group has been created successfully, Click on “Manage Rules”.</p>
+<img alt="../../_images/as-manage-rules.png" src="../../_images/as-manage-rules.png" />
 </li>
 <li><p class="first">Click  on “Add Rule”.</p>
+<img alt="../../_images/as-add-rule.png" src="../../_images/as-add-rule.png" />
 </li>
 <li><p class="first">Allow ssh from anywhere to the instances (SSH).</p>
+<img alt="../../_images/as-add-rule-SSH.png" src="../../_images/as-add-rule-SSH.png" />
 </li>
 <li><p class="first">Similarly , allow “ping” as well to this host from anywhere (ALL ICMP).</p>
+<img alt="../../_images/as-add-rule-PING.png" src="../../_images/as-add-rule-PING.png" />
+<p>Once you have added those rules to the security group, it will look like below.</p>
+<img alt="../../_images/as-after-adding-rule.png" src="../../_images/as-after-adding-rule.png" />
 </li>
 </ol>
 </div>
 <div class="section" id="create-the-key-pair-to-access-the-instance">
 <h2>Create the key-pair to access the instance<a class="headerlink" href="#create-the-key-pair-to-access-the-instance" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Login to Openstack Dashboard.</li>
-<li>Navigate to security &amp; access. Click the tab called “Key Pairs” and click on  “Create key Pair”.</li>
-<li>Enter the Key pair name.  (Keep Some meaning full name). Click on “Create key Pair”.</li>
-<li>The key pair will be automatically downloaded to your laptop.  If it didn’t download, click the link to download it. Keep the key safe since you can’t download it again.</li>
+<ol class="arabic">
+<li><p class="first">Navigate to security &amp; access. Click the tab called “Key Pairs” and click on  “Create key Pair”.</p>
+<img alt="../../_images/ask-key-pairs.png" src="../../_images/ask-key-pairs.png" />
+</li>
+<li><p class="first">Enter the Key pair name.  (Keep Some meaning full name). Click on “Create key Pair”.</p>
+<img alt="../../_images/ask-create-key-pair.png" src="../../_images/ask-create-key-pair.png" />
+</li>
+<li><p class="first">The key pair will be automatically downloaded to your laptop.  If it didn’t download, click the link to download it. Keep the key safe since you can’t download it again.</p>
+<img alt="../../_images/ask-download-key-pair.png" src="../../_images/ask-download-key-pair.png" />
+</li>
 </ol>
 </div>
 <div class="section" id="launch-the-new-openstack-instance">
 <h2>Launch the New Openstack Instance<a class="headerlink" href="#launch-the-new-openstack-instance" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Login to Openstack Dashboard.</p>
+<li><p class="first">Click on “Launch Instance ” button.</p>
+<img alt="../../_images/instances-launch-instance.png" src="../../_images/instances-launch-instance.png" />
 </li>
-<li><p class="first">Click on “Launch Instance ” tab.</p>
-</li>
-<li><p class="first">Select the instance details like below.</p>
-<blockquote>
-<div><p><strong>Availability Zone</strong> – nova .  (Need to select your compute node). In our case control node &amp; compute nodes are same.</p>
+<li><p class="first">Set the instance details like below.</p>
+<img alt="../../_images/instances-launch-details.png" src="../../_images/instances-launch-details.png" />
+<p><strong>Availability Zone</strong> – nova .  (Need to select your compute node).</p>
 <p><strong>Instance Name</strong> – Enter the desired instance name</p>
 <p><strong>Flavour</strong> – Select the available flavour according  to your need. (See the details in right side)</p>
 <p><strong>Instance Count</strong> –  Enter the instance Count</p>
 <p><strong>Boot Source</strong> – Select boot from pre-defined image.</p>
 <p><strong>Image Name</strong> – select “cirros” since its very small Linux foot print for testing openstack.</p>
-</div></blockquote>
 </li>
-<li><p class="first">Click on Access &amp; security tab for the instance. From the drop down box, select the key pair “UAPAIR” which we have created earlier. Also select the security group which we have created. Click “Launch” to launch the new instance.</p>
+<li><p class="first">Click on Access &amp; security tab for the instance. From the drop down box, select the key pair “demo-key” which we have created earlier. Also select the security group which we have created.</p>
+<img alt="../../_images/instances-launch-access&amp;security.png" src="../../_images/instances-launch-access&amp;security.png" />
+</li>
+<li><p class="first">Click on Networking tab, Select network by clicking on <strong>+</strong> sign.</p>
+<img alt="../../_images/instances-launch-networking.png" src="../../_images/instances-launch-networking.png" />
+</li>
+<li><p class="first">You can customise your instance after it has launched using the <strong>Post Creation</strong> (optional) option.</p>
+</li>
+<li><p class="first">Specify <strong>Advanced options</strong> (optional) to use when launching an instance. Click “Launch” to launch the new instance.</p>
 </li>
 <li><p class="first">Here you can see that instance has been launched. It will take few seconds/minutes to boot the instance depends on the image size which we have selected.</p>
+<img alt="../../_images/instances-launch-running.png" src="../../_images/instances-launch-running.png" />
+</li>
+<li><p class="first">If you would like to see the instance console, click the instance name and select the console tab. You should be able to access the instance here as well by double clicking the console bar.</p>
+<img alt="../../_images/instances-launch-console.png" src="../../_images/instances-launch-console.png" />
+</li>
+<li><p class="first">You can also check the log to know the instance is booted or not. (If console is not working)</p>
+<img alt="../../_images/instances-launch-log.png" src="../../_images/instances-launch-log.png" />
+</li>
+<li><p class="first">Assign floating ip to an instance so we can access it from external network.</p>
+<img alt="../../_images/instances-access-floating-ip.png" src="../../_images/instances-access-floating-ip.png" />
+</li>
+<li><p class="first">Add Floating IP from pool of IP addresses.</p>
+<img alt="../../_images/instances-access-floating-ip-range.png" src="../../_images/instances-access-floating-ip-range.png" />
+</li>
+<li><p class="first">Allocate IP.</p>
+<img alt="../../_images/instances-access-floating-ip-allocate.png" src="../../_images/instances-access-floating-ip-allocate.png" />
+</li>
+<li><p class="first">Associate to your VM.</p>
+<img alt="../../_images/instances-access-floating-ip-associate.png" src="../../_images/instances-access-floating-ip-associate.png" />
+</li>
+<li><p class="first">You can see floating IP in instance table.</p>
+<img alt="../../_images/instances-access-floating-ip-table.png" src="../../_images/instances-access-floating-ip-table.png" />
+</li>
+<li><p class="first">Now you can SSH into your VM using following.</p>
 </li>
 </ol>
+<div class="highlight-python"><div class="highlight"><pre>ssh -i key.pem username@floating-ip-of-VM
+</pre></div>
+</div>
+<p>for example</p>
+<div class="highlight-python"><div class="highlight"><pre>ssh -i demo-key.pem cirros@172.18.38.140
+</pre></div>
+</div>
 </div>
 </div>
 
