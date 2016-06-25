@@ -144,7 +144,14 @@ Launch the New Openstack Instance
 
    .. image:: /_images/instances-launch-networking.png
 
-#. You can customise your instance after it has launched using the **Post Creation** (optional) option.
+#. You can customise your instance after it has launched using the **Post Creation** (optional) option. Following is a example script to set password to user in Ubuntu Server and centOS cloud images.
+
+::
+
+	#cloud-config
+	password: mypassword
+	chpasswd: { expire: False }
+	ssh_pwauth: True
 
 #. Specify **Advanced options** (optional) to use when launching an instance. Click “Launch” to launch the new instance.
 

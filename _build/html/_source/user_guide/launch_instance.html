@@ -246,7 +246,13 @@
 <li><p class="first">Click on Networking tab, Select network by clicking on <strong>+</strong> sign.</p>
 <img alt="../../_images/instances-launch-networking.png" src="../../_images/instances-launch-networking.png" />
 </li>
-<li><p class="first">You can customise your instance after it has launched using the <strong>Post Creation</strong> (optional) option.</p>
+<li><p class="first">You can customise your instance after it has launched using the <strong>Post Creation</strong> (optional) option. Following is a example script to set password to user in Ubuntu Server and centOS cloud images.</p>
+<div class="highlight-python"><div class="highlight"><pre>#cloud-config
+password: mypassword
+chpasswd: { expire: False }
+ssh_pwauth: True
+</pre></div>
+</div>
 </li>
 <li><p class="first">Specify <strong>Advanced options</strong> (optional) to use when launching an instance. Click “Launch” to launch the new instance.</p>
 </li>
