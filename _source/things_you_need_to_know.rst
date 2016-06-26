@@ -15,6 +15,7 @@ Things you need to know!
    /_source/things/lvm
    /_source/things/proxy_linux
    /_source/things/git_proxy
+   /_source/things/git_commands
    /_source/things/google_search_commands
    /_source/things/reverse_ssh
 
