@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../index.html"/>
-        <link rel="next" title="Switch to console mode in Linux" href="things/switch_to_console.html"/>
+        <link rel="next" title="Ubuntu upgrade vs dist-upgrade" href="things/upgrade_vs_dist-upgrade.html"/>
         <link rel="prev" title="Launch an instance" href="user_guide/launch_instance.html"/> 
 
   
@@ -89,10 +89,17 @@
 <li class="toctree-l1"><a class="reference internal" href="admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Things you need to know!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="things/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/remove_vs_purge.html">apt-get remove vs apt-get purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/live_vs_block.html">Live migration vs block migration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="things/switch_to_console.html">Switch to console mode in Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="things/mount_usb.html">Mount USB drive in Linux/Ubuntu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="things/change_MAC.html">Change/Clone MAC address of NIC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="things/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/gui_in_ubuntu_server.html">GUI in UbuntuServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/clean_ubuntu.html">Clean Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/lvm.html">Logical Volume Management(LVM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/git_proxy.html">GIT proxy settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/google_search_commands.html">Google search commands</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
@@ -144,10 +151,24 @@
 <h1>Things you need to know!<a class="headerlink" href="#things-you-need-to-know" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="things/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="things/remove_vs_purge.html">apt-get remove vs apt-get purge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="things/live_vs_block.html">Live migration vs block migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="things/switch_to_console.html">Switch to console mode in Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="things/mount_usb.html">Mount USB drive in Linux/Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="things/change_MAC.html">Change/Clone MAC address of NIC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="things/upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="things/gui_in_ubuntu_server.html">GUI in UbuntuServer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="things/clean_ubuntu.html">Clean Ubuntu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="things/clean_ubuntu.html#clean-all-junk">Clean all junk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="things/lvm.html">Logical Volume Management(LVM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="things/git_proxy.html">GIT proxy settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="things/git_proxy.html#set-git-proxy">Set git proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="things/git_proxy.html#unset-git-proxy">Unset git proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="things/google_search_commands.html">Google search commands</a></li>
 </ul>
 </div>
 </div>
@@ -159,7 +180,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="things/switch_to_console.html" class="btn btn-neutral float-right" title="Switch to console mode in Linux" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="things/upgrade_vs_dist-upgrade.html" class="btn btn-neutral float-right" title="Ubuntu upgrade vs dist-upgrade" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="user_guide/launch_instance.html" class="btn btn-neutral" title="Launch an instance" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

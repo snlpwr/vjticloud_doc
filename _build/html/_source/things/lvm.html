@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logical Volume Management(LVM) &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Things you need to know!" href="../things_you_need_to_know.html"/>
+        <link rel="next" title="GIT proxy settings" href="git_proxy.html"/>
+        <link rel="prev" title="Clean Ubuntu" href="clean_ubuntu.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remove_vs_purge.html">apt-get remove vs apt-get purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="live_vs_block.html">Live migration vs block migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_to_console.html">Switch to console mode in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mount_usb.html">Mount USB drive in Linux/Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_MAC.html">Change/Clone MAC address of NIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_in_ubuntu_server.html">GUI in UbuntuServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clean_ubuntu.html">Clean Ubuntu</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Logical Volume Management(LVM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_proxy.html">GIT proxy settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../things_you_need_to_know.html">Things you need to know!</a> &raquo;</li>
+      
+    <li>Logical Volume Management(LVM)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/things/lvm.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logical-volume-management-lvm">
+<h1>Logical Volume Management(LVM)<a class="headerlink" href="#logical-volume-management-lvm" title="Permalink to this headline">¶</a></h1>
+<img alt="../../_images/lvm.jpg" src="../../_images/lvm.jpg" />
+<ol class="arabic">
+<li><p class="first">Create Partitions</p>
+<blockquote>
+<div><p>Use your preferred partitioning tool to create partitions.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Create physical volumes</p>
+<blockquote>
+<div><p>Use the pvcreate command to create physical volumes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pvcreate</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span>
+<span class="n">pvcreate</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb2</span>
+</pre></div>
+</div>
+<p>The pvdisplay command displays all physical volumes on your system.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pvdisplay</span>
+</pre></div>
+</div>
+<p>Alternatively the following command should be used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pvdisplay</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Create Virtual Group</p>
+<blockquote>
+<div><p>At this stage you need to create a virtual group which will serve as a container for your physical volumes. To create a virtual group with the name &#8220;mynew_vg&#8221; which will include /dev/sdb1 partition, you can issue the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>vgcreate mynew_vg /dev/sdb1
+</pre></div>
+</div>
+<p>To include both partitions at once you can use this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>vgcreate mynew_vg /dev/sdb1 /dev/sdb2
+</pre></div>
+</div>
+<p>Feel free to add new physical volumes to a virtual group by using the vgextend command.</p>
+<div class="highlight-python"><div class="highlight"><pre>vgextend mynew_vg /dev/sdb2
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Create Logical Volumes</p>
+<blockquote>
+<div><p>From your big cake (virtual group) you can cut pieces (logical volumes) which will be treated as a partitions for your linux system. To create a logical volume, named &#8220;vol01&#8221;, with a size of 400 MB from the virtual group &#8220;mynew_vg&#8221; use the following command:</p>
+<p>create a logical volume of size 400 MB -L 400
+create a logical volume of size 4 GB -L 4G</p>
+<div class="highlight-python"><div class="highlight"><pre>lvcreate -L 400 -n vol01 mynew_vg
+</pre></div>
+</div>
+<p>With a following example you will create a logical volume with a size of 1GB and with the name vol02:</p>
+<div class="highlight-python"><div class="highlight"><pre>lvcreate -L 1000 -n vol02 mynew_vg
+</pre></div>
+</div>
+<p>Note the free size in virtual group.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">vgdisplay</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Create File system on logical volumes</p>
+<blockquote>
+<div><p>The logical volume is almost ready to use. All you need to do is to create a filesystem.:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkfs.ext3 -m 0 /dev/mynew_vg/vol01
+</pre></div>
+</div>
+<p>the -m option specifies the percentage reserved for the super-user, set this to 0 if you wish not to waste any space, the default is 5%.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Extend logical volume</p>
+<blockquote>
+<div><p>The biggest advantage of logical volume manager is that you can extend your logical volumes any time you are running out of the space. To increase the size of a logical volume by another 800 MB you can run this command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lvextend</span> <span class="o">-</span><span class="n">L</span> <span class="o">+</span><span class="mi">800</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mynew_vg</span><span class="o">/</span><span class="n">vol01</span>
+</pre></div>
+</div>
+<p>The command above does not actually increase the physical size of volume, to do that you need to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">resize2fs</span>  <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mynew_vg</span><span class="o">/</span><span class="n">vol01</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Remove logical volume</p>
+<blockquote>
+<div><p>The command lvremove can be used to remove logical volumes. Make sure that before you attempt to remove logical volumes your logical volume does not have any valuable data stored on it, moreover, make sure the volume is unmounted.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lvremove</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mynew_vg</span><span class="o">/</span><span class="n">vol02</span>
+<span class="n">lvdisplay</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git_proxy.html" class="btn btn-neutral float-right" title="GIT proxy settings" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clean_ubuntu.html" class="btn btn-neutral" title="Clean Ubuntu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
