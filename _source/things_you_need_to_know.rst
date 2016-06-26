@@ -13,6 +13,8 @@ Things you need to know!
    /_source/things/gui_in_ubuntu_server
    /_source/things/clean_ubuntu
    /_source/things/lvm
+   /_source/things/proxy_linux
    /_source/things/git_proxy
    /_source/things/google_search_commands
+   /_source/things/reverse_ssh
 
