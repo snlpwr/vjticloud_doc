@@ -1,4 +1,8 @@
 Administrator Guide
 ===================
 
-Hello friends this is chapter 01.
+.. toctree::
+   :maxdepth: 2
+
+   /_source/admin_guide/admin_tab.rst
+

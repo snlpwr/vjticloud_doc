@@ -1,0 +1,103 @@
+Admin tab
+=========
+
+Administrative users can use the Admin tab to view usage and to manage instances, volumes, flavors, images, networks, and so on.
+
+   .. image:: /_images/sys_usage_overview.png
+
+From the Admin tab, you can access the following category to complete these tasks:
+
+System tab
+----------
+
+**Overview:**
+	View basic reports.
+   .. image:: /_images/sys_usage_overview.png
+
+
+**Resource Usage:**
+	Use the following tabs to view the following usages:
+   - `Usage Report:`
+		View the usage report.
+      .. image:: /_images/sys_resource_usage.png
+
+   - `Stats:` 
+		View the statistics of all resources.
+      .. image:: /_images/sys_resource_stat.png
+
+
+**Hypervisors:** 
+	View the hypervisor summary.
+   .. image:: /_images/sys_hypervisors.png  
+
+
+**Host Aggregates:** 
+	View, create, and edit host aggregates. View the list of availability zones.
+   .. image:: /_images/sys_host_aggregates.png
+
+
+**Instances:** 
+	View, pause, resume, suspend, migrate, soft or hard reboot, and delete running instances that belong to users of some, but not all, projects. Also, view the log for an instance or access an instance through VNC.
+   .. image:: /_images/sys_instances.png
+
+
+**Volumes:** 
+	Use the following tabs to complete these tasks:
+   - `Volumes:` 
+	View, create, manage, and delete volumes.
+   .. image:: /_images/sys_volumes.png
+   - `Volume Types:` 
+	View, create, manage, and delete volume types.
+   .. image:: /_images/sys_volume_types.png
+   - `Volume Snapshots:` 
+	View, manage, and delete volume snapshots.
+   .. image:: /_images/sys_volume_snapshots.png
+
+
+**Flavors:** 
+	View, create, edit, view extra specifications for, and delete flavors. A flavor is the size of an instance.
+   .. image:: /_images/sys_flavours.png
+
+
+**Images:** 
+	View, create, edit properties for, and delete custom images.
+   .. image:: /_images/sys_images.png
+
+
+**Networks:** 
+	View, create, edit properties for, and delete networks.
+   .. image:: /_images/sys_networks.png
+
+
+**Routers:** 
+	View, create, edit properties for, and delete routers.
+   .. image:: /_images/sys_routers.png
+
+
+**Defaults:** 
+	View default quota values. Quotas are hard-coded in OpenStack Compute and define the maximum allowable size and number of resources.
+   .. image:: /_images/sys_defaults.png
+
+
+**Metadata Definitions:** 
+	Import namespace and view the metadata information.
+   .. image:: /_images/sys_metadata_definitions.png
+
+
+**System Information:** 
+	Use the following tabs to view the service information:
+	- `Services:` 
+		View a list of the services.
+	   .. image:: /_images/sys_services.png
+	- `Compute Services:` 
+		View a list of all Compute services.
+	   .. image:: /_images/sys_compute_services.png
+	- `Block Storage Services:` 
+		View a list of all Block Storage services.
+	   .. image:: /_images/sys_block_storage_services.png
+	- `Network Agents:`
+		View the network agents.
+	   .. image:: /_images/sys_network_agents.png
+	- `Orchestration Services:` 
+		View a list of all Orchestration services.
+	   .. image:: /_images/sys_orchestration_services.png

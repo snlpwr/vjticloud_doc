@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remote Shutdown script &mdash; VJTICloud v0.01 documentation</title>
+  <title>How to Record Linux Terminal &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
         <link rel="up" title="Things you need to know!" href="../things_you_need_to_know.html"/>
-        <link rel="next" title="How to Record Linux Terminal" href="screen.html"/>
-        <link rel="prev" title="SSH reverse tunneling" href="reverse_ssh.html"/> 
+        <link rel="next" title="Glossary" href="../glossary.html"/>
+        <link rel="prev" title="Remote Shutdown script" href="ssh_shutdown.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -107,8 +107,11 @@
 <li class="toctree-l2"><a class="reference internal" href="git_commands.html">GIT commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="google_search_commands.html">Google search commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reverse_ssh.html">SSH reverse tunneling</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Remote Shutdown script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="screen.html">How to Record Linux Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_shutdown.html">Remote Shutdown script</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">How to Record Linux Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-scriptreplay-to-replay-scripts-using-timing-information">Using scriptreplay to replay scripts using timing information</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
@@ -144,11 +147,11 @@
       
         <li><a href="../things_you_need_to_know.html">Things you need to know!</a> &raquo;</li>
       
-    <li>Remote Shutdown script</li>
+    <li>How to Record Linux Terminal</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/things/ssh_shutdown.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/things/screen.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -158,24 +161,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="remote-shutdown-script">
-<h1>Remote Shutdown script<a class="headerlink" href="#remote-shutdown-script" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="how-to-record-linux-terminal">
+<h1>How to Record Linux Terminal<a class="headerlink" href="#how-to-record-linux-terminal" title="Permalink to this headline">¶</a></h1>
+<p>The script command stores terminal activities in a log file that can be named by a user, when a name is not provided by a user, the default file name, typescript is used.</p>
 <p>Syntax,</p>
-<div class="highlight-python"><div class="highlight"><pre>ssh hostname/host &#39;echo &quot;password&quot; | sudo -S poweroff&#39;
+<div class="highlight-python"><div class="highlight"><pre>script [options] --timing=timing_file log_filename
 </pre></div>
 </div>
-<p>Example,</p>
-<div class="highlight-python"><div class="highlight"><pre>ssh controller &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh network &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh compute1 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh compute2 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh compute3 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh block1 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh object1 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
-ssh object2 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
+<p>You may use the -a option to append the log file or typescript, retaining the prior contents.</p>
+<div class="highlight-python"><div class="highlight"><pre>script -a script.log
 </pre></div>
 </div>
-<p>Where <tt class="docutils literal"><span class="pre">password</span></tt> is password of remote machine.</p>
+<p>To log results of a single command other than an interactive shell session, use the -c option.</p>
+<div class="highlight-python"><div class="highlight"><pre>script -c &#39;hostname&#39; script.log
+</pre></div>
+</div>
+<p>If you want script to run in a quiet mode then you can use the -q option. You will not see a massage that shows script is starting or exiting.</p>
+<div class="highlight-python"><div class="highlight"><pre>script -c &#39;who&#39;  -q  script.log
+</pre></div>
+</div>
+<p>For more information use following command</p>
+<div class="highlight-python"><div class="highlight"><pre>man script
+</pre></div>
+</div>
+<div class="section" id="using-scriptreplay-to-replay-scripts-using-timing-information">
+<h2>Using scriptreplay to replay scripts using timing information<a class="headerlink" href="#using-scriptreplay-to-replay-scripts-using-timing-information" title="Permalink to this headline">¶</a></h2>
+<p>The scriptrepaly command helps to replay information in your log_file used with the script command.</p>
+<p>The timing information is defined by the -timing=file option used with the script command and file in this case is file.txt that was used with script command.</p>
+<p>Remember you need to specify the log_file you used with the script command.</p>
+<div class="highlight-python"><div class="highlight"><pre>scriptreplay --timing=time.txt script.log
+</pre></div>
+</div>
+<p>When the log_file replayed using the timing information, the commands recorded are run and their output is displayed at the same time the original output was displayed while being recorded.</p>
+</div>
 </div>
 
 
@@ -185,10 +203,10 @@ ssh object2 &#39;echo &quot;password&quot;|sudo -S poweroff&#39;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="screen.html" class="btn btn-neutral float-right" title="How to Record Linux Terminal" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="reverse_ssh.html" class="btn btn-neutral" title="SSH reverse tunneling" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ssh_shutdown.html" class="btn btn-neutral" title="Remote Shutdown script" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
