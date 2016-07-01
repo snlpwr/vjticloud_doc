@@ -1,0 +1,22 @@
+Remote Shutdown script
+======================
+
+Syntax,
+
+::
+	
+	ssh hostname/host 'echo "password" | sudo -S poweroff'
+
+Example,
+::
+
+	ssh controller 'echo "password"|sudo -S poweroff'
+	ssh network 'echo "password"|sudo -S poweroff' 
+	ssh compute1 'echo "password"|sudo -S poweroff' 
+	ssh compute2 'echo "password"|sudo -S poweroff' 
+	ssh compute3 'echo "password"|sudo -S poweroff' 
+	ssh block1 'echo "password"|sudo -S poweroff' 
+	ssh object1 'echo "password"|sudo -S poweroff' 
+	ssh object2 'echo "password"|sudo -S poweroff'
+
+Where ``password`` is password of remote machine. 

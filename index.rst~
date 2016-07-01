@@ -6,7 +6,7 @@
 Welcome to VJTICloud's Documentation!
 =====================================
 
-`Click here to login <http://www.python.org/>`_
+`Click here to login </horizon>`_
 
 .. .. image:: /_images/logo.png
 
@@ -20,6 +20,7 @@ Contents:
    /_source/installation_guide
    /_source/admin_guide
    /_source/user_guide
+   /_source/things_you_need_to_know
    /_source/glossary
 
 Indices and tables
