@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Openstack CLI &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Administrator Guide" href="../admin_guide.html"/>
+        <link rel="next" title="User Guide" href="../user_guide.html"/>
+        <link rel="prev" title="Admin tab" href="admin_tab.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="admin_tab.html">Admin tab</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Openstack CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">VJTICloud Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="../admin_guide.html">Administrator Guide</a> &raquo;</li>
+      
+    <li>Openstack CLI</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/admin_guide/cli_commands.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openstack-cli">
+<h1>Openstack CLI<a class="headerlink" href="#openstack-cli" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Login to controller</p>
+</li>
+<li><p class="first">Export variable required for openstack</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source admin-openrc.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">To check compute services run following command</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova service-list
++----+------------------+------------+----------+----------+-------+----------------------------+-----------------+
+| Id | Binary           | Host       | Zone     | Status   | State | Updated_at                 | Disabled Reason |
++----+------------------+------------+----------+----------+-------+----------------------------+-----------------+
+| 1  | nova-cert        | controller | internal | enabled  | up    | 2016-07-03T19:58:49.000000 | -               |
+| 2  | nova-consoleauth | controller | internal | enabled  | up    | 2016-07-03T19:58:49.000000 | -               |
+| 3  | nova-scheduler   | controller | internal | enabled  | up    | 2016-07-03T19:58:49.000000 | -               |
+| 4  | nova-conductor   | controller | internal | enabled  | up    | 2016-07-03T19:58:49.000000 | -               |
+| 7  | nova-compute     | compute1   | mumbai   | enabled  | up    | 2016-07-03T19:58:44.000000 | -               |
+| 8  | nova-compute     | compute2   | nova     | enabled  | up    | 2016-07-03T19:58:43.000000 | -               |
+| 9  | nova-compute     | compute3   | nova     | enabled  | up    | 2016-07-03T19:58:44.000000 | -               |
+| 10 | nova-compute     | compute4   | nova     | disabled | down  | 2016-06-16T13:45:22.000000 | -               |
++----+------------------+------------+----------+----------+-------+----------------------------+-----------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To check network services run following command</p>
+<div class="highlight-python"><div class="highlight"><pre>$ neutron agent-list
++--------------------------------------+--------------------+----------+-------+----------------+---------------------------+
+| id                                   | agent_type         | host     | alive | admin_state_up | binary                    |
++--------------------------------------+--------------------+----------+-------+----------------+---------------------------+
+| 23ad1d72-1ecb-4af7-8cd5-11b583291df7 | Metadata agent     | network  | :-)   | True           | neutron-metadata-agent    |
+| 6f714e1d-580e-4f1e-81d3-2a741abae580 | Open vSwitch agent | compute4 | xxx   | True           | neutron-openvswitch-agent |
+| 76937820-8a62-4b67-a8fb-1c45eda80b99 | Loadbalancer agent | network  | :-)   | True           | neutron-lbaas-agent       |
+| 7c4d2b0e-b5f4-48ce-a464-605ed954e83b | L3 agent           | network  | :-)   | True           | neutron-l3-agent          |
+| 7dc682a7-1c30-440d-a846-03606d10563c | DHCP agent         | network  | :-)   | True           | neutron-dhcp-agent        |
+| ab60d440-b0ba-46bb-93c1-0067597c0629 | Open vSwitch agent | network  | :-)   | True           | neutron-openvswitch-agent |
+| b9ee4d26-39a8-4e22-809a-e6605172ded9 | Open vSwitch agent | compute1 | :-)   | True           | neutron-openvswitch-agent |
+| cfc6eeb5-265a-4685-8504-9ce7f89da4aa | Open vSwitch agent | compute3 | :-)   | True           | neutron-openvswitch-agent |
+| ea6593ca-0274-44eb-9387-f3dcd082d87c | Open vSwitch agent | compute2 | :-)   | True           | neutron-openvswitch-agent |
++--------------------------------------+--------------------+----------+-------+----------------+---------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To check block storage services run following command</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cinder service-list
++------------------+------------+------+---------+-------+----------------------------+-----------------+
+|      Binary      |    Host    | Zone |  Status | State |         Updated_at         | Disabled Reason |
++------------------+------------+------+---------+-------+----------------------------+-----------------+
+| cinder-scheduler | controller | nova | enabled |   up  | 2016-07-03T20:02:48.000000 |       None      |
+|  cinder-volume   | block1@lvm | nova | enabled |   up  | 2016-07-03T20:02:47.000000 |       None      |
++------------------+------------+------+---------+-------+----------------------------+-----------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get the list of hypervisors</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova hypervisor-list
++----+---------------------+-------+----------+
+| ID | Hypervisor hostname | State | Status   |
++----+---------------------+-------+----------+
+| 1  | compute1            | up    | enabled  |
+| 2  | compute2            | up    | enabled  |
+| 3  | compute3            | up    | enabled  |
+| 4  | compute4            | down  | disabled |
++----+---------------------+-------+----------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get details of specified hypervisor</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova hypervisor-show compute1
++---------------------------+---------------------------------------------------------+
+| Property                  | Value                                                   |
++-------------------------------------------------------------------------------------+
+| cpu_info_arch             | x86_64                                                  |
+| cpu_info_features         | [&quot;pge&quot;, &quot;avx&quot;, &quot;clflush&quot;, &quot;sep&quot;, &quot;syscall&quot;,             |
+|                           |     &quot;vme&quot;, &quot;dtes64&quot;, &quot;invpcid&quot;, &quot;tsc&quot;, &quot;fsgsbase&quot;,      |
+|                           |     &quot;xsave&quot;, &quot;vmx&quot;, &quot;erms&quot;, &quot;xtpr&quot;, &quot;cmov&quot;, &quot;smep&quot;,     |
+|                           |     &quot;ssse3&quot;, &quot;est&quot;, &quot;pat&quot;, &quot;monitor&quot;, &quot;pcid&quot;, &quot;lm&quot;,     |
+|                           |     &quot;msr&quot;, &quot;nx&quot;, &quot;fxsr&quot;, &quot;tm&quot;, &quot;sse4.1&quot;, &quot;pae&quot;,         |
+|                           |     &quot;sse4.2&quot;, &quot;pclmuldq&quot;, &quot;acpi&quot;, &quot;fma&quot;,                |
+|                           |     &quot;tsc-deadline&quot;, &quot;mmx&quot;, &quot;osxsave&quot;, &quot;cx8&quot;, &quot;mce&quot;,     |
+|                           |     &quot;de&quot;, &quot;tm2&quot;, &quot;ht&quot;, &quot;pse&quot;, &quot;lahf_lm&quot;, &quot;abm&quot;,         |
+|                           |     &quot;popcnt&quot;, &quot;mca&quot;, &quot;pdpe1gb&quot;, &quot;apic&quot;, &quot;sse&quot;,          |
+|                           |     &quot;f16c&quot;, &quot;ds&quot;, &quot;invtsc&quot;, &quot;pni&quot;, &quot;rdtscp&quot;, &quot;avx2&quot;,    |
+|                           |     &quot;aes&quot;, &quot;sse2&quot;, &quot;ss&quot;, &quot;ds_cpl&quot;, &quot;bmi1&quot;, &quot;bmi2&quot;,      |
+|                           |     &quot;pbe&quot;, &quot;fpu&quot;, &quot;cx16&quot;, &quot;pse36&quot;, &quot;mtrr&quot;, &quot;movbe&quot;,     |
+|                           |     &quot;pdcm&quot;, &quot;rdrand&quot;, &quot;x2apic&quot;]                         |
+| cpu_info_model            | SandyBridge                                             |
+| cpu_info_topology_cores   | 4                                                       |
+| cpu_info_topology_sockets | 1                                                       |
+| cpu_info_topology_threads | 1                                                       |
+| cpu_info_vendor           | Intel                                                   |
+| current_workload          | 0                                                       |
+| disk_available_least      | 84                                                      |
+| free_disk_gb              | 166                                                     |
+| free_ram_mb               | 6192                                                    |
+| host_ip                   | 10.0.0.31                                               |
+| hyper^isor_hostname       | compute1                                                |
+| hypervisor_type           | QEMU                                                    |
+| hypervisor_version        | 2002000                                                 |
+| id                        | 1                                                       |
+| local_gb                  | 219                                                     |
+| local_gb_used             | 53                                                      |
+| memory_mb                 | 15920                                                   |
+| memory_mb_used            | 9728                                                    |
+| running_vms               | 4                                                       |
+| ser^ice_disabled_reason   | -                                                       |
+| service_host              | compute1                                                |
+| service_id                | 7                                                       |
+| state                     | up                                                      |
+| status                    | enabled                                                 |
+| vcpus                     | 4                                                       |
+| vcpus_used                | 5                                                       |
++---------------------------+---------------------------------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get list of servers belonging to specific hypervisor</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova hypervisor-servers compute1
++--------------------------------------+-------------------+---------------+---------------------+
+| ID                                   | Name              | Hypervisor ID | Hypervisor Hostname |
++--------------------------------------+-------------------+---------------+---------------------+
+| c90dd8cb-c79c-49d1-ae86-4cc6393fde54 | instance-0000015c | 1             | compute1            |
+| bb1aaf65-dee7-4cf9-a24f-35c286918c91 | instance-000001a4 | 1             | compute1            |
+| 999e9455-f733-44a2-922e-c27f2a5eefe3 | instance-000001cd | 1             | compute1            |
+| c165ee2c-e8d3-433a-99df-b5160e55e076 | instance-000001cf | 1             | compute1            |
++--------------------------------------+-------------------+---------------+---------------------+
+$ nova hypervisor-servers compute2
++--------------------------------------+-------------------+---------------+---------------------+
+| ID                                   | Name              | Hypervisor ID | Hypervisor Hostname |
++--------------------------------------+-------------------+---------------+---------------------+
+| 6f04c1ca-3619-4120-a762-9e034ffa2956 | instance-00000160 | 2             | compute2            |
+| 837bfdba-f9f0-40d9-a0ef-bc5eb2a1a662 | instance-0000019f | 2             | compute2            |
+| d95330bb-457c-4aad-b279-464c5d3fc3e2 | instance-000001a6 | 2             | compute2            |
+| 1921f26b-be71-46fb-8b51-41361c38d50e | instance-000001d0 | 2             | compute2            |
++--------------------------------------+-------------------+---------------+---------------------+
+$ nova hypervisor-servers compute3
++--------------------------------------+-------------------+---------------+---------------------+
+| ID                                   | Name              | Hypervisor ID | Hypervisor Hostname |
++--------------------------------------+-------------------+---------------+---------------------+
+| 1407e576-74b5-4349-8c29-7c304486132c | instance-0000015b | 3             | compute3            |
+| 4b5df26b-59fd-4bd1-9bb4-9d4b2e01be95 | instance-000001ce | 3             | compute3            |
+| 7d5bc7db-45ff-4928-a9a9-fbbf81d08b90 | instance-000001e4 | 3             | compute3            |
+| 48bb9ad9-7e04-4b83-9fae-4e976e8ad8fa | instance-000001e5 | 3             | compute3            |
+| eeb5cca3-5d4e-4882-9fac-af7fa958ece4 | instance-000001e6 | 3             | compute3            |
+| 1d3f305f-d1f0-493e-aab2-6a3ac96fa440 | instance-000001e8 | 3             | compute3            |
++--------------------------------------+-------------------+---------------+---------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get network list</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova net-list
++--------------------------------------+-------------+------+
+| ID                                   | Label       | CIDR |
++--------------------------------------+-------------+------+
+| 1064eacc-dfee-408b-8df7-83bee1d97bd1 | admin-net   | None |
+| 16dc5485-da61-4255-81dc-567f0c041699 | LBaaS-Net   | None |
+| 2e101f3f-1ddc-4bec-b570-10c5a68e67f3 | demo-net    | None |
+| 7005ef25-145b-43f1-b21a-2f1142fb9d79 | V-Scale-Net | None |
+| a4df784e-c568-45ec-8743-6c213d34f477 | student-net | None |
+| db9d5ce2-661c-48b2-b370-61c3446b552b | VJTINet     | None |
++--------------------------------------+-------------+------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get flavor list</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova flavor-list
++--------------------------------------+--------------+-----------+------+-----------+------+-------+-------------+-----------+
+| ID                                   | Name         | Memory_MB | Disk | Ephemeral | Swap | VCPUs | RXTX_Factor | Is_Public |
++--------------------------------------+--------------+-----------+------+-----------+------+-------+-------------+-----------+
+| 1d956c07-da89-44ee-a9c9-1492387e1750 | sunil.xlarge | 16384     | 40   | 0         |      | 8     | 1.0         | True      |
+| 59cc7770-4664-4b9e-a563-11a4f54b4493 | sunil.large  | 8144      | 20   | 0         |      | 4     | 1.0         | True      |
+| 64baffac-5f88-4e3f-ac45-e01f64519e45 | sunil.tiny   | 512       | 1    | 0         |      | 1     | 1.0         | True      |
+| 96718d93-dd86-4cdf-b6e0-d6f62a2ad72f | sunil.small  | 1024      | 5    | 0         |      | 1     | 1.0         | True      |
+| b6b10b1e-2e49-4855-b727-d0fe1955fae5 | sunil.medium | 4096      | 10   | 0         |      | 2     | 1.0         | True      |
++--------------------------------------+--------------+-----------+------+-----------+------+-------+-------------+-----------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">To get floating ip list</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nova floating-ip-list
++--------------------------------------+---------------+--------------------------------------+----------------+---------+
+| Id                                   | IP            | Server Id                            | Fixed IP       | Pool    |
++--------------------------------------+---------------+--------------------------------------+----------------+---------+
+| 21411450-76a6-4a7e-a118-b6093a4d3f55 | 172.18.38.199 | 1407e576-74b5-4349-8c29-7c304486132c | 192.168.100.47 | VJTINet |
+| 56075bc8-4697-4617-aa9b-f0f7be41eb23 | 172.18.38.200 | c90dd8cb-c79c-49d1-ae86-4cc6393fde54 | 192.168.100.48 | VJTINet |
+| d84fd38b-a08f-4f67-8999-bbf27c8735b1 | 172.18.38.103 | 6f04c1ca-3619-4120-a762-9e034ffa2956 | 192.168.100.52 | VJTINet |
+| d9813c02-d75c-4e19-b9ab-90ad4786456c | 172.18.38.102 | 837bfdba-f9f0-40d9-a0ef-bc5eb2a1a662 | 192.168.100.64 | VJTINet |
+| e6ac1a33-6218-4044-97f9-35ea01df27f6 | 172.18.38.116 | bb1aaf65-dee7-4cf9-a24f-35c286918c91 | 192.168.100.67 | VJTINet |
++--------------------------------------+---------------+--------------------------------------+----------------+---------+
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../user_guide.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="admin_tab.html" class="btn btn-neutral" title="Admin tab" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

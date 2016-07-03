@@ -4,5 +4,5 @@ Administrator Guide
 .. toctree::
    :maxdepth: 2
 
-   /_source/things/admin_tab.rst
+   /_source/admin_guide/admin_tab.rst
 
