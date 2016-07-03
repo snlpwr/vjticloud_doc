@@ -13,3 +13,4 @@ Following are the features of VJTICloud
 * Firewall as a Service
 * Load Balancer as a Service
 
+.. include:: /_source/features/pricing.rst

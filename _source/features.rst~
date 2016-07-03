@@ -5,6 +5,7 @@ Following are the features of VJTICloud
 
 * Create on demand Virtual Machines
 * Reboot, Start and Shut down VMs, independently
+* Access your cloud anywhere, anytime
 * Resize Virtual machines
 * Live migration
 * Block storage
@@ -12,3 +13,9 @@ Following are the features of VJTICloud
 * Firewall as a Service
 * Load Balancer as a Service
 
+.. include:: /_source/features/pricing.rst
+
+.. toctree::
+   :maxdepth: 2
+
+   /_source/features/pricing
