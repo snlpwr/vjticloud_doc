@@ -6,18 +6,25 @@ Set Proxy
 
 1. Using file ``/etc/apt/apt.conf`` in Ubuntu/Debian based linux
 
-::
+	::
 
-	Acquire::http::proxy "http://username:password@proxyserver:port/";
-	Acquire::https::proxy "https://username:password@proxyserver:port/";
-	Acquire::ftp::proxy "ftp://username:password@proxyserver:port/";
+		Acquire::http::proxy "http://username:password@proxyserver:port/";
+		Acquire::https::proxy "https://username:password@proxyserver:port/";
+		Acquire::ftp::proxy "ftp://username:password@proxyserver:port/";
 
 2. Using export command on any linux
 
-::
+	::
 
-	export http_proxy=http://username:password@proxyserver:port/ 
-	export https_proxy=https://username:password@proxyserver:port/
+		export http_proxy=http://username:password@proxyserver:port/ 
+		export https_proxy=https://username:password@proxyserver:port/
+
+2. Using file ``/etc/yum.conf`` in centos add following lines
+	::
+
+		proxy=http://proxy_server:port
+		proxy_password=password
+		proxy_username=username
 
 Unset Proxy
 -----------
@@ -26,8 +33,8 @@ Unset Proxy
 
 2. Run following commands
 
-::
+	::
 
-	unset http_proxy
-	unset https_proxy
+		unset http_proxy
+		unset https_proxy
 

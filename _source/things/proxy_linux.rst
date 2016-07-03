@@ -19,6 +19,17 @@ Set Proxy
 		export http_proxy=http://username:password@proxyserver:port/ 
 		export https_proxy=https://username:password@proxyserver:port/
 
+2. Using file ``/etc/yum.conf`` in centos add following lines
+	::
+
+		proxy=http://proxy_server:port
+		proxy_password=password
+		proxy_username=username
+..proxy=http://172.18.61.10:3128
+..proxy_password=pratham1234
+..proxy_username=142170003
+
+
 Unset Proxy
 -----------
 

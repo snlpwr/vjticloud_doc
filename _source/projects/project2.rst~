@@ -1,0 +1,34 @@
+Project 2: Load Balancer as a service
+=====================================
+
+.. https://www.chameleoncloud.org/docs/user-guides/openstack-lbaas-guide/
+
+Configure instances
+-------------------
+
+SSH to server1 run following commands
+::
+
+	$ sudo yum install httpd
+	$ sudo systemctl enable httpd.service
+	$ sudo systemctl start httpd.service
+	$ sudo sh -c "echo server 1 > /var/www/html/index.html"
+	$ exit
+
+SSH to server2 run following commands
+::
+
+	$ sudo yum install httpd
+	$ sudo systemctl enable httpd.service
+	$ sudo systemctl start httpd.service
+	$ sudo sh -c "echo server 2 > /var/www/html/index.html"
+	$ exit
+
+SSH to server3 run following commands
+::
+
+	$ sudo yum install httpd
+	$ sudo systemctl enable httpd.service
+	$ sudo systemctl start httpd.service
+	$ sudo sh -c "echo server 3 > /var/www/html/index.html"
+	$ exit
