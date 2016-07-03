@@ -20,6 +20,7 @@ Contents:
    /_source/installation_guide
    /_source/admin_guide
    /_source/user_guide
+   /_source/projects
    /_source/things_you_need_to_know
    /_source/glossary
 

@@ -1,3 +1,5 @@
+.. _vm_resize:
+
 Configure VM Resize
 ~~~~~~~~~~~~~~~~~~~
 

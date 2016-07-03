@@ -1,3 +1,6 @@
+.. _vm_resize:
+.. _my-reference-label:
+
 Configure VM Resize
 ~~~~~~~~~~~~~~~~~~~
 
@@ -57,5 +60,5 @@ Next we need to make sure we copy the the contents of ``id_rsa.pub`` to ``author
 This should be all the configuration for SSH you need to do. Now comes the import part, you will need to tar up and copy the ``~nova/.ssh`` directory to every single compute node you have provisioned. This way all compute nodes will be able to SSH to the remote host to run the commands required to copy an instance over, and resize it.
 
 References: 
-`funcptr.net <http://funcptr.net/2014/09/29/openstack-resizing-of-instances/>`__
+`funcptr.net <http://funcptr.net/2014/09/29/openstack-resizing-of-instances/>`__, 
 `OpenStack: Configure resize <http://docs.openstack.org/kilo/config-reference/content/configuring-resize.html>`__
