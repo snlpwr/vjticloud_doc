@@ -6,8 +6,11 @@ Project 2: Load Balancer as a service
 Configure instances
 -------------------
 
+You have to :ref:`launch_an_instance` :ref:`vm_resize2`.
+
 SSH to server1 run following commands
-::
+
+.. code-block:: console
 
 	$ sudo yum install httpd
 	$ sudo systemctl enable httpd.service
@@ -16,7 +19,8 @@ SSH to server1 run following commands
 	$ exit
 
 SSH to server2 run following commands
-::
+
+.. code-block:: console
 
 	$ sudo yum install httpd
 	$ sudo systemctl enable httpd.service
@@ -25,7 +29,8 @@ SSH to server2 run following commands
 	$ exit
 
 SSH to server3 run following commands
-::
+
+.. code-block:: console
 
 	$ sudo yum install httpd
 	$ sudo systemctl enable httpd.service

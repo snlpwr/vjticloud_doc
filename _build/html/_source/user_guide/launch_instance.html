@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Launch an instance &mdash; VJTICloud v0.01 documentation</title>
+  <title>Create Network, Subnet and router &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
         <link rel="up" title="User Guide" href="../user_guide.html"/>
-        <link rel="next" title="Things you need to know!" href="../things_you_need_to_know.html"/>
+        <link rel="next" title="VJTICloud Projects" href="../projects.html"/>
         <link rel="prev" title="User Guide" href="../user_guide.html"/> 
 
   
@@ -92,15 +92,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Launch an instance</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-the-network-and-subnet">Create the Network and Subnet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-the-network-security-group-configure-the-rules">Create the Network security group &amp; Configure the Rules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-the-key-pair-to-access-the-instance">Create the key-pair to access the instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#launch-the-new-openstack-instance">Launch the New Openstack Instance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Create Network, Subnet and router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-security-group-configure-the-rules">Create security group &amp; configure the rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-key-pair">Create key-pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-an-instance">Launch an instance</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">VJTICloud Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
@@ -135,7 +133,7 @@
       
         <li><a href="../user_guide.html">User Guide</a> &raquo;</li>
       
-    <li>Launch an instance</li>
+    <li>Create Network, Subnet and router</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -149,10 +147,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="launch-an-instance">
-<h1>Launch an instance<a class="headerlink" href="#launch-an-instance" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="create-the-network-and-subnet">
-<h2>Create the Network and Subnet<a class="headerlink" href="#create-the-network-and-subnet" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="create-network-subnet-and-router">
+<span id="create-network"></span><h1>Create Network, Subnet and router<a class="headerlink" href="#create-network-subnet-and-router" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
 <li><p class="first">Login to Openstack Dashboard as normal user (demo).</p>
 <img alt="../../_images/instance-overview.png" src="../../_images/instance-overview.png" />
@@ -189,8 +185,8 @@
 </li>
 </ol>
 </div>
-<div class="section" id="create-the-network-security-group-configure-the-rules">
-<h2>Create the Network security group &amp; Configure the Rules<a class="headerlink" href="#create-the-network-security-group-configure-the-rules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-security-group-configure-the-rules">
+<span id="create-security-group"></span><h1>Create security group &amp; configure the rules<a class="headerlink" href="#create-security-group-configure-the-rules" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
 <li><p class="first">Navigate to Access &amp; Security. Select the tab called “Security Groups”.</p>
 <img alt="../../_images/as-access-security.png" src="../../_images/as-access-security.png" />
@@ -214,8 +210,9 @@
 </li>
 </ol>
 </div>
-<div class="section" id="create-the-key-pair-to-access-the-instance">
-<h2>Create the key-pair to access the instance<a class="headerlink" href="#create-the-key-pair-to-access-the-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-key-pair">
+<span id="id1"></span><h1>Create key-pair<a class="headerlink" href="#create-key-pair" title="Permalink to this headline">¶</a></h1>
+<p>To access the instance without password.</p>
 <ol class="arabic">
 <li><p class="first">Navigate to security &amp; access. Click the tab called “Key Pairs” and click on  “Create key Pair”.</p>
 <img alt="../../_images/ask-key-pairs.png" src="../../_images/ask-key-pairs.png" />
@@ -228,8 +225,8 @@
 </li>
 </ol>
 </div>
-<div class="section" id="launch-the-new-openstack-instance">
-<h2>Launch the New Openstack Instance<a class="headerlink" href="#launch-the-new-openstack-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launch-an-instance">
+<span id="id2"></span><h1>Launch an instance<a class="headerlink" href="#launch-an-instance" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
 <li><p class="first">Click on “Launch Instance ” button.</p>
 <img alt="../../_images/instances-launch-instance.png" src="../../_images/instances-launch-instance.png" />
@@ -294,7 +291,6 @@ ssh_pwauth: True
 </pre></div>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -303,7 +299,7 @@ ssh_pwauth: True
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../things_you_need_to_know.html" class="btn btn-neutral float-right" title="Things you need to know!" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../projects.html" class="btn btn-neutral float-right" title="VJTICloud Projects" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../user_guide.html" class="btn btn-neutral" title="User Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

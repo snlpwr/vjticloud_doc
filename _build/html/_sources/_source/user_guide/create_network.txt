@@ -1,0 +1,49 @@
+Create Network and Subnet
+-------------------------
+
+#. Login to Openstack Dashboard as normal user (demo).
+
+   .. image:: /_images/instance-overview.png
+
+#. Navigate to Network. Select Network Topology or Networks.
+
+   .. image:: /_images/nt-network-topology.png
+
+#. Click on "Create Network". Enter the Network name and set Admin State ``UP``. Click next
+
+   .. image:: /_images/nt-create-network.png
+
+#. Set the options Subnet Name, Network Address(CIDR Format), IP Version and Gateway IP. Click next
+
+   .. image:: /_images/nt-subnet.png
+
+#. Set additional details as per your requirement or leave blank. Click create.
+
+   .. image:: /_images/nt-subnet-details.png
+
+#. Once you have created Network, Network topology will look like below.
+
+   .. image:: /_images/nt-network-topology-demo-net.png
+
+Create router
+-------------
+
+#. Click on "Create router". Enter Router Name, set Admin State ``UP`` and External Network ``VJTINet``.
+
+   .. image:: /_images/nt-create-router.png
+
+#. Navigate to Routers. Click on the router you just created.
+
+   .. image:: /_images/nt-routers.png
+
+#. Select the "Interfaces" tab and click on "Add Interface".
+
+   .. image:: /_images/nt-router-details.png
+
+#. Select "Subnet", IP Address for router interface(Optional). Click on Add Interface.
+
+   .. image:: /_images/nt-router-add-interface.png
+
+#. Final Network Topology will look like below.
+
+   .. image:: /_images/nt-network-topology-final.png

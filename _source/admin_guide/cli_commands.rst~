@@ -4,12 +4,14 @@ Openstack CLI
 #. Login to controller
 
 #. Export variable required for openstack 
-   ::
+
+   .. code-block:: console
 
 	$ source admin-openrc.sh 
 
 #. To check compute services run following command
-   ::
+
+   .. code-block:: console
 
 	$ nova service-list 
 	+----+------------------+------------+----------+----------+-------+----------------------------+-----------------+
@@ -109,7 +111,7 @@ Openstack CLI
 	| service_id                | 7                                                       |
 	| state                     | up                                                      |
 	| status                    | enabled                                                 |
-	| ^cpus                     | 4                                                       |
+	| vcpus                     | 4                                                       |
 	| vcpus_used                | 5                                                       |
 	+---------------------------+---------------------------------------------------------+
 

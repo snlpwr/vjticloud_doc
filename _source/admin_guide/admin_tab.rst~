@@ -1,5 +1,5 @@
-Admin tab
-=========
+Admin > System tab
+==================
 
 Administrative users can use the Admin tab to view usage and to manage instances, volumes, flavors, images, networks, and so on.
 
@@ -23,7 +23,7 @@ System tab
 
    - `Stats:` 
 		View the statistics of all resources.
-      .. image:: /_images/sys_resource_stat.png
+      .. image:: /_images/sys_resource_stats.png
 
 
 **Hypervisors:** 

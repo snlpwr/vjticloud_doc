@@ -1,5 +1,5 @@
-Admin tab
-=========
+Admin dashboard
+===============
 
 Administrative users can use the Admin tab to view usage and to manage instances, volumes, flavors, images, networks, and so on.
 

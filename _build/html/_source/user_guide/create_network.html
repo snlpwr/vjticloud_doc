@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create Network and Subnet &mdash; VJTICloud v0.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VJTICloud
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">VJTICloud Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VJTICloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Create Network and Subnet</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="../../_sources/_source/user_guide/create_network.txt" rel="nofollow"> View page source</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-network-and-subnet">
+<h1>Create Network and Subnet<a class="headerlink" href="#create-network-and-subnet" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Login to Openstack Dashboard as normal user (demo).</p>
+<img alt="../../_images/instance-overview.png" src="../../_images/instance-overview.png" />
+</li>
+<li><p class="first">Navigate to Network. Select Network Topology or Networks.</p>
+<img alt="../../_images/nt-network-topology.png" src="../../_images/nt-network-topology.png" />
+</li>
+<li><p class="first">Click on &#8220;Create Network&#8221;. Enter the Network name and set Admin State <tt class="docutils literal"><span class="pre">UP</span></tt>. Click next</p>
+<img alt="../../_images/nt-create-network.png" src="../../_images/nt-create-network.png" />
+</li>
+<li><p class="first">Set the options Subnet Name, Network Address(CIDR Format), IP Version and Gateway IP. Click next</p>
+<img alt="../../_images/nt-subnet.png" src="../../_images/nt-subnet.png" />
+</li>
+<li><p class="first">Set additional details as per your requirement or leave blank. Click create.</p>
+<img alt="../../_images/nt-subnet-details.png" src="../../_images/nt-subnet-details.png" />
+</li>
+<li><p class="first">Once you have created Network, Network topology will look like below.</p>
+<img alt="../../_images/nt-network-topology-demo-net.png" src="../../_images/nt-network-topology-demo-net.png" />
+</li>
+</ol>
+</div>
+<div class="section" id="create-router">
+<h1>Create router<a class="headerlink" href="#create-router" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Click on &#8220;Create router&#8221;. Enter Router Name, set Admin State <tt class="docutils literal"><span class="pre">UP</span></tt> and External Network <tt class="docutils literal"><span class="pre">VJTINet</span></tt>.</p>
+<img alt="../../_images/nt-create-router.png" src="../../_images/nt-create-router.png" />
+</li>
+<li><p class="first">Navigate to Routers. Click on the router you just created.</p>
+<img alt="../../_images/nt-routers.png" src="../../_images/nt-routers.png" />
+</li>
+<li><p class="first">Select the &#8220;Interfaces&#8221; tab and click on &#8220;Add Interface&#8221;.</p>
+<img alt="../../_images/nt-router-details.png" src="../../_images/nt-router-details.png" />
+</li>
+<li><p class="first">Select &#8220;Subnet&#8221;, IP Address for router interface(Optional). Click on Add Interface.</p>
+<img alt="../../_images/nt-router-add-interface.png" src="../../_images/nt-router-add-interface.png" />
+</li>
+<li><p class="first">Final Network Topology will look like below.</p>
+<img alt="../../_images/nt-network-topology-final.png" src="../../_images/nt-network-topology-final.png" />
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Sunil J. Pawar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'v0.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
