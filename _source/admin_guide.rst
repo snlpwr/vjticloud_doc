@@ -6,3 +6,4 @@ Administrator Guide
 
    /_source/admin_guide/admin_tab.rst
    /_source/admin_guide/cli_commands.rst
+   /_source/admin_guide/windows7_image.rst
