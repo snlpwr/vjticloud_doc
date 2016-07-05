@@ -148,18 +148,70 @@
             
   <div class="section" id="how-to-create-windows-7-cloud-image">
 <h1>How to create Windows 7 cloud image<a class="headerlink" href="#how-to-create-windows-7-cloud-image" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>On 64 bit Ubuntu install following tools</li>
-</ol>
-<blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
+<ol class="arabic">
+<li><p class="first">On 64 bit Ubuntu install following tools</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
 $ sudo apt-get install qemu-system-x86
 $ sudo apt-get install qemu-kvm
 $ sudo apt-get install virt-manager
 $ sudo apt-get install libvirt-bin libvirt-doc
 </pre></div>
 </div>
+</li>
+<li><p class="first">Store your windows 7 and virtio driver ISO from where we can mount them to VM.</p>
+</li>
+<li><p class="first">Create the container file</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir ~/image
+$ cd ~/image
+$ qemu-img create -f qcow2 win7_sp1_x64_en_vlk.qcow2 20G
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start the VM</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo kvm -m 2048 -drive file=~/iso/windows_7_professional.iso,index=1,media=cdrom \
+-drive file=~/image/win7_sp1_x64_en_vlk.qcow2,if=virtio \
+-drive file=~/iso/virtio-win-0.1-74.iso,index=3,media=cdrom \
+-net nic,model=virtio \
+-net user \
+-nographic \
+-vnc :9 -usbdevice tablet\
+</pre></div>
+</div>
+<p>That command will start a VM with following settings:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>-m 2048:</dt>
+<dd><p class="first last">Does allocate the memory size of the VM</p>
+</dd>
+<dt>-drive file=~/iso/windows_7_professional.iso,index=1,media=cdrom:</dt>
+<dd><p class="first last">The VM will have a virtual CD-ROM drive attached containing the Windows 7 iso (will act like a normal Windows 7 installation CD/DVD)</p>
+</dd>
+<dt>-drive file=~/iso/virtio-win-0.1-74.iso,index=3,media=cdrom:</dt>
+<dd><p class="first last">The VM will have a virtual CD-ROM drive attached containing the VirtIO iso</p>
+</dd>
+<dt>-drive file=~/image/win7_sp1_x64_en_vlk.qcow2,if=virtio:</dt>
+<dd><p class="first last">The VM will have a virtual hard disk attached which will use the image file we just created as storage and the VirtIO drives as a storage interface</p>
+</dd>
+<dt>-net nic,model=virtio -net user:</dt>
+<dd><p class="first last">Sets the VirtIO driver for the network interface card (nic) with a user-mode network stack that bridges to the host’s network</p>
+</dd>
+<dt>-nographic:</dt>
+<dd><p class="first last">Disables graphical output</p>
+</dd>
+<dt>-vnc :9:</dt>
+<dd><p class="first last">Enables VNC on port 5909</p>
+</dd>
+<dt>-usbdevice tablet:</dt>
+<dd><p class="first last">Use an USB tablet instead of the default PS/2 mouse. Recommend, because the tablet sends the mouse cursor’s position to match the host mouse cursor.</p>
+</dd>
+</dl>
 </div></blockquote>
+</li>
+<li><p class="first">VNC-Connection</p>
+<p>Use a VNC-Client to connect to your new VM (on Ubuntu you can use Remmina, which is part of the distribution). The server is reachable on the server address: localhost:5909.</p>
+<p>The first one is while choosing the type of installation. You need to do a custom installation, which allows you to install the VirtIO drivers.</p>
+</li>
+</ol>
 </div>
 
 

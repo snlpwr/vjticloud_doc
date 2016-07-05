@@ -62,5 +62,3 @@ How to create Windows 7 cloud image
 #. VNC-Connection
 
    Use a VNC-Client to connect to your new VM (on Ubuntu you can use Remmina, which is part of the distribution). The server is reachable on the server address: localhost:5909.
-
-   The first one is while choosing the type of installation. You need to do a custom installation, which allows you to install the VirtIO drivers.

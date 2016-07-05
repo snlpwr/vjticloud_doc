@@ -72,15 +72,14 @@ Configure Load balancer
 
 #. Allocate an internal Virtual IP (VIP) address for the load balancer. Click on add VIP as shown in figure
 
-	 .. image:: /_images/lbaas_add_vip.png
+   .. image:: /_images/lbaas_add_vip.png
 
-	 fill the details
+   fill the details
 
-	 .. image:: /_images/lbaas_add_vip_ip.png
+   .. image:: /_images/lbaas_add_vip_ip.png
 
-#. To access load balancer from outside we must assign floating ip address to
-it. Go to ``Project > Compute > Access and Security`` and assign Floating IP to
-load balancer.
+
+#. To access load balancer from outside we must assign floating ip address to it. Go to ``Project > Compute > Access and Security`` and assign Floating IP to load balancer.
 
    .. image:: /_images/lbaas_allocate_floating_ip.png
 
@@ -93,14 +92,14 @@ load balancer.
 Add a Health Monitor
 --------------------
 
-An important feature of a load balancer is that it can determine if a server has failed and route traffic away from it. The OpenStack Neutron LBaaS supports this functionality by allowing you to define Monitors in the Monitor tab of the Load Balancer page. Select “Add Monitor” and then specify a monitor that you would like to add. For example, you can define a monitor that GETs a page every minute and if that fails twice, stop sending traffic to that instance:
+   An important feature of a load balancer is that it can determine if a server has failed and route traffic away from it. The OpenStack Neutron LBaaS supports this functionality by allowing you to define Monitors in the Monitor tab of the Load Balancer page. Select “Add Monitor” and then specify a monitor that you would like to add. For example, you can define a monitor that GETs a page every minute and if that fails twice, stop sending traffic to that instance:
 
    .. image:: /_images/lbaas_health_monitor.png
 
-Once a monitor is defined, you associate it with your pool via the “Associate Monitor” item in the menu to the left of your pool in the Pools tab. You now have a load balancer with back end instances that are being checked to ensure that they are operating propertly.
+   Once a monitor is defined, you associate it with your pool via the “Associate Monitor” item in the menu to the left of your pool in the Pools tab. You now have a load balancer with back end instances that are being checked to ensure that they are operating propertly.
 
    .. image:: /_images/lbaas_pool_monitor.png
 
-and associate it
+   and associate it
 
    .. image:: /_images/lbaas_associate_monitor.png
