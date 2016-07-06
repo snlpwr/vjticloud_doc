@@ -3,13 +3,13 @@ Introduction
 
 VJTICloud is Infrastructure as a Service(IaaS) private cloud. It is developed to provide cloud services for VJTI staff and students. This cloud is deployed using `OpenStack <https://www.openstack.org/>`__. OpenStack is open source cloud operating system. VJTICloud currently has following services
 
-1. Compute
-2. Network
-3. Image 
-4. Block Storage
-5. Object Storage
-6. Firewall
-7. Load Balancer
+1. :term:`Compute service`
+2. :term:`Networking service`
+3. :term:`Image service` 
+4. :term:`Block Storage service`
+5. :term:`Object Storage service`
+6. :term:`Firewall`
+7. :term:`Load balancer`
 
 
 	   

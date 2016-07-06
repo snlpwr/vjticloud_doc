@@ -15,15 +15,57 @@ m1.xlarge	8		16 GB	  160 GB
 
 To solve this problem we come up with following flavours which will allow us to do vertical scale up and scale down without any problem.
 
-===============  ===============   ========== 	=========
-Name		  Virtual cores	    Memory        Disk
-===============  ===============   ========== 	=========
-v-scale.tiny    	1	    512 MB	  10 GB	
-v-scale.small		1	    2 GB	  10 GB	
-v-scale.medium		2	    4 GB	  10 GB	
-v-scale.large		4	    8 GB	  10 GB	
-v-scale.xlarge		8           16 GB	  10 GB
-===============  ===============   ========== 	=========
+.. ===============  ===============   ========== 	=========
+.. Name		  Virtual cores	    Memory        Disk
+.. ===============  ===============   ========== 	=========
+.. v-scale.tiny    	1	    512 MB	  10 GB	
+.. v-scale.small		1	    2 GB	  10 GB	
+.. v-scale.medium		2	    4 GB	  10 GB	
+.. v-scale.large		4	    8 GB	  10 GB	
+.. v-scale.xlarge		8           16 GB	  10 GB
+.. ===============  ===============   ========== 	=========
+
+==================  ===============  	 ========== 	=========
+Name		     Virtual cores	    Memory        Disk
+==================  ===============  	 ========== 	=========
+v-scale.tiny.5    	1		   512 MB	  5 GB	
+v-scale.small.5 	1		    2 GB	  5 GB	
+v-scale.medium.5	2		    4 GB	  5 GB	
+v-scale.large.5 	4		    8 GB	  5 GB	
+v-scale.xlarge.5	8	           16 GB	  5 GB
+==================  ===============  	 ========== 	=========
+
+
+==================  ===============  	 ========== 	=========
+Name		     Virtual cores	    Memory        Disk
+==================  ===============  	 ========== 	=========
+v-scale.tiny.10    	1		   512 MB	  10 GB	
+v-scale.small.10	1		    2 GB	  10 GB	
+v-scale.medium.10	2		    4 GB	  10 GB	
+v-scale.large.10	4		    8 GB	  10 GB	
+v-scale.xlarge.10	8	           16 GB	  10 GB
+==================  ===============  	 ========== 	=========
+
+==================  ===============  	 ========== 	=========
+Name		     Virtual cores	    Memory        Disk
+==================  ===============  	 ========== 	=========
+v-scale.tiny.20    	1		   512 MB	  20 GB	
+v-scale.small.20	1		    2 GB	  20 GB	
+v-scale.medium.20	2		    4 GB	  20 GB	
+v-scale.large.20	4		    8 GB	  20 GB	
+v-scale.xlarge.20	8	           16 GB	  20 GB
+==================  ===============  	 ========== 	=========
+
+==================  ===============  	 ========== 	=========
+Name		     Virtual cores	    Memory        Disk
+==================  ===============  	 ========== 	=========
+v-scale.tiny.40    	1		   512 MB	  40 GB	
+v-scale.small.40	1		    2 GB	  40 GB	
+v-scale.medium.40	2		    4 GB	  40 GB	
+v-scale.large.40	4		    8 GB	  40 GB	
+v-scale.xlarge.40	8	           16 GB	  40 GB
+==================  ===============  	 ========== 	=========
+
 
 In case VM runs out of disk space user can do following 
 

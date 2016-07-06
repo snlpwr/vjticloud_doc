@@ -5,7 +5,7 @@ Price comparison of cloud instances
 .. https://calculator.s3.amazonaws.com/index.html
 .. https://www.esds.co.in/enlight-cloud-hosting.php#horizontalTab4
 
-Following are the prices of popular cloud service providers in ₹/hour.
+Following are the Linux server prices of popular cloud service providers in ₹/hour.
 
 +-----------+-------+---------+--------+---------+---------+------------+
 |            FLAVOUR          |  AWS   |  AZURE  |  ESDS   |  VJTICloud |                             

@@ -817,10 +817,17 @@ C
       compression for things such as Object Storage objects or Image service
       VM images.
 
+   Compute
+      Manages the lifecycle of compute instances in an OpenStack environment. 
+      Responsibilities include spawning, scheduling and decommissioning of 
+      virtual machines on demand.
+   
    Compute service
 
-      The OpenStack core project that provides compute services. The
-      project name of Compute service is nova.
+      The OpenStack core project that provides compute services. Manages the 
+      lifecycle of compute instances in an OpenStack environment. Responsibilities 
+      include spawning, scheduling and decommissioning of virtual machines on demand. 
+      The project name of Compute service is nova.
 
    Compute API
 
@@ -842,10 +849,6 @@ C
       A node that runs the nova-compute daemon that manages VM
       instances that provide a wide
       range of services, such as web applications and analytics.
-
-   Compute service
-
-      Name for the Compute component that manages VMs.
 
    compute worker
 
@@ -2551,7 +2554,11 @@ N
 
       A core OpenStack project that provides a network connectivity
       abstraction layer to OpenStack Compute. The project name of Networking
-      is neutron.
+      is neutron. It enables Network-Connectivity-as-a-Service for other 
+      OpenStack services, such as OpenStack Compute. Provides an API for 
+      users to define networks and the attachments into them. Has a 
+      pluggable architecture that supports many popular networking vendors 
+      and technologies.
 
    Networking API
 
