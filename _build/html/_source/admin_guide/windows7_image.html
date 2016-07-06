@@ -97,7 +97,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../projects.html">VJTICloud Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
@@ -210,6 +210,27 @@ $ qemu-img create -f qcow2 win7_sp1_x64_en_vlk.qcow2 20G
 <li><p class="first">VNC-Connection</p>
 <p>Use a VNC-Client to connect to your new VM (on Ubuntu you can use Remmina, which is part of the distribution). The server is reachable on the server address: localhost:5909.</p>
 <p>The first one is while choosing the type of installation. You need to do a custom installation, which allows you to install the VirtIO drivers.</p>
+<img alt="../../_images/win7_custom_install.png" src="../../_images/win7_custom_install.png" />
+<p>Choose “Custom (advanced)”</p>
+<img alt="../../_images/win7_browse_folder.png" src="../../_images/win7_browse_folder.png" />
+<p>Select “Load Driver”</p>
+<img alt="../../_images/win7_load_driver.png" src="../../_images/win7_load_driver.png" />
+<p>Navigate to the CD Drive with the VirtIO drivers. For the Windows 7 64bit version you need to select the “WIN7” -&gt; “AMD64” directory. Click “OK”</p>
+<img alt="../../_images/win7_select_driver.png" src="../../_images/win7_select_driver.png" />
+<p>Select the listed drivers (one for the Ethernet Adapter and one for the Hard Disk Controller). Click “Next”.</p>
+<p>Now you should be able to select the prepared image file as the disk for the installation.</p>
+<p>The second step of the installation where you need to be careful is when you have to insert the Windows product key.</p>
+<img alt="../../_images/win7_licence.png" src="../../_images/win7_licence.png" />
+<p>This step is not crucial. You do not have to insert the product key right now. Windows will run for 30 days without product key. So it could be handy to insert the product key and activate Windows when the installation is completely done and Windows is running on OpenStack without troubles.</p>
+<p>Click on “Skip”.</p>
+<p>Finish the installation, but do not install the updates right away. You will do that on OpenStack.</p>
+</li>
+<li><p class="first">Image is complete</p>
+<p>The underlying image file that you created further up with the shell command qemu-img create, such as ~/image/win7_sp1_x64_en_vlk.qcow2 is now ready for uploading to the OpenStack Image Service.</p>
+<p><strong>Upload image</strong></p>
+<p>At that point the image should be about 8GB big for Windows 7. That image can now be uploaded to OpenStack. There are mainly 2 ways to do that; either by the OpenStack Dashboard or the CLI-client. The size of Windows images can grow rapidly. After an update you might end with a size of 17GB. We had problems to upload big images, so try out both upload method.</p>
+<p><strong>OpenStack Dashboard</strong></p>
+<p>To upload the image you can login to the dashboard, switch to “Images” and click on the “+ create Image” button.</p>
 </li>
 </ol>
 </div>

@@ -1,5 +1,5 @@
-VJTICloud Projects
-==================
+Projects
+========
 
 .. toctree::
    :maxdepth: 2
