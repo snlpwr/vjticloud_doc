@@ -6,6 +6,7 @@ Things you need to know!
 
    /_source/things/upgrade_vs_dist-upgrade
    /_source/things/remove_vs_purge
+   /_source/things/two_gateways
    /_source/things/live_vs_block
    /_source/things/switch_to_console
    /_source/things/mount_usb
