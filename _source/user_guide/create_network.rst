@@ -4,6 +4,7 @@ Create Network and Subnet
 #. Login to Openstack Dashboard as normal user (demo).
 
    .. image:: /_images/instance-overview.png
+      :target: /_images/instance-overview.png
 
 #. Navigate to Network. Select Network Topology or Networks.
 
