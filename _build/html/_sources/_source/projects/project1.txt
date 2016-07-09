@@ -1,4 +1,4 @@
-Project 1: Virtical scale-up and scale-down VM resources
+Case 1: Virtical scale-up and scale-down VM resources
 ======================================================== 
 
 Openstack by default does not come with vertical scaling features. You should know how to :ref:`vm_resize` to enable the feature. Openstack comes with following flavors by default and with these set of flavors you can only scale up your hardware resources and not scale down. The problem here is disk size of VM you can not decrease the size of disk. 

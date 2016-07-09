@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hardware Requirement &mdash; VJTICloud v0.01 documentation</title>
+  <title>Advantages &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -30,10 +30,7 @@
   
 
   
-    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
-        <link rel="up" title="Installation Guide" href="../installation_guide.html"/>
-        <link rel="next" title="Installation of Ubuntu Server 14.04" href="ubuntu_installation.html"/>
-        <link rel="prev" title="Create OpenStack client environment scripts" href="keystone-openrc.html"/> 
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -86,27 +83,10 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Hardware Requirement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ubuntu_installation.html">Installation of Ubuntu Server 14.04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
-<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects.html">Case Studies</a></li>
@@ -142,13 +122,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-        <li><a href="../installation_guide.html">Installation Guide</a> &raquo;</li>
-      
-    <li>Hardware Requirement</li>
+    <li>Advantages</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/installation_guide/hardware_requirement.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/features/disadvantages.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -158,28 +136,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hardware-requirement">
-<h1>Hardware Requirement<a class="headerlink" href="#hardware-requirement" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="advantages">
+<h1>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Overcommit</li>
+<li>Fast VM provisioning</li>
+<li>Auto IP management</li>
+<li>Snapshot</li>
+<li>Highly available object storage</li>
+<li>Access VM using browser</li>
+<li>Attach-detach volumes on the go</li>
+<li>Firewall &amp; load balancer</li>
+<li>Post creation script</li>
+<li>VM resize</li>
+<li>Live migration</li>
+<li>Block storage &amp; HA Object storage</li>
+</ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This is minimum hardware requirement.</p>
+<p class="last">Overcommitting increases the amount of instances you are able to run, but reduces instance performance.</p>
 </div>
-<a class="reference internal image-reference" href="_source/installation_guide/_images/hwrqmnts.png"><img alt="_source/installation_guide/_images/hwrqmnts.png" class="align-center" src="_source/installation_guide/_images/hwrqmnts.png" style="width: 600px; height: 150px;" /></a>
+</div>
+<div class="section" id="disadvantages">
+<h1>Disadvantages<a class="headerlink" href="#disadvantages" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Configuration of openstack is very complex</li>
+<li>Creating cloud images</li>
+<li>Lower Network bandwidth</li>
+<li>Uploads are time consuming</li>
+<li>Release of new version after every six months with bunch of changes</li>
+<li>Does not have billing and monitoring systems e.g. to auto shutdown</li>
+</ol>
 </div>
 
 
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ubuntu_installation.html" class="btn btn-neutral float-right" title="Installation of Ubuntu Server 14.04" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="keystone-openrc.html" class="btn btn-neutral" title="Create OpenStack client environment scripts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

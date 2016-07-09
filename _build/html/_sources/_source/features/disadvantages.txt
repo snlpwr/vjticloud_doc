@@ -1,0 +1,35 @@
+Advantages
+----------
+
+#. Overcommit
+#. Fast VM provisioning
+#. Auto IP management
+#. Snapshot 
+#. Highly available object storage
+#. Access VM using browser
+#. Attach-detach volumes on the go
+#. Firewall & load balancer
+#. Post creation script
+#. VM resize
+#. Live migration
+#. Block storage & HA Object storage
+
+
+
+.. note:: Overcommitting increases the amount of instances you are able to run, but reduces instance performance.
+
+
+
+Disadvantages
+-------------
+
+.. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Installation_and_Configuration_Guide/Configuring_Resource_Overcommitment.html
+
+.. http://openstackabout.blogspot.in
+1. Configuration of openstack is very complex
+2. Creating cloud images
+3. Lower Network bandwidth 
+4. Uploads are time consuming    
+5. Release of new version after every six months with bunch of changes
+6. Does not have billing and monitoring systems e.g. to auto shutdown 
+

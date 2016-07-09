@@ -1,4 +1,4 @@
-Project 2: Load Balancer as a service
+Case 2: Load Balancer as a service
 =====================================
 
 .. https://www.chameleoncloud.org/docs/user-guides/openstack-lbaas-guide/

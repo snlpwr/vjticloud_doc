@@ -6,7 +6,7 @@ Project 2: Load Balancer as a service
 Configure instances
 -------------------
 
-#. :ref: `create_network`
+#. :ref:`create_network`
 #. :ref:`create_security_group`
 #. Add rules for ``SSH``, ``PING``, ``HTTP``
 #. :ref:`create_key_pair` (optional)

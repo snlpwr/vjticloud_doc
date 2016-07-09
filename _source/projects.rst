@@ -1,10 +1,11 @@
-Projects
-========
+Case Studies
+============
 
 .. toctree::
    :maxdepth: 2
 
    /_source/projects/project1
    /_source/projects/project2
+   /_source/projects/project3
    /_source/projects/project-S
 

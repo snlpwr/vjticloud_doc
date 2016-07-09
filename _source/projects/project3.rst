@@ -1,0 +1,4 @@
+Case 3: Unix Lab
+================
+
+Third year B. Tech. had Unix Laboratory and required root privileges to do some task,so we provided VM's to each student using VJTICloud with root privileges. 

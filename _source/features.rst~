@@ -14,8 +14,3 @@ Following are the features of VJTICloud
 * Load Balancer as a Service
 
 .. include:: /_source/features/pricing.rst
-
-.. toctree::
-   :maxdepth: 2
-
-   /_source/features/pricing

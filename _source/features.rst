@@ -14,3 +14,4 @@ Following are the features of VJTICloud
 * Load Balancer as a Service
 
 .. include:: /_source/features/pricing.rst
+.. include:: /_source/features/disadvantages.rst

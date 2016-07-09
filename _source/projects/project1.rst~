@@ -28,11 +28,11 @@ To solve this problem we come up with following flavours which will allow us to 
 ==================  ===============  	 ========== 	=========
 Name		     Virtual cores	    Memory        Disk
 ==================  ===============  	 ========== 	=========
-v-scale.tiny.5    	1		   512 MB	  10 GB	
-v-scale.small.5 	1		    2 GB	  10 GB	
-v-scale.medium.5	2		    4 GB	  10 GB	
-v-scale.large.5 	4		    8 GB	  10 GB	
-v-scale.xlarge.5	8	           16 GB	  10 GB
+v-scale.tiny.5    	1		   512 MB	  5 GB	
+v-scale.small.5 	1		    2 GB	  5 GB	
+v-scale.medium.5	2		    4 GB	  5 GB	
+v-scale.large.5 	4		    8 GB	  5 GB	
+v-scale.xlarge.5	8	           16 GB	  5 GB
 ==================  ===============  	 ========== 	=========
 
 
