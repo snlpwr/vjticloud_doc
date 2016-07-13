@@ -18,9 +18,10 @@ Current Architecture of VJTICloud
 .. image:: /_images/VJTICloud_arch_v2.0.png
 
 
-Mind mapping diagram
---------------------
+Cloud - Mind mapping diagram
+----------------------------
 
 .. image:: /_images/coggle_cloud.png
-   :scale: 100
+   :scale: 50
+
 
