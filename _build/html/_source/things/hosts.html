@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to configure two gateways &mdash; VJTICloud v0.01 documentation</title>
+  <title>How to configure hosts in network &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
         <link rel="up" title="Things you need to know!" href="../things_you_need_to_know.html"/>
-        <link rel="next" title="Live migration vs block migration" href="live_vs_block.html"/>
-        <link rel="prev" title="How to configure hosts in network" href="hosts.html"/> 
+        <link rel="next" title="How to configure two gateways" href="two_gateways.html"/>
+        <link rel="prev" title="apt-get remove vs apt-get purge" href="remove_vs_purge.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -96,8 +96,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_vs_purge.html">apt-get remove vs apt-get purge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">How to configure two gateways</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">How to configure hosts in network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two_gateways.html">How to configure two gateways</a></li>
 <li class="toctree-l2"><a class="reference internal" href="live_vs_block.html">Live migration vs block migration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switch_to_console.html">Switch to console mode in Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mount_usb.html">Mount USB drive in Linux/Ubuntu</a></li>
@@ -147,11 +147,11 @@
       
         <li><a href="../things_you_need_to_know.html">Things you need to know!</a> &raquo;</li>
       
-    <li>How to configure two gateways</li>
+    <li>How to configure hosts in network</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/things/two_gateways.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/things/hosts.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -161,33 +161,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-to-configure-two-gateways">
-<h1>How to configure two gateways<a class="headerlink" href="#how-to-configure-two-gateways" title="Permalink to this headline">¶</a></h1>
-<p>Configure your <tt class="docutils literal"><span class="pre">/etc/network/interfaces</span></tt> file as following</p>
-<div class="highlight-python"><div class="highlight"><pre>auto p5p1
-allow-hotplug p5p1
-iface p5p1 inet static
-        address 10.119.0.201
-        netmask 255.255.255.0
-        ### Ubuntu Linux - This is your default gateway ###
-        gateway 10.119.0.1
-        dns-nameservers 14.139.5.5 4.4.2.2
+  <div class="section" id="how-to-configure-hosts-in-network">
+<h1>How to configure hosts in network<a class="headerlink" href="#how-to-configure-hosts-in-network" title="Permalink to this headline">¶</a></h1>
+<p>Edit <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt> on each node and add entries of hosts as per requirement</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span>CONTROLLER NODE
+<span class="go">10.0.0.11   controller</span>
 
-auto p5p1:0
-iface p5p1:0 inet static
-        address 10.0.0.11
-        network 10.0.0.0
-        netmask 255.255.255.0
+<span class="gp">#</span> NETWORK NODE
+<span class="go">10.0.0.21   network</span>
 
+<span class="gp">#</span> COMPUTE NODES
+<span class="go">10.0.0.31   compute1</span>
+<span class="go">10.0.0.32   compute2</span>
+<span class="go">10.0.0.33   compute3</span>
+<span class="go">10.0.0.34   compute4</span>
+<span class="go">10.0.0.35   compute5</span>
+<span class="go">10.0.0.36   compute6</span>
+<span class="go">10.0.0.37   compute7</span>
+<span class="go">10.0.0.38   compute8</span>
+<span class="go">10.0.0.39   compute9</span>
+<span class="go">10.0.0.40   compute10</span>
 
-auto eth1
-iface eth1 inet static
-        address 172.18.38.25
-        netmask 255.255.255.0
-        ### Ubuntu Linux add persistent route command ###
-        post-up route add -net 172.18.0.0 netmask 255.255.0.0 gw 172.18.38.1
-        pre-down route del -net 172.18.0.0 netmask 255.255.0.0 gw 172.18.38.1
+<span class="gp">#</span> BLOCK STORAGE NODES
+<span class="go">10.0.0.41   block1</span>
+<span class="go">10.0.0.42   block2</span>
+
+<span class="gp">#</span> OBJECT STORAGE NODES
+<span class="go">10.0.0.51   object1</span>
+<span class="go">10.0.0.52   object2</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can change ip addresses according to your network configuration.</p>
 </div>
 </div>
 
@@ -198,10 +204,10 @@ iface eth1 inet static
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="live_vs_block.html" class="btn btn-neutral float-right" title="Live migration vs block migration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="two_gateways.html" class="btn btn-neutral float-right" title="How to configure two gateways" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hosts.html" class="btn btn-neutral" title="How to configure hosts in network" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="remove_vs_purge.html" class="btn btn-neutral" title="apt-get remove vs apt-get purge" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
