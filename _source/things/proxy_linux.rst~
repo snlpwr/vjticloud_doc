@@ -1,6 +1,24 @@
 Proxy Settings
 ==============
 
+.. Open the file/etc/profile with the profile in commands:
+.. #sudo vi/etc/profile 
+
+.. Edit by pressing the insert button to enter the edit mode and add the following lines:
+.. http_proxy = http://172.16.1.1:8080
+.. https_proxy = $ http_proxy
+.. ftp_proxy = $ ftp_proxy
+
+.. export http_proxy https_proxy ftp_proxy
+.. -----------------------------------------------------------------------------
+.. Acquire::http::proxy "http://142170003:pratham1234@172.18.61.10:3128/";
+.. Acquire::https::proxy "https://142170003:pratham1234@172.18.61.10:3128/";
+.. Acquire::ftp::proxy "ftp://142170003:pratham1234@172.18.61.10:3128/";
+
+.. export http_proxy=http://142170003:pratham1234@172.18.61.10:3128/ 
+.. export https_proxy=https://142170003:pratham1234@172.18.61.10:3128/
+..
+
 Set Proxy
 ---------
 
@@ -25,6 +43,10 @@ Set Proxy
 		proxy=http://proxy_server:port
 		proxy_password=password
 		proxy_username=username
+..proxy=http://172.18.61.10:3128
+..proxy_password=pratham1234
+..proxy_username=142170003
+
 
 Unset Proxy
 -----------
