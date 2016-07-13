@@ -1,5 +1,5 @@
-Additional things
-=================
+My Work
+-------
 
 #. Virtual Network interfaces using IP aliasing
 #. How to access it from internet [NIC config and port forwarding]
@@ -20,4 +20,5 @@ To be done..
 
 #. Horizontal scaling
 #. Swift as backend for glance and cinder
+
 .. HA http://docs.openstack.org/ha-guide/intro-ha-concepts.html

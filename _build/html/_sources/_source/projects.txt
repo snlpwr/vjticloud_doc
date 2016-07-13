@@ -7,5 +7,7 @@ Case Studies
    /_source/projects/project1
    /_source/projects/project2
    /_source/projects/project3
-   /_source/projects/project-S
+   /_source/projects/project4
+
+..   /_source/projects/project-S
 

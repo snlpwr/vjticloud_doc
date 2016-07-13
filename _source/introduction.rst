@@ -12,4 +12,16 @@ VJTICloud is Infrastructure as a Service(IaaS) private cloud. It is developed to
 7. :term:`Load balancer`
 
 
-	   
+Current Architecture of VJTICloud
+---------------------------------
+
+.. image:: /_images/VJTICloud_arch_v2.0.png
+
+
+Cloud - Mind mapping diagram
+----------------------------
+
+.. image:: /_images/coggle_cloud.png
+   :scale: 50
+
+

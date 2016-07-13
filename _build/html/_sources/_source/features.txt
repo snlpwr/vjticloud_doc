@@ -15,3 +15,5 @@ Following are the features of VJTICloud
 
 .. include:: /_source/features/pricing.rst
 .. include:: /_source/features/disadvantages.rst
+
+.. include:: /_source/features/project-S.rst

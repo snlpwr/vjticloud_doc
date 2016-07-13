@@ -20,4 +20,5 @@ To be done..
 
 #. Horizontal scaling
 #. Swift as backend for glance and cinder
-.. #. HA http://docs.openstack.org/ha-guide/intro-ha-concepts.html
+
+.. HA http://docs.openstack.org/ha-guide/intro-ha-concepts.html
