@@ -23,6 +23,7 @@ Contents:
    /_source/projects
    /_source/things_you_need_to_know
    /_source/glossary
+   /_source/presentation
 
 Indices and tables
 ==================

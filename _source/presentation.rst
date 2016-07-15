@@ -1,0 +1,57 @@
+Demonstration
+=============
+
+#. Demo
+-------
+   
+   - Launch an instance
+   - Test without floating IP
+   - Assign Floating IP
+   - Add ICMP rule
+   - Add SSH rule
+   - Create Volume
+   - Attach-Detach Volume
+   - Shutdown
+
+#. Windows
+----------
+
+   - Create windows machine
+   - Windows 32/64 bit
+   - Attach volume format it
+   - Copy some files
+   - Detach and attach to another
+   - Shutdown
+
+#. Vertical scaling
+-------------------
+  
+   - Scale up 
+   - Scale down 
+
+#. OpenStack Network-aaS
+------------------------
+
+   - Show Network topology
+
+#. FWaaS
+--------
+
+   - Without firewall ping connection
+   - After Adding firewall
+
+#. LBaaS
+--------
+
+   .. image:: /_images/lbaas.png
+   - Start the servers
+   - Show demo
+
+#. PaaS
+-------
+
+#. SaaS
+-------
+
+#. Live migration
+-----------------
