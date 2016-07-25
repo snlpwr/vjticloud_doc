@@ -1,5 +1,5 @@
-Hardware Requirement
-====================
+Hardware Requirement for OpenStack
+==================================
 
 .. note:: This is minimum hardware requirement.
 

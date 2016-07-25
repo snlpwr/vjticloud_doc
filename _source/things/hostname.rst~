@@ -1,0 +1,26 @@
+How to configure Hostname
+=========================
+
+Edit ``/etc/hostname`` file and change file name as per your requirement.
+
+e.g.
+
+Controller node: ``controller``
+
+Network node: ``network``
+
+Compute1 node: ``compute1``
+
+Compute2 node: ``compute2``
+
+	:
+
+Compute[N] node: ``compute[N]``
+
+Block1 node: ``block1``
+
+Object1 node: ``object1``
+
+Object2 node: ``object2``
+
+

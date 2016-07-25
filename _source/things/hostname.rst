@@ -1,7 +1,9 @@
 How to configure Hostname
 =========================
 
-Edit ``/etc/hostname`` on each node and give name to host as follows
+Edit ``/etc/hostname`` file and change file name as per your requirement.
+
+For example,
 
 Controller node: ``controller``
 

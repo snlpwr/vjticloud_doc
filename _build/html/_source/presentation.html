@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Demonstration &mdash; VJTICloud v0.01 documentation</title>
+  <title>Final Demonstration &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -31,7 +31,8 @@
 
   
     <link rel="top" title="VJTICloud v0.01 documentation" href="../index.html"/>
-        <link rel="prev" title="Glossary" href="glossary.html"/> 
+        <link rel="next" title="Glossary" href="glossary.html"/>
+        <link rel="prev" title="Set default username and password for ubuntu cloud image" href="things/post_creation.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,9 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projects.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="things_you_need_to_know.html">Things you need to know!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Demonstration</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Final Demonstration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#demo">#. Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-dashboard">#. Admin Dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows">#. Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vertical-scaling">#. Vertical scaling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openstack-network-aas">#. OpenStack Network-aaS</a></li>
@@ -105,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#live-migration">#. Live migration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 
             
@@ -135,7 +137,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Demonstration</li>
+    <li>Final Demonstration</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -149,8 +151,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="demonstration">
-<h1>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="final-demonstration">
+<h1>Final Demonstration<a class="headerlink" href="#final-demonstration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>#. Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -163,6 +165,16 @@
 <li>Create Volume</li>
 <li>Attach-Detach Volume</li>
 <li>Shutdown</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="admin-dashboard">
+<h2>#. Admin Dashboard<a class="headerlink" href="#admin-dashboard" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Show admin dashboard options</li>
+<li>Hypervisors and available physical capacity</li>
+<li>Running Services and their status</li>
 </ul>
 </div></blockquote>
 </div>
@@ -183,8 +195,10 @@
 <h2>#. Vertical scaling<a class="headerlink" href="#vertical-scaling" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li>Scale up</li>
-<li>Scale down</li>
+<li>Create VM with smallest flavor</li>
+<li>Scale up by resizing it to bigger flavor with same disk size</li>
+<li>Scale down by resizing it to smaller flavor with same disk size</li>
+<li>Delete instance</li>
 </ul>
 </div></blockquote>
 </div>
@@ -193,6 +207,11 @@
 <blockquote>
 <div><ul class="simple">
 <li>Show Network topology</li>
+<li>It can be called Network as a Service.</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/naas.png"><img alt="../_images/naas.png" src="../_images/naas.png" style="width: 735.5px; height: 475.5px;" /></a>
+<ul class="simple">
+<li>As you can see in above figure, it is very hard to create physical network topology, but with cloud you can create complex networks in minutes.</li>
 </ul>
 </div></blockquote>
 </div>
@@ -217,12 +236,35 @@
 </div>
 <div class="section" id="paas">
 <h2>#. PaaS<a class="headerlink" href="#paas" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Docker is known as Platform as a service, well kind of. To use docker one has to have knowledge of docker. So, we created custom ubuntu image to provide docker as a service to our users.</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="saas">
 <h2>#. SaaS<a class="headerlink" href="#saas" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Show Owncloud to demonstrate Software as a Service.</li>
+<li>Create Owncloud docker instance</li>
+<li>Open port on host</li>
+<li>Access Owncloud using floating IP</li>
+<li>Upload file to Owncloud</li>
+<li>Download file from Owncloud</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="live-migration">
 <h2>#. Live migration<a class="headerlink" href="#live-migration" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Create an instance</li>
+<li>Show physical server on which instance is running</li>
+<li>Live migrate</li>
+<li>Show that live migration is successful</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -233,8 +275,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="glossary.html" class="btn btn-neutral" title="Glossary" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="things/post_creation.html" class="btn btn-neutral" title="Set default username and password for ubuntu cloud image" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

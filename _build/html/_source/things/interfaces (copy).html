@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation of Ubuntu Server 14.04 &mdash; VJTICloud v0.01 documentation</title>
+  <title>How to configure network interfaces &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -30,10 +30,7 @@
   
 
   
-    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
-        <link rel="up" title="Installation Guide.." href="../installation_guide.html"/>
-        <link rel="next" title="How to configure Hostname" href="hostname.html"/>
-        <link rel="prev" title="Hardware Requirement" href="hardware_requirement.html"/> 
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -86,33 +83,16 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../installation_guide.html">Installation Guide..</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="identity_service.html">Identity Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardware_requirement.html">Hardware Requirement</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Installation of Ubuntu Server 14.04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hostname.html">How to configure Hostname</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hosts.html">How to configure hosts in network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interfaces.html">How to configure network interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="post_creation.html">Set default username and password for ubuntu cloud image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_permissions.html">Change file permissions chmod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade_vs_dist-upgrade.html">Ubuntu upgrade vs dist-upgrade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ssh_config.html">SSH installation and access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm_resize.html">Configure VM Resize</a></li>
-<li class="toctree-l2"><a class="reference internal" href="live_migration.html">Live Migration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide..</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../admin_guide.html">Administrator Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presentation.html">Final Demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../presentation.html">Demonstration</a></li>
 </ul>
 
             
@@ -143,13 +123,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-        <li><a href="../installation_guide.html">Installation Guide..</a> &raquo;</li>
-      
-    <li>Installation of Ubuntu Server 14.04</li>
+    <li>How to configure network interfaces</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/installation_guide/ubuntu_installation.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/things/interfaces (copy).txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -159,47 +137,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation-of-ubuntu-server-14-04">
-<h1>Installation of Ubuntu Server 14.04<a class="headerlink" href="#installation-of-ubuntu-server-14-04" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>Boot from disk or usb</li>
-<li>Select language</li>
-<li>Install Ubuntu server</li>
-<li>Choose the language for the installation process</li>
-<li>Select your location. E.g. Country Name</li>
-<li>Configure the keyboard</li>
-<li>Country of origin for the keyboard</li>
-<li>Select keyboard layout</li>
-<li>Configure the network</li>
-<li>Set hostname</li>
-<li>Set up users and passwords</li>
-<li>Encrypt home directory or leave</li>
-<li>Configure the clock</li>
-<li>Partition disk</li>
-<li>Unmount partitions that are in use</li>
-<li>Do the partitioning as per your convenience</li>
-<li>Select / &lt;root&gt; partition and setup swap area</li>
-<li>Write changes to disk</li>
-<li>Configuring tasksel e.g. update settings</li>
-<li>Software selection</li>
-<li>Install the GRUB boot loader on a hard disk</li>
-<li>Complete!!</li>
-</ol>
+  <div class="section" id="how-to-configure-network-interfaces">
+<h1>How to configure network interfaces<a class="headerlink" href="#how-to-configure-network-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>As per openstack kilo documentation we require to deal with 4 type of networks as follows</p>
+<p><strong>Management Network</strong></p>
+<blockquote>
+<div>Management network is used for communication between openstack services</div></blockquote>
+<p><strong>Tunnel Network</strong></p>
+<blockquote>
+<div>Tunnel network is used for handling network connections of VM from compute node to network node</div></blockquote>
+<p><strong>Storage Network</strong></p>
+<blockquote>
+<div>Storage network is used for increasing disk access speed</div></blockquote>
+<p><strong>External Network</strong></p>
+<blockquote>
+<div>External network is used for providing internet connection to VM&#8217;s. This is where Floating IP&#8217;s come into picture.</div></blockquote>
+<p><strong>Controller</strong></p>
+<p>configure /etc/network/interfaces on controller node as follows</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> The loopback network interface
+<span class="go">auto lo</span>
+<span class="go">iface lo inet loopback</span>
+
+<span class="gp">#</span> The primary network interface
+<span class="gp">#</span> controller Internet Connection
+<span class="go">auto p5p1</span>
+<span class="go">iface p5p1 inet dhcp</span>
+
+<span class="gp">#</span> Management network
+<span class="go">auto p5p1:0</span>
+<span class="go">iface p5p1:0 inet static</span>
+<span class="go">    address 10.0.0.11</span>
+<span class="go">    network 10.0.0.0</span>
+<span class="go">    netmask 255.255.255.0</span>
+
+<span class="gp">#</span> Additional interface <span class="k">for </span>accessing cloud in intranet
+<span class="go">auto eth1</span>
+<span class="go">iface eth1 inet static</span>
+<span class="go">  address 172.18.38.25</span>
+<span class="go">  network 172.18.38.0</span>
+<span class="go">  netmask 255.255.255.0</span>
+<span class="go">  gateway 172.18.38.1</span>
+</pre></div>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="hostname.html" class="btn btn-neutral float-right" title="How to configure Hostname" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="hardware_requirement.html" class="btn btn-neutral" title="Hardware Requirement" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -1,0 +1,34 @@
+How to configure network interfaces
+-----------------------------------
+
+Configure ``/etc/network/interfaces`` on your machine as follows
+
+.. code-block:: console
+
+	# The loopback network interface
+	auto lo
+	iface lo inet loopback
+	
+	# The primary network interface
+	# controller Internet Connection
+	
+	auto p5p1
+	iface p5p1 inet dhcp
+        
+	# Two networks on same NIC
+
+	auto p5p1:0 
+	iface p5p1:0 inet static
+	    address 10.0.0.11
+	    network 10.0.0.0
+	    netmask 255.255.255.0   
+
+	# Additional NIC
+	auto eth1
+	iface eth1 inet static
+	  address 172.18.38.25
+	  network 172.18.38.0
+	  netmask 255.255.255.0
+	  gateway 172.18.38.1
+
+.. note:: You can change IP addresses according to your network.

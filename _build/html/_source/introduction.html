@@ -97,8 +97,8 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projects.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="things_you_need_to_know.html">Things you need to know!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presentation.html">Final Demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="presentation.html">Demonstration</a></li>
 </ul>
 
             
@@ -145,7 +145,10 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>VJTICloud is Infrastructure as a Service(IaaS) private cloud. It is developed to provide cloud services for VJTI staff and students. This cloud is deployed using <a class="reference external" href="https://www.openstack.org/">OpenStack</a>. OpenStack is open source cloud operating system. VJTICloud currently has following services</p>
+<p>VJTICloud is a private cloud and it is capable of providing the infrastructure and platform as a service. Infrastructure as a service includes the compute, storage and network services and platform as a service includes the operating system, middleware and runtime environment. VJTICloud is implemented using <a class="reference external" href="https://www.openstack.org/">OpenStack</a> (kilo) and Ubuntu server 14.04.</p>
+<p>We have build this private cloud infrastructure with minimum hardware requirements that can be used for small scale and medium scale developments. This infrastructure can be used for the deployment purposes without HA (High Availability). We can expand this architecture by adding more compute nodes and other hardware relating to performance and storage. We executed instances/virtual machines of cirros, ubuntu server, centos7, fedora-23, windows server 2012 and windows 7 for testing purpose and productivity. We can create multiple projects for multiple users under one infrastructure and admin has the power to manage them. Therefore the user can launch instances from images using particular flavor, security group, ssh key and network to deploy services.</p>
+<p>This OpenStack is highly beneficial for communities/organizations/institutions/research centers that do not have enough money to deploy high grade cloud services at their own place. Especially for academic institutions and Universities that don&#8217;t have money and they want to have management of the resources. Like in our institute, where all departments have their own resources (hardware), websites and online storage space/web space. And even work independently and every department has to face failure and delay issues. And this model will eliminate all the issues and maintain centralized core cloud computing for maintenance. OpenStack Cloud Infrastructure is very cost effective, flexible and elastic and if any organization goes to any paid cloud providers like AWS, that organization have to pay thousands of USD as subscription charges and technical support charges. And we can implement the same kind of services using OpenStack. The main benefit of OpenStack is that it is open source and day by day it is improving, many engineers from all over the world are working on it detecting bugs, creating solutions for bugs, and making OpenStack effective.</p>
+<p>VJTICloud currently has following services</p>
 <ol class="arabic simple">
 <li><a class="reference internal" href="glossary.html#term-compute-service"><em class="xref std std-term">Compute service</em></a></li>
 <li><a class="reference internal" href="glossary.html#term-networking-service"><em class="xref std std-term">Networking service</em></a></li>
@@ -161,6 +164,10 @@
 </div>
 <div class="section" id="cloud-mind-mapping-diagram">
 <h2>Cloud - Mind mapping diagram<a class="headerlink" href="#cloud-mind-mapping-diagram" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dont forget to zoom-in and zoom-out after clicking on image below. And try to navigate using arrow keys.</p>
+</div>
 <a class="reference internal image-reference" href="../_images/coggle_cloud.png"><img alt="../_images/coggle_cloud.png" src="../_images/coggle_cloud.png" style="width: 5340.0px; height: 1854.5px;" /></a>
 </div>
 </div>
