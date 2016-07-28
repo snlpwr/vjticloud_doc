@@ -1,0 +1,59 @@
+How to access VM
+----------------
+
+Method 1
+^^^^^^^^
+
+#. :ref:`create_key_pair`
+
+#. :ref:`launch_an_instance` with key created using above step
+
+#. Assign floating ip to VM
+
+#. Now from your terminal run following command
+
+	::
+
+
+		ssh -i key.pem username@floating-ip-of-VM
+
+   .. note :: key.pem is the key created using first step
+
+   example,
+	::
+
+		ssh -i demo-key.pem cirros@172.18.38.140
+
+
+Method 2
+^^^^^^^^^
+
+#. Launch an instance 
+
+#. In post creation option insert following script as direct input
+
+   ::
+
+	#cloud-config
+	password: mypassword
+	chpasswd: { expire: False }
+	ssh_pwauth: True
+
+   Now, you can login to your vm through browser goto console tab of VM details
+
+   Following are default username and passwords of cloud images
+
+	===============================  ===============   ================
+	  OS	                            username		Password
+	===============================  ===============   ================
+	Cirros	                            cirros	     cubswin:)	
+	Ubuntu14.04 server		    ubuntu	     mypassword
+	Centos-7			    centos	     mypassword
+	fedora				    fedora	     fedora
+	Windows-7 			    openstack        
+	===============================  ===============   ================
+	
+	.. note:: You can change password in the above script.
+
+	.. warning:: Change password as soon as possible for security of your VM.
+

@@ -22,8 +22,9 @@ Contents:
    /_source/user_guide
    /_source/projects
    /_source/things_you_need_to_know
-   /_source/glossary
    /_source/presentation
+   /_source/glossary
+
 
 Indices and tables
 ==================

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Environment &mdash; VJTICloud v0.01 documentation</title>
+  <title>How to access VM &mdash; VJTICloud v0.01 documentation</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/> 
+    <link rel="top" title="VJTICloud v0.01 documentation" href="../../index.html"/>
+        <link rel="up" title="Frequently Asked Questions" href="../FAQ.html"/>
+        <link rel="next" title="Glossary" href="../glossary.html"/>
+        <link rel="prev" title="Frequently Asked Questions" href="../FAQ.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -83,7 +86,7 @@
           
             
             
-                <ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation_guide.html">Installation Guide..</a></li>
@@ -92,7 +95,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../projects.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../presentation.html">Final Demonstration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">How to access VM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#method-1">Method 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-2">Method 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
 
@@ -124,11 +134,13 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Environment</li>
+        <li><a href="../FAQ.html">Frequently Asked Questions</a> &raquo;</li>
+      
+    <li>How to access VM</li>
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="../../_sources/_source/installation_guide/environment.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/_source/faq/access_vm.txt" rel="nofollow"> View page source</a>
         
       
     </li>
@@ -138,62 +150,98 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="environment">
-<span id="id1"></span><h1>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h1>
-<p>This section explains how to configure the controller and one compute
-node using the example architecture.</p>
-<p>Although most environments include Identity, Image service, Compute, at least
-one networking service, and the dashboard, the Object Storage service can
-operate independently. If your use case only involves Object Storage, you can
-skip to <em class="xref std std-ref">swift</em> after configuring the appropriate nodes for it. However,
-the dashboard requires at least the Image service, Compute, and Networking.</p>
-<p>You must use an account with administrative privileges to configure each node.
-Either run the commands as the <tt class="docutils literal"><span class="pre">root</span></tt> user or configure the <tt class="docutils literal"><span class="pre">sudo</span></tt>
-utility.</p>
-<p>For best performance, we recommend that your environment meets or exceeds
-the hardware requirements in <a class="reference internal" href="overview.html#figure-hwreqs"><em>Hardware requirements</em></a>.</p>
-<p>The following minimum requirements should support a proof-of-concept
-environment with core services and several <a class="reference internal" href="../glossary.html#term-cirros"><em class="xref std std-term">CirrOS</em></a> instances:</p>
-<ul class="simple">
-<li>Controller Node: 1 processor, 4 GB memory, and 5 GB storage</li>
-<li>Compute Node: 1 processor, 2 GB memory, and 10 GB storage</li>
-</ul>
-<p>As the number of OpenStack services and virtual machines increase, so do the
-hardware requirements for the best performance. If performance degrades after
-enabling additional services or virtual machines, consider adding hardware
-resources to your environment.</p>
-<p>To minimize clutter and provide more resources for OpenStack, we recommend
-a minimal installation of your Linux distribution. Also, you must install a
-64-bit version of your distribution on each node.</p>
-<p>A single disk partition on each node works for most basic installations.
-However, you should consider <a class="reference internal" href="../glossary.html#term-logical-volume-manager-lvm"><em class="xref std std-term">Logical Volume Manager (LVM)</em></a> for
-installations with optional services such as Block Storage.</p>
-<p>For first-time installation and testing purposes, many users elect to build
-each host as a <a class="reference internal" href="../glossary.html#term-virtual-machine-vm"><em class="xref std std-term">virtual machine (VM)</em></a>. The primary benefits of VMs
-include the following:</p>
-<ul class="simple">
-<li>One physical server can support multiple nodes, each with almost any
-number of network interfaces.</li>
-<li>Ability to take periodic &#8220;snap shots&#8221; throughout the installation
-process and &#8220;roll back&#8221; to a working configuration in the event of a
-problem.</li>
-</ul>
-<p>However, VMs will reduce performance of your instances, particularly if
-your hypervisor and/or processor lacks support for hardware acceleration
-of nested VMs.</p>
+  <div class="section" id="how-to-access-vm">
+<h1>How to access VM<a class="headerlink" href="#how-to-access-vm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="method-1">
+<h2>Method 1<a class="headerlink" href="#method-1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first"><a class="reference internal" href="../user_guide/launch_instance.html#create-key-pair"><em>Create key-pair</em></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../user_guide/launch_instance.html#launch-an-instance"><em>Launch an instance</em></a> with key created using above step</p>
+</li>
+<li><p class="first">Assign floating ip to VM</p>
+</li>
+<li><p class="first">Now from your terminal run following command</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre>ssh -i key.pem username@floating-ip-of-VM
+</pre></div>
+</div>
+</div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you choose to install on VMs, make sure your hypervisor provides
-a way to disable MAC address filtering on the provider network
-interface.</p>
+<p class="last">key.pem is the key created using first step</p>
 </div>
-<p>For more information about system requirements, see the <a class="reference external" href="http://docs.openstack.org/ops/">OpenStack
-Operations Guide</a>.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="environment-security.html">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment-networking.html">Host networking</a></li>
-</ul>
+<dl class="docutils">
+<dt>example,</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre>ssh -i demo-key.pem cirros@172.18.38.140
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="method-2">
+<h2>Method 2<a class="headerlink" href="#method-2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Launch an instance</p>
+</li>
+<li><p class="first">In post creation option insert following script as direct input</p>
+<div class="highlight-python"><div class="highlight"><pre>#cloud-config
+password: mypassword
+chpasswd: { expire: False }
+ssh_pwauth: True
+</pre></div>
+</div>
+<p>Now, you can login to your vm through browser goto console tab of VM details</p>
+<p>Following are default username and passwords of cloud images</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="24%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS</th>
+<th class="head">username</th>
+<th class="head">Password</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Cirros</td>
+<td>cirros</td>
+<td>cubswin:)</td>
+</tr>
+<tr class="row-odd"><td>Ubuntu14.04 server</td>
+<td>ubuntu</td>
+<td>mypassword</td>
+</tr>
+<tr class="row-even"><td>Centos-7</td>
+<td>centos</td>
+<td>mypassword</td>
+</tr>
+<tr class="row-odd"><td>fedora</td>
+<td>fedora</td>
+<td>fedora</td>
+</tr>
+<tr class="row-even"><td>Windows-7</td>
+<td>openstack</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can change password in the above script. And <tt class="docutils literal"><span class="pre">mypassword</span></tt> will only work if you used above script while creating VM.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Change password as soon as possible for security of your VM.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
 </div>
 </div>
 
@@ -201,6 +249,15 @@ Operations Guide</a>.</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../FAQ.html" class="btn btn-neutral" title="Frequently Asked Questions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
