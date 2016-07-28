@@ -106,6 +106,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../things_you_need_to_know.html">Things you need to know!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../presentation.html">Final Demonstration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
 
@@ -155,6 +156,8 @@
             
   <div class="section" id="case-2-load-balancer-as-a-service">
 <h1>Case 2: Load Balancer as a service<a class="headerlink" href="#case-2-load-balancer-as-a-service" title="Permalink to this headline">¶</a></h1>
+<p>A load balancer is a device that acts as a reverse proxy and distributes network or application traffic across a number of servers. Load balancers are used to increase capacity (concurrent users) and reliability of applications.</p>
+<img alt="../../_images/lbaas.png" class="align-center" src="../../_images/lbaas.png" />
 <div class="section" id="configure-instances">
 <h2>Configure instances<a class="headerlink" href="#configure-instances" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -178,7 +181,7 @@
 </li>
 <li><p class="first">Your dashboard will look like this</p>
 <blockquote>
-<div><img alt="../../_images/lbaas_instances.png" src="../../_images/lbaas_instances.png" />
+<div><a class="reference internal image-reference" href="../../_images/lbaas_instances.png"><img alt="../../_images/lbaas_instances.png" src="../../_images/lbaas_instances.png" style="width: 510.0px; height: 237.5px;" /></a>
 </div></blockquote>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">SSH</span></tt> to server-1 and run following commands</p>
@@ -224,24 +227,24 @@
 <li><p class="first">Navigate to <tt class="docutils literal"><span class="pre">Project</span> <span class="pre">&gt;</span> <span class="pre">Network</span> <span class="pre">&gt;</span> <span class="pre">Load</span> <span class="pre">Balancers</span></tt> tab in the left side</p>
 </li>
 <li><p class="first">In the pools tab click on add pool</p>
-<img alt="../../_images/lbaas_add_pool.png" src="../../_images/lbaas_add_pool.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_add_pool.png"><img alt="../../_images/lbaas_add_pool.png" src="../../_images/lbaas_add_pool.png" style="width: 351.5px; height: 285.0px;" /></a>
 <p>add pool and it should be active</p>
-<img alt="../../_images/lbaas_pool.png" src="../../_images/lbaas_pool.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_pool.png"><img alt="../../_images/lbaas_pool.png" src="../../_images/lbaas_pool.png" style="width: 443.5px; height: 243.0px;" /></a>
 </li>
 <li><p class="first">Select Members tab and add member</p>
-<img alt="../../_images/lbaas_add_member.png" src="../../_images/lbaas_add_member.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_add_member.png"><img alt="../../_images/lbaas_add_member.png" src="../../_images/lbaas_add_member.png" style="width: 326.0px; height: 273.0px;" /></a>
 <p>Click “Add” and you should see all three members of your pool with Status ACTIVE</p>
-<img alt="../../_images/lbaas_members.png" src="../../_images/lbaas_members.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_members.png"><img alt="../../_images/lbaas_members.png" src="../../_images/lbaas_members.png" style="width: 443.0px; height: 248.5px;" /></a>
 </li>
 <li><p class="first">Allocate an internal Virtual IP (VIP) address for the load balancer. Click on add VIP as shown in figure</p>
-<img alt="../../_images/lbaas_add_vip.png" src="../../_images/lbaas_add_vip.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_add_vip.png"><img alt="../../_images/lbaas_add_vip.png" src="../../_images/lbaas_add_vip.png" style="width: 443.0px; height: 248.5px;" /></a>
 <p>fill the details</p>
-<img alt="../../_images/lbaas_add_vip_ip.png" src="../../_images/lbaas_add_vip_ip.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_add_vip_ip.png"><img alt="../../_images/lbaas_add_vip_ip.png" src="../../_images/lbaas_add_vip_ip.png" style="width: 288.5px; height: 298.0px;" /></a>
 </li>
 <li><p class="first">To access load balancer from outside we must assign floating ip address to it. Go to <tt class="docutils literal"><span class="pre">Project</span> <span class="pre">&gt;</span> <span class="pre">Compute</span> <span class="pre">&gt;</span> <span class="pre">Access</span> <span class="pre">and</span> <span class="pre">Security</span></tt> and assign Floating IP to load balancer.</p>
-<img alt="../../_images/lbaas_allocate_floating_ip.png" src="../../_images/lbaas_allocate_floating_ip.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_allocate_floating_ip.png"><img alt="../../_images/lbaas_allocate_floating_ip.png" src="../../_images/lbaas_allocate_floating_ip.png" style="width: 448.5px; height: 225.0px;" /></a>
 <p>then see that floating IP is mapped to your Load Balancer VIP</p>
-<img alt="../../_images/lbaas_floating_ip_mapping.png" src="../../_images/lbaas_floating_ip_mapping.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_floating_ip_mapping.png"><img alt="../../_images/lbaas_floating_ip_mapping.png" src="../../_images/lbaas_floating_ip_mapping.png" style="width: 463.0px; height: 250.0px;" /></a>
 <p>Now you can access your web server via ip address of load balancer.</p>
 </li>
 </ol>
@@ -250,11 +253,11 @@
 <h2>Add a Health Monitor<a class="headerlink" href="#add-a-health-monitor" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>An important feature of a load balancer is that it can determine if a server has failed and route traffic away from it. The OpenStack Neutron LBaaS supports this functionality by allowing you to define Monitors in the Monitor tab of the Load Balancer page. Select “Add Monitor” and then specify a monitor that you would like to add. For example, you can define a monitor that GETs a page every minute and if that fails twice, stop sending traffic to that instance:</p>
-<img alt="../../_images/lbaas_health_monitor.png" src="../../_images/lbaas_health_monitor.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_health_monitor.png"><img alt="../../_images/lbaas_health_monitor.png" src="../../_images/lbaas_health_monitor.png" style="width: 336.5px; height: 311.0px;" /></a>
 <p>Once a monitor is defined, you associate it with your pool via the “Associate Monitor” item in the menu to the left of your pool in the Pools tab. You now have a load balancer with back end instances that are being checked to ensure that they are operating propertly.</p>
-<img alt="../../_images/lbaas_pool_monitor.png" src="../../_images/lbaas_pool_monitor.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_pool_monitor.png"><img alt="../../_images/lbaas_pool_monitor.png" src="../../_images/lbaas_pool_monitor.png" style="width: 451.0px; height: 250.0px;" /></a>
 <p>and associate it</p>
-<img alt="../../_images/lbaas_associate_monitor.png" src="../../_images/lbaas_associate_monitor.png" />
+<a class="reference internal image-reference" href="../../_images/lbaas_associate_monitor.png"><img alt="../../_images/lbaas_associate_monitor.png" src="../../_images/lbaas_associate_monitor.png" style="width: 420.5px; height: 177.0px;" /></a>
 </div></blockquote>
 </div>
 </div>

@@ -1,7 +1,12 @@
-Project 2: Load Balancer as a service
+Case 2: Load Balancer as a service
 =====================================
 
 .. https://www.chameleoncloud.org/docs/user-guides/openstack-lbaas-guide/
+
+A load balancer is a device that acts as a reverse proxy and distributes network or application traffic across a number of servers. Load balancers are used to increase capacity (concurrent users) and reliability of applications.
+
+.. image:: /_images/lbaas.png
+   :align: center
 
 Configure instances
 -------------------
@@ -19,6 +24,7 @@ Configure instances
 #. Your dashboard will look like this
 
 	 .. image:: /_images/lbaas_instances.png
+            :scale: 50
 #. ``SSH`` to server-1 and run following commands
 
 	.. code-block:: console
@@ -57,6 +63,7 @@ Configure Load balancer
 #. In the pools tab click on add pool
 
    .. image:: /_images/lbaas_add_pool.png
+      :scale: 50
 
    add pool and it should be active
 

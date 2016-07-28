@@ -1,27 +1,28 @@
-.. _launch_an_instance:
-.. _vm_resize2:
-
-Launch an instance
-==================
+.. Launch an instance
+.. ==================
 
 .. link:: http://www.unixarena.com/2015/08/how-to-launch-the-first-openstack-instance.html
- 
-.. 1. Go to ``Project > Compute > Access & Security > Key Pairs`` then create key Pair or Import Key Pair 
 
-.. 2. Go to ``Project > Network > Networks`` then create Network 
+.. 1. Go to ``Project > Compute > Access & Security > Key Pairs`` then create key Pair or Import Key Pair
 
-.. 3. Go to ``Project > Compute > Instances`` then Launch Instance 
+.. 2. Go to ``Project > Network > Networks`` then create Network
 
-Create the Network and Subnet
------------------------------
+.. 3. Go to ``Project > Compute > Instances`` then Launch Instance
+
+.. _create_network:
+
+Create Network, Subnet and router
+---------------------------------
 
 #. Login to Openstack Dashboard as normal user (demo).
 
    .. image:: /_images/instance-overview.png
+      :scale: 100
 
 #. Navigate to Network. Select Network Topology or Networks.
 
    .. image:: /_images/nt-network-topology.png
+      :scale: 100
 
 #. Click on "Create Network". Enter the Network name and set Admin State ``UP``. Click next
 
@@ -39,7 +40,7 @@ Create the Network and Subnet
 
    .. image:: /_images/nt-network-topology-demo-net.png
 
-#. Click on "Create router". Enter Router Name, set Admin State ``UP`` and External Network ``VJTINet``. 
+#. Click on "Create router". Enter Router Name, set Admin State ``UP`` and External Network ``VJTINet``.
 
    .. image:: /_images/nt-create-router.png
 
@@ -59,11 +60,13 @@ Create the Network and Subnet
 
    .. image:: /_images/nt-network-topology-final.png
 
-Create the Network security group & Configure the Rules
+.. _create_security_group:
+
+Create security group & configure the rules
 -------------------------------------------------------
 
 .. #. Login to Openstack Dashboard as normal user (demo).
-   
+
 ..   .. image:: /_images/instance-overview.png
 
 #. Navigate to Access & Security. Select the tab called “Security Groups”.
@@ -95,9 +98,11 @@ Create the Network security group & Configure the Rules
 
    .. image:: /_images/as-after-adding-rule.png
 
+.. _create_key_pair:
 
-Create the key-pair to access the instance
-------------------------------------------
+Create key-pair
+---------------
+To access the instance without password.
 
 .. #. Login to Openstack Dashboard.
 
@@ -113,11 +118,16 @@ Create the key-pair to access the instance
 
    .. image:: /_images/ask-download-key-pair.png
 
+.. _launch_an_instance:
 
-Launch the New Openstack Instance
----------------------------------
+Launch an instance
+-------------------
 
 .. #. Login to Openstack Dashboard.
+
+.. #. :ref:`create_network`
+.. #. :ref:`create_security_group`
+.. #. :ref:`create_key_pair`
 
 #. Click on “Launch Instance ” button.
 
@@ -128,15 +138,15 @@ Launch the New Openstack Instance
    .. image:: /_images/instances-launch-details.png
 
    **Availability Zone** – nova .  (Need to select your compute node).
-   
+
    **Instance Name** – Enter the desired instance name
-   
+
    **Flavour** – Select the available flavour according  to your need. (See the details in right side)
-   
+
    **Instance Count** –  Enter the instance Count
-   
+
    **Boot Source** – Select boot from pre-defined image.
-   
+
    **Image Name** – select “cirros” since its very small Linux foot print for testing openstack.
 
 #. Click on Access & security tab for the instance. From the drop down box, select the key pair “demo-key” which we have created earlier. Also select the security group which we have created.
@@ -201,5 +211,3 @@ for example
 ::
 
 	ssh -i demo-key.pem cirros@172.18.38.140
-
-
